@@ -240,16 +240,16 @@ int main ( int argc, char **argv )
 	  case 'd':
 	  {
 	    //ROS_INFO ( "line following" );
-	    writeF<<"line following"<<drone->local_position.z<<endl;
+	    writeF<<"line following"<<ob_distance[0]<<endl;
 	    last_flight_x = filtered_x;
 	    last_flight_y = filtered_y;
-	    if ( (drone->local_position.z<tracking_flight_height-0.1||ob_distance[0]<tracking_flight_height-0.1))// ||flying_height_control_tracking<1.8 )
+	    if ( ob_distance[0]<tracking_flight_height-0.1)// ||flying_height_control_tracking<1.8 )
 	    {
-	      flying_height_control_tracking += 0.02;
+	      flying_height_control_tracking += 0.001;
 	    }
-	    else if ( (drone->local_position.z>tracking_flight_height+0.1||ob_distance[0]>tracking_flight_height+0.1)&ob_distance[0]<10)// &&flying_height_control_tracking>2.2 ) //ob_distance[0]>1.8 )
+	    else if ( (ob_distance[0]>tracking_flight_height+0.1)&&ob_distance[0]<10)// &&flying_height_control_tracking>2.2 ) //ob_distance[0]>1.8 )
 	    {  //ob_distance[0]<10 for data aviliable
-	      flying_height_control_tracking -= 0.02;
+	      flying_height_control_tracking -= 0.001;
 	    }
 
 	    drone->attitude_control ( 0x9B,filtered_x,filtered_y,flying_height_control_tracking,0 );	    

@@ -366,7 +366,7 @@ int main ( int argc, char **argv )
           else
             {
               cvi.encoding = "mono8";
-            }
+            } 
           cvi.image = pImg;
           cvi.toImageMsg ( im );
           cam_info.header.seq = nCount;
@@ -375,9 +375,9 @@ int main ( int argc, char **argv )
           // image_pub.publish(im);
 	  //for calibration only
 	 //cv::Mat imageshow = cv::Mat ( pImg, true );
-	 //  cv::imshow ( "img", imageshow );
-         //  cv::waitKey ( 1 );
-          
+	 // cv::imshow ( "img", imageshow );
+         // cv::waitKey ( 1 );
+          if(nCount==1500)  cvSaveImage("/root/cat.png",pImg,0);
           ros::spinOnce();
           nCount++;
 

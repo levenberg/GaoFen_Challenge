@@ -386,15 +386,18 @@ void ApriltagDetector::Line_detection(cv::Mat& image, dji_sdk::Reldist & result)
 {
   Mat image_gray;
   //medianBlur(image, image, 5);
-  if ( image.dims!=2 )
+  if ( image.channels()==3 )
+  {
+    ROS_INFO("color image");
     cv::cvtColor ( image, image_gray, CV_BGR2GRAY );
+  }
   else
     image_gray = image.clone();
   vector<Vec3f> circles;
-  HoughCircles(image_gray, circles, CV_HOUGH_GRADIENT, 1, 10,
+  /*HoughCircles(image_gray, circles, CV_HOUGH_GRADIENT, 1, 10,
 	       100, 30, 1, 60 // change the last two parameters
 	       // (min_radius & max_radius) to detect larger circles
-  );
+  );*/
   //show the detected circles
   /*for (size_t i = 0; i < circles.size(); i++)
   {
