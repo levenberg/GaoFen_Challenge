@@ -238,10 +238,10 @@ int main ( int argc, char **argv )
 	  }
 	  /************************************************'d' START LINE FOLLOW MISSION**********************************************************************/
 	  /*****************************************************************************************************************/
-	  case 'd':
+	  case 'd':  
 	  {
 	    //ROS_INFO ( "line following" );
-	    writeF<<"line following"<<ob_distance[0]<<endl;
+	    writeF<<"line following"<<ob_distance[0]<<"yaw= "<<filtered_yaw<<endl;
 	    last_flight_x = filtered_x;
 	    last_flight_y = filtered_y;
 	    if ( ob_distance[0]<tracking_flight_height-0.1)// ||flying_height_control_tracking<1.8 )
@@ -253,7 +253,7 @@ int main ( int argc, char **argv )
 	      flying_height_control_tracking -= 0.001;
 	    }
 
-	    drone->attitude_control ( 0x9B,0,filtered_y,flying_height_control_tracking,0 );	    
+	    drone->attitude_control ( 0x9B,0,0,flying_height_control_tracking,filtered_yaw );	    
 	    
 	    break;
 	  } 

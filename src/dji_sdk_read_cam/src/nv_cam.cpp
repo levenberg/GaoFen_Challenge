@@ -377,7 +377,7 @@ int main ( int argc, char **argv )
 	 //cv::Mat imageshow = cv::Mat ( pImg, true );
 	 // cv::imshow ( "img", imageshow );
          // cv::waitKey ( 1 );
-         // if(nCount==1500)  cvSaveImage("/root/cat.png",pImg,0);
+          if(nCount==1500)   cvSaveImage("/root/cat.png",pImg,0);
           ros::spinOnce();
           nCount++; 
 

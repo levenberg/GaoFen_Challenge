@@ -405,8 +405,8 @@ void ApriltagDetector::Line_detection(cv::Mat& image, dji_sdk::Reldist & result)
   }
   
   
-  double error_y=0, yaw=0;
-  calculate(image,error_y,yaw,flagSituation);
+  double error_y=0, yaww=0;
+  calculate(image,error_y,yaww,flagSituation);
   
   //output the result
   result.header.frame_id = "x3_reldist";
@@ -414,7 +414,7 @@ void ApriltagDetector::Line_detection(cv::Mat& image, dji_sdk::Reldist & result)
   //if camera faces down, x is the vertical distance, y is horizontal y, z is horizontal x
   result.x = 0;
   result.y = error_y*0.03/20;   //radius=20 pixles=3cm
-  result.yaw = 90-yaw;
+  result.yaw =  yaww-90;
   
   if(abs(result.yaw)<30) result.z=1.0;
   else if(abs(result.yaw)<60) result.z=0.8;
