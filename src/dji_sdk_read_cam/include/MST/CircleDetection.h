@@ -14,8 +14,8 @@
 #define MIN_RADIUS 4
 #define MAX_RADIUS 18 
 
-#define R_G_R_RED_CIRCLE 0.35
-#define R_B_R_RED_CIRCLE 0.45
+#define R_G_R_RED_CIRCLE 0.45
+#define R_B_R_RED_CIRCLE 0.60
 
 #define G_B_G_YELLOW_CIRCLE 0.2
 #define R_B_R_YELLOW_CIRCLE 0.2

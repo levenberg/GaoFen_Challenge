@@ -430,7 +430,7 @@ void ApriltagDetector::Line_detection(cv::Mat& image, dji_sdk::Reldist & result)
   if(flagSituation==3)  //endpoint
     result.z = 0.0;   //the forward speed
   if(flagSituation==100)
-    result.z = 0.0;
+    result.z = 0.1;
   m_result_pub.publish ( result );
 }
 
@@ -440,7 +440,7 @@ void ApriltagDetector::calculate(cv::Mat &img, double & intercept, double & slop
 		pair<vector<vector<double>>, vector<Vec3f>> results = circleDetection(img);
 		vector<vector<double>> disMat = results.first;
 		vector<Vec3f> circles = results.second;
-		if (circles.size() <= 2)
+		if (circles.size() < 2)
 		{
 			fcout << "detected circles number: " << circles.size() << endl;
 			fcout << "can't detect circle" << endl;

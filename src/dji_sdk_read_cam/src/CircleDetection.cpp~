@@ -110,7 +110,7 @@ pair<vector<vector<double>>, vector<Vec3f>> circleDetection(Mat img)
 			//double Th1_Blue = (double)(BlueChannel.at<uchar>(j, i) - RedChannel.at<uchar>(j, i)) / ((double)BlueChannel.at<uchar>(j, i) + 0.1);
 			//double Th2_Blue = (double)(BlueChannel.at<uchar>(j, i) - GreenChannel.at<uchar>(j, i)) / ((double)BlueChannel.at<uchar>(j, i) + 0.1);
 
-			if ((Th1_Red > R_G_R_RED_CIRCLE && Th2_Red > R_B_R_RED_CIRCLE)&&RedChannel.at<uchar>(j, i)>180)// || ((Th1_Yellow > R_B_R_YELLOW_CIRCLE && Th2_Yellow > G_B_G_YELLOW_CIRCLE)) || (Th1_Blue > B_R_B_BLUE_CIRCLE && Th2_Blue > B_G_B_BLUE_CIRCLE))
+			if ((Th1_Red > R_G_R_RED_CIRCLE && Th2_Red > R_B_R_RED_CIRCLE)&&RedChannel.at<uchar>(j, i)>215)// || ((Th1_Yellow > R_B_R_YELLOW_CIRCLE && Th2_Yellow > G_B_G_YELLOW_CIRCLE)) || (Th1_Blue > B_R_B_BLUE_CIRCLE && Th2_Blue > B_G_B_BLUE_CIRCLE))
 			{
 				RedChannel.at<uchar>(j, i) = 0;    
 				GreenChannel.at<uchar>(j, i) = 0;
