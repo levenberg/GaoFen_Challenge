@@ -377,8 +377,7 @@ gtest_main_LIB_DEPENDS:STATIC=general;-lpthread;general;gtest;
 //Value Computed by CMake
 guidance_BINARY_DIR:STATIC=/root/Documents/roswork/DJI2016_Challenge_v1.0/build/Guidance-SDK-ROS
 
-//The directory containing a CMake configuration file for guidance.
-guidance_DIR:PATH=/root/Documents/roswork/DJI2016_Challenge_v1.0/devel/share/guidance/cmake
+guidance_DIR:PATH=
 
 //Value Computed by CMake
 guidance_SOURCE_DIR:STATIC=/root/Documents/roswork/DJI2016_Challenge_v1.0/src/Guidance-SDK-ROS
@@ -598,7 +597,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_LOCAL_GENERATORS:INTERNAL=7
+CMAKE_NUMBER_OF_LOCAL_GENERATORS:INTERNAL=8
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

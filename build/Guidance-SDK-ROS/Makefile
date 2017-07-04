@@ -195,60 +195,46 @@ geometry_msgs_generate_messages_py/fast:
 .PHONY : geometry_msgs_generate_messages_py/fast
 
 # Convenience name for target.
-Guidance-SDK-ROS/CMakeFiles/guidance_calibration.dir/rule:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/guidance_calibration.dir/rule
-.PHONY : Guidance-SDK-ROS/CMakeFiles/guidance_calibration.dir/rule
+Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/rule:
+	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/rule
+.PHONY : Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/rule
 
 # Convenience name for target.
-guidance_calibration: Guidance-SDK-ROS/CMakeFiles/guidance_calibration.dir/rule
-.PHONY : guidance_calibration
+guidanceNode: Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/rule
+.PHONY : guidanceNode
 
 # fast build rule for target.
-guidance_calibration/fast:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidance_calibration.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidance_calibration.dir/build
-.PHONY : guidance_calibration/fast
+guidanceNode/fast:
+	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/build
+.PHONY : guidanceNode/fast
 
 # Convenience name for target.
-Guidance-SDK-ROS/CMakeFiles/guidance_calibration_stereo.dir/rule:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/guidance_calibration_stereo.dir/rule
-.PHONY : Guidance-SDK-ROS/CMakeFiles/guidance_calibration_stereo.dir/rule
+Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/rule:
+	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/rule
+.PHONY : Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/rule
 
 # Convenience name for target.
-guidance_calibration_stereo: Guidance-SDK-ROS/CMakeFiles/guidance_calibration_stereo.dir/rule
-.PHONY : guidance_calibration_stereo
+guidanceNodeCalibration: Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/rule
+.PHONY : guidanceNodeCalibration
 
 # fast build rule for target.
-guidance_calibration_stereo/fast:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidance_calibration_stereo.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidance_calibration_stereo.dir/build
-.PHONY : guidance_calibration_stereo/fast
+guidanceNodeCalibration/fast:
+	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/build
+.PHONY : guidanceNodeCalibration/fast
 
 # Convenience name for target.
-Guidance-SDK-ROS/CMakeFiles/guidance_depthimage.dir/rule:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/guidance_depthimage.dir/rule
-.PHONY : Guidance-SDK-ROS/CMakeFiles/guidance_depthimage.dir/rule
+Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/rule:
+	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/rule
+.PHONY : Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/rule
 
 # Convenience name for target.
-guidance_depthimage: Guidance-SDK-ROS/CMakeFiles/guidance_depthimage.dir/rule
-.PHONY : guidance_depthimage
+guidanceNodeTest: Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/rule
+.PHONY : guidanceNodeTest
 
 # fast build rule for target.
-guidance_depthimage/fast:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidance_depthimage.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidance_depthimage.dir/build
-.PHONY : guidance_depthimage/fast
-
-# Convenience name for target.
-Guidance-SDK-ROS/CMakeFiles/guidance_laserscan.dir/rule:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/guidance_laserscan.dir/rule
-.PHONY : Guidance-SDK-ROS/CMakeFiles/guidance_laserscan.dir/rule
-
-# Convenience name for target.
-guidance_laserscan: Guidance-SDK-ROS/CMakeFiles/guidance_laserscan.dir/rule
-.PHONY : guidance_laserscan
-
-# fast build rule for target.
-guidance_laserscan/fast:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidance_laserscan.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidance_laserscan.dir/build
-.PHONY : guidance_laserscan/fast
+guidanceNodeTest/fast:
+	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/build
+.PHONY : guidanceNodeTest/fast
 
 # Convenience name for target.
 Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_cpp.dir/rule:
@@ -423,10 +409,8 @@ src/DJI_utility.o: src/DJI_utility.cpp.o
 
 # target to build an object file
 src/DJI_utility.cpp.o:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidance_calibration.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidance_calibration.dir/src/DJI_utility.cpp.o
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidance_calibration_stereo.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidance_calibration_stereo.dir/src/DJI_utility.cpp.o
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidance_depthimage.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidance_depthimage.dir/src/DJI_utility.cpp.o
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidance_laserscan.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidance_laserscan.dir/src/DJI_utility.cpp.o
+	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/src/DJI_utility.cpp.o
+	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/src/DJI_utility.cpp.o
 .PHONY : src/DJI_utility.cpp.o
 
 src/DJI_utility.i: src/DJI_utility.cpp.i
@@ -434,10 +418,8 @@ src/DJI_utility.i: src/DJI_utility.cpp.i
 
 # target to preprocess a source file
 src/DJI_utility.cpp.i:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidance_calibration.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidance_calibration.dir/src/DJI_utility.cpp.i
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidance_calibration_stereo.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidance_calibration_stereo.dir/src/DJI_utility.cpp.i
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidance_depthimage.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidance_depthimage.dir/src/DJI_utility.cpp.i
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidance_laserscan.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidance_laserscan.dir/src/DJI_utility.cpp.i
+	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/src/DJI_utility.cpp.i
+	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/src/DJI_utility.cpp.i
 .PHONY : src/DJI_utility.cpp.i
 
 src/DJI_utility.s: src/DJI_utility.cpp.s
@@ -445,107 +427,81 @@ src/DJI_utility.s: src/DJI_utility.cpp.s
 
 # target to generate assembly for a file
 src/DJI_utility.cpp.s:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidance_calibration.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidance_calibration.dir/src/DJI_utility.cpp.s
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidance_calibration_stereo.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidance_calibration_stereo.dir/src/DJI_utility.cpp.s
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidance_depthimage.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidance_depthimage.dir/src/DJI_utility.cpp.s
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidance_laserscan.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidance_laserscan.dir/src/DJI_utility.cpp.s
+	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/src/DJI_utility.cpp.s
+	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/src/DJI_utility.cpp.s
 .PHONY : src/DJI_utility.cpp.s
 
-src/GuidanceCalibration.o: src/GuidanceCalibration.cpp.o
-.PHONY : src/GuidanceCalibration.o
+src/GuidanceNode.o: src/GuidanceNode.cpp.o
+.PHONY : src/GuidanceNode.o
 
 # target to build an object file
-src/GuidanceCalibration.cpp.o:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidance_calibration_stereo.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidance_calibration_stereo.dir/src/GuidanceCalibration.cpp.o
-.PHONY : src/GuidanceCalibration.cpp.o
+src/GuidanceNode.cpp.o:
+	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/src/GuidanceNode.cpp.o
+.PHONY : src/GuidanceNode.cpp.o
 
-src/GuidanceCalibration.i: src/GuidanceCalibration.cpp.i
-.PHONY : src/GuidanceCalibration.i
+src/GuidanceNode.i: src/GuidanceNode.cpp.i
+.PHONY : src/GuidanceNode.i
 
 # target to preprocess a source file
-src/GuidanceCalibration.cpp.i:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidance_calibration_stereo.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidance_calibration_stereo.dir/src/GuidanceCalibration.cpp.i
-.PHONY : src/GuidanceCalibration.cpp.i
+src/GuidanceNode.cpp.i:
+	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/src/GuidanceNode.cpp.i
+.PHONY : src/GuidanceNode.cpp.i
 
-src/GuidanceCalibration.s: src/GuidanceCalibration.cpp.s
-.PHONY : src/GuidanceCalibration.s
+src/GuidanceNode.s: src/GuidanceNode.cpp.s
+.PHONY : src/GuidanceNode.s
 
 # target to generate assembly for a file
-src/GuidanceCalibration.cpp.s:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidance_calibration_stereo.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidance_calibration_stereo.dir/src/GuidanceCalibration.cpp.s
-.PHONY : src/GuidanceCalibration.cpp.s
+src/GuidanceNode.cpp.s:
+	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/src/GuidanceNode.cpp.s
+.PHONY : src/GuidanceNode.cpp.s
 
-src/Guidance_Calibration.o: src/Guidance_Calibration.cpp.o
-.PHONY : src/Guidance_Calibration.o
+src/GuidanceNodeCalibration.o: src/GuidanceNodeCalibration.cpp.o
+.PHONY : src/GuidanceNodeCalibration.o
 
 # target to build an object file
-src/Guidance_Calibration.cpp.o:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidance_calibration.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidance_calibration.dir/src/Guidance_Calibration.cpp.o
-.PHONY : src/Guidance_Calibration.cpp.o
+src/GuidanceNodeCalibration.cpp.o:
+	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/src/GuidanceNodeCalibration.cpp.o
+.PHONY : src/GuidanceNodeCalibration.cpp.o
 
-src/Guidance_Calibration.i: src/Guidance_Calibration.cpp.i
-.PHONY : src/Guidance_Calibration.i
+src/GuidanceNodeCalibration.i: src/GuidanceNodeCalibration.cpp.i
+.PHONY : src/GuidanceNodeCalibration.i
 
 # target to preprocess a source file
-src/Guidance_Calibration.cpp.i:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidance_calibration.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidance_calibration.dir/src/Guidance_Calibration.cpp.i
-.PHONY : src/Guidance_Calibration.cpp.i
+src/GuidanceNodeCalibration.cpp.i:
+	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/src/GuidanceNodeCalibration.cpp.i
+.PHONY : src/GuidanceNodeCalibration.cpp.i
 
-src/Guidance_Calibration.s: src/Guidance_Calibration.cpp.s
-.PHONY : src/Guidance_Calibration.s
+src/GuidanceNodeCalibration.s: src/GuidanceNodeCalibration.cpp.s
+.PHONY : src/GuidanceNodeCalibration.s
 
 # target to generate assembly for a file
-src/Guidance_Calibration.cpp.s:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidance_calibration.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidance_calibration.dir/src/Guidance_Calibration.cpp.s
-.PHONY : src/Guidance_Calibration.cpp.s
+src/GuidanceNodeCalibration.cpp.s:
+	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/src/GuidanceNodeCalibration.cpp.s
+.PHONY : src/GuidanceNodeCalibration.cpp.s
 
-src/Guidance_Depthimage.o: src/Guidance_Depthimage.cpp.o
-.PHONY : src/Guidance_Depthimage.o
+src/GuidanceNodeTest.o: src/GuidanceNodeTest.cpp.o
+.PHONY : src/GuidanceNodeTest.o
 
 # target to build an object file
-src/Guidance_Depthimage.cpp.o:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidance_depthimage.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidance_depthimage.dir/src/Guidance_Depthimage.cpp.o
-.PHONY : src/Guidance_Depthimage.cpp.o
+src/GuidanceNodeTest.cpp.o:
+	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/src/GuidanceNodeTest.cpp.o
+.PHONY : src/GuidanceNodeTest.cpp.o
 
-src/Guidance_Depthimage.i: src/Guidance_Depthimage.cpp.i
-.PHONY : src/Guidance_Depthimage.i
-
-# target to preprocess a source file
-src/Guidance_Depthimage.cpp.i:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidance_depthimage.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidance_depthimage.dir/src/Guidance_Depthimage.cpp.i
-.PHONY : src/Guidance_Depthimage.cpp.i
-
-src/Guidance_Depthimage.s: src/Guidance_Depthimage.cpp.s
-.PHONY : src/Guidance_Depthimage.s
-
-# target to generate assembly for a file
-src/Guidance_Depthimage.cpp.s:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidance_depthimage.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidance_depthimage.dir/src/Guidance_Depthimage.cpp.s
-.PHONY : src/Guidance_Depthimage.cpp.s
-
-src/Guidance_Laserscan.o: src/Guidance_Laserscan.cpp.o
-.PHONY : src/Guidance_Laserscan.o
-
-# target to build an object file
-src/Guidance_Laserscan.cpp.o:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidance_laserscan.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidance_laserscan.dir/src/Guidance_Laserscan.cpp.o
-.PHONY : src/Guidance_Laserscan.cpp.o
-
-src/Guidance_Laserscan.i: src/Guidance_Laserscan.cpp.i
-.PHONY : src/Guidance_Laserscan.i
+src/GuidanceNodeTest.i: src/GuidanceNodeTest.cpp.i
+.PHONY : src/GuidanceNodeTest.i
 
 # target to preprocess a source file
-src/Guidance_Laserscan.cpp.i:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidance_laserscan.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidance_laserscan.dir/src/Guidance_Laserscan.cpp.i
-.PHONY : src/Guidance_Laserscan.cpp.i
+src/GuidanceNodeTest.cpp.i:
+	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/src/GuidanceNodeTest.cpp.i
+.PHONY : src/GuidanceNodeTest.cpp.i
 
-src/Guidance_Laserscan.s: src/Guidance_Laserscan.cpp.s
-.PHONY : src/Guidance_Laserscan.s
+src/GuidanceNodeTest.s: src/GuidanceNodeTest.cpp.s
+.PHONY : src/GuidanceNodeTest.s
 
 # target to generate assembly for a file
-src/Guidance_Laserscan.cpp.s:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidance_laserscan.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidance_laserscan.dir/src/Guidance_Laserscan.cpp.s
-.PHONY : src/Guidance_Laserscan.cpp.s
+src/GuidanceNodeTest.cpp.s:
+	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/src/GuidanceNodeTest.cpp.s
+.PHONY : src/GuidanceNodeTest.cpp.s
 
 # Help Target
 help:
@@ -557,10 +513,9 @@ help:
 	@echo "... geometry_msgs_generate_messages_cpp"
 	@echo "... geometry_msgs_generate_messages_lisp"
 	@echo "... geometry_msgs_generate_messages_py"
-	@echo "... guidance_calibration"
-	@echo "... guidance_calibration_stereo"
-	@echo "... guidance_depthimage"
-	@echo "... guidance_laserscan"
+	@echo "... guidanceNode"
+	@echo "... guidanceNodeCalibration"
+	@echo "... guidanceNodeTest"
 	@echo "... install"
 	@echo "... install/local"
 	@echo "... install/strip"
@@ -582,18 +537,15 @@ help:
 	@echo "... src/DJI_utility.o"
 	@echo "... src/DJI_utility.i"
 	@echo "... src/DJI_utility.s"
-	@echo "... src/GuidanceCalibration.o"
-	@echo "... src/GuidanceCalibration.i"
-	@echo "... src/GuidanceCalibration.s"
-	@echo "... src/Guidance_Calibration.o"
-	@echo "... src/Guidance_Calibration.i"
-	@echo "... src/Guidance_Calibration.s"
-	@echo "... src/Guidance_Depthimage.o"
-	@echo "... src/Guidance_Depthimage.i"
-	@echo "... src/Guidance_Depthimage.s"
-	@echo "... src/Guidance_Laserscan.o"
-	@echo "... src/Guidance_Laserscan.i"
-	@echo "... src/Guidance_Laserscan.s"
+	@echo "... src/GuidanceNode.o"
+	@echo "... src/GuidanceNode.i"
+	@echo "... src/GuidanceNode.s"
+	@echo "... src/GuidanceNodeCalibration.o"
+	@echo "... src/GuidanceNodeCalibration.i"
+	@echo "... src/GuidanceNodeCalibration.s"
+	@echo "... src/GuidanceNodeTest.o"
+	@echo "... src/GuidanceNodeTest.i"
+	@echo "... src/GuidanceNodeTest.s"
 .PHONY : help
 
 

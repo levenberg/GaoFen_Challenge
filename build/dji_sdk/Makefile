@@ -1623,48 +1623,6 @@ dji_sdk_node/fast:
 .PHONY : dji_sdk_node/fast
 
 # Convenience name for target.
-dji_sdk/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f CMakeFiles/Makefile2 dji_sdk/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
-.PHONY : dji_sdk/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_cpp: dji_sdk/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
-.PHONY : geometry_msgs_generate_messages_cpp
-
-# fast build rule for target.
-geometry_msgs_generate_messages_cpp/fast:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f dji_sdk/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make dji_sdk/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
-.PHONY : geometry_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-dji_sdk/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f CMakeFiles/Makefile2 dji_sdk/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
-.PHONY : dji_sdk/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_lisp: dji_sdk/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
-.PHONY : geometry_msgs_generate_messages_lisp
-
-# fast build rule for target.
-geometry_msgs_generate_messages_lisp/fast:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f dji_sdk/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make dji_sdk/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
-.PHONY : geometry_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-dji_sdk/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f CMakeFiles/Makefile2 dji_sdk/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-.PHONY : dji_sdk/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_py: dji_sdk/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-.PHONY : geometry_msgs_generate_messages_py
-
-# fast build rule for target.
-geometry_msgs_generate_messages_py/fast:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f dji_sdk/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make dji_sdk/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
-.PHONY : geometry_msgs_generate_messages_py/fast
-
-# Convenience name for target.
 dji_sdk/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule:
 	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f CMakeFiles/Makefile2 dji_sdk/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule
 .PHONY : dji_sdk/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule
@@ -1705,48 +1663,6 @@ nav_msgs_generate_messages_py: dji_sdk/CMakeFiles/nav_msgs_generate_messages_py.
 nav_msgs_generate_messages_py/fast:
 	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f dji_sdk/CMakeFiles/nav_msgs_generate_messages_py.dir/build.make dji_sdk/CMakeFiles/nav_msgs_generate_messages_py.dir/build
 .PHONY : nav_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-dji_sdk/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f CMakeFiles/Makefile2 dji_sdk/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
-.PHONY : dji_sdk/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_cpp: dji_sdk/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
-.PHONY : sensor_msgs_generate_messages_cpp
-
-# fast build rule for target.
-sensor_msgs_generate_messages_cpp/fast:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f dji_sdk/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make dji_sdk/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build
-.PHONY : sensor_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-dji_sdk/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f CMakeFiles/Makefile2 dji_sdk/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
-.PHONY : dji_sdk/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_lisp: dji_sdk/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
-.PHONY : sensor_msgs_generate_messages_lisp
-
-# fast build rule for target.
-sensor_msgs_generate_messages_lisp/fast:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f dji_sdk/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make dji_sdk/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build
-.PHONY : sensor_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-dji_sdk/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f CMakeFiles/Makefile2 dji_sdk/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
-.PHONY : dji_sdk/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_py: dji_sdk/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
-.PHONY : sensor_msgs_generate_messages_py
-
-# fast build rule for target.
-sensor_msgs_generate_messages_py/fast:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f dji_sdk/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make dji_sdk/CMakeFiles/sensor_msgs_generate_messages_py.dir/build
-.PHONY : sensor_msgs_generate_messages_py/fast
 
 # Convenience name for target.
 dji_sdk/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/rule:
@@ -2064,9 +1980,6 @@ help:
 	@echo "... dji_sdk_genpy"
 	@echo "... dji_sdk_node"
 	@echo "... edit_cache"
-	@echo "... geometry_msgs_generate_messages_cpp"
-	@echo "... geometry_msgs_generate_messages_lisp"
-	@echo "... geometry_msgs_generate_messages_py"
 	@echo "... install"
 	@echo "... install/local"
 	@echo "... install/strip"
@@ -2075,9 +1988,6 @@ help:
 	@echo "... nav_msgs_generate_messages_lisp"
 	@echo "... nav_msgs_generate_messages_py"
 	@echo "... rebuild_cache"
-	@echo "... sensor_msgs_generate_messages_cpp"
-	@echo "... sensor_msgs_generate_messages_lisp"
-	@echo "... sensor_msgs_generate_messages_py"
 	@echo "... test"
 	@echo "... tf2_msgs_generate_messages_cpp"
 	@echo "... tf2_msgs_generate_messages_lisp"

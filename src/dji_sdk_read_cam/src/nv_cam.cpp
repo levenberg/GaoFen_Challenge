@@ -201,12 +201,16 @@ void* trackLoop ( void* tmp )
       cv::Mat gray = cv::Mat ( pImg, true );
       if(gray.empty())
 	continue;
-      if(mission_type==1)  //line follow
+      if(tracker->m_mission_type==false)  //line follow
       {
         tracker->Line_detection(gray, result);
+	ROS_INFO("Line following");
       }
-      if(mission_type==2)  //human follow
+      if(tracker->m_mission_type==true)  //human follow
+      {
           tracker->processImage ( gray );
+	  ROS_INFO("Human tracking");
+      }
 
 
 

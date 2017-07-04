@@ -264,13 +264,13 @@ clean: gtest/CMakeFiles/gtest.dir/clean
 gtest/CMakeFiles/gtest_main.dir/all: gtest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f gtest/CMakeFiles/gtest_main.dir/build.make gtest/CMakeFiles/gtest_main.dir/depend
 	$(MAKE) -f gtest/CMakeFiles/gtest_main.dir/build.make gtest/CMakeFiles/gtest_main.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles  97
 	@echo "Built target gtest_main"
 .PHONY : gtest/CMakeFiles/gtest_main.dir/all
 
 # Build rule for subdir invocation for target.
 gtest/CMakeFiles/gtest_main.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 gtest/CMakeFiles/gtest_main.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
 .PHONY : gtest/CMakeFiles/gtest_main.dir/rule
@@ -342,7 +342,7 @@ clean: dji_sdk_lib/CMakeFiles/_catkin_empty_exported_target.dir/clean
 dji_sdk_lib/CMakeFiles/dji_sdk_lib.dir/all:
 	$(MAKE) -f dji_sdk_lib/CMakeFiles/dji_sdk_lib.dir/build.make dji_sdk_lib/CMakeFiles/dji_sdk_lib.dir/depend
 	$(MAKE) -f dji_sdk_lib/CMakeFiles/dji_sdk_lib.dir/build.make dji_sdk_lib/CMakeFiles/dji_sdk_lib.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles  92 93 94 95
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles  90 91 92 93 94
 	@echo "Built target dji_sdk_lib"
 .PHONY : dji_sdk_lib/CMakeFiles/dji_sdk_lib.dir/all
 
@@ -352,7 +352,7 @@ all: dji_sdk_lib/CMakeFiles/dji_sdk_lib.dir/all
 
 # Build rule for subdir invocation for target.
 dji_sdk_lib/CMakeFiles/dji_sdk_lib.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 5
 	$(MAKE) -f CMakeFiles/Makefile2 dji_sdk_lib/CMakeFiles/dji_sdk_lib.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
 .PHONY : dji_sdk_lib/CMakeFiles/dji_sdk_lib.dir/rule
@@ -368,6 +368,610 @@ dji_sdk_lib/CMakeFiles/dji_sdk_lib.dir/clean:
 
 # clean rule for target.
 clean: dji_sdk_lib/CMakeFiles/dji_sdk_lib.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory Guidance-SDK-ROS
+
+# Convenience name for "all" pass in the directory.
+Guidance-SDK-ROS/all: Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/all
+Guidance-SDK-ROS/all: Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/all
+Guidance-SDK-ROS/all: Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/all
+.PHONY : Guidance-SDK-ROS/all
+
+# Convenience name for "clean" pass in the directory.
+Guidance-SDK-ROS/clean: Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean
+Guidance-SDK-ROS/clean: Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean
+Guidance-SDK-ROS/clean: Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
+Guidance-SDK-ROS/clean: Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/clean
+Guidance-SDK-ROS/clean: Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/clean
+Guidance-SDK-ROS/clean: Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/clean
+Guidance-SDK-ROS/clean: Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_cpp.dir/clean
+Guidance-SDK-ROS/clean: Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_lisp.dir/clean
+Guidance-SDK-ROS/clean: Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_py.dir/clean
+Guidance-SDK-ROS/clean: Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/clean
+Guidance-SDK-ROS/clean: Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/clean
+Guidance-SDK-ROS/clean: Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean
+Guidance-SDK-ROS/clean: Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/clean
+Guidance-SDK-ROS/clean: Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/clean
+Guidance-SDK-ROS/clean: Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean
+Guidance-SDK-ROS/clean: Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
+Guidance-SDK-ROS/clean: Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean
+Guidance-SDK-ROS/clean: Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_py.dir/clean
+.PHONY : Guidance-SDK-ROS/clean
+
+# Convenience name for "preinstall" pass in the directory.
+Guidance-SDK-ROS/preinstall:
+.PHONY : Guidance-SDK-ROS/preinstall
+
+#=============================================================================
+# Target rules for target Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_cpp.dir
+
+# All Build rule for target.
+Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all:
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/depend
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 
+	@echo "Built target geometry_msgs_generate_messages_cpp"
+.PHONY : Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all
+
+# Build rule for subdir invocation for target.
+Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
+.PHONY : Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+geometry_msgs_generate_messages_cpp: Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
+.PHONY : geometry_msgs_generate_messages_cpp
+
+# clean rule for target.
+Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean:
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean
+.PHONY : Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean
+
+# clean rule for target.
+clean: Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_lisp.dir
+
+# All Build rule for target.
+Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all:
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/depend
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 
+	@echo "Built target geometry_msgs_generate_messages_lisp"
+.PHONY : Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all
+
+# Build rule for subdir invocation for target.
+Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
+.PHONY : Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+geometry_msgs_generate_messages_lisp: Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
+.PHONY : geometry_msgs_generate_messages_lisp
+
+# clean rule for target.
+Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean:
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean
+.PHONY : Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean
+
+# clean rule for target.
+clean: Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_py.dir
+
+# All Build rule for target.
+Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_py.dir/all:
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_py.dir/depend
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 
+	@echo "Built target geometry_msgs_generate_messages_py"
+.PHONY : Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_py.dir/all
+
+# Build rule for subdir invocation for target.
+Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_py.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
+.PHONY : Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+geometry_msgs_generate_messages_py: Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
+.PHONY : geometry_msgs_generate_messages_py
+
+# clean rule for target.
+Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean:
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
+.PHONY : Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
+
+# clean rule for target.
+clean: Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir
+
+# All Build rule for target.
+Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/all:
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/depend
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 
+	@echo "Built target guidanceNode"
+.PHONY : Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/all
+
+# Include target in all.
+all: Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
+.PHONY : Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/rule
+
+# Convenience name for target.
+guidanceNode: Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/rule
+.PHONY : guidanceNode
+
+# clean rule for target.
+Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/clean:
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/clean
+.PHONY : Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/clean
+
+# clean rule for target.
+clean: Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir
+
+# All Build rule for target.
+Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/all:
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/depend
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles  98
+	@echo "Built target guidanceNodeCalibration"
+.PHONY : Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/all
+
+# Include target in all.
+all: Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
+.PHONY : Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/rule
+
+# Convenience name for target.
+guidanceNodeCalibration: Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/rule
+.PHONY : guidanceNodeCalibration
+
+# clean rule for target.
+Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/clean:
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/clean
+.PHONY : Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/clean
+
+# clean rule for target.
+clean: Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir
+
+# All Build rule for target.
+Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/all:
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/depend
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 
+	@echo "Built target guidanceNodeTest"
+.PHONY : Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/all
+
+# Include target in all.
+all: Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
+.PHONY : Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/rule
+
+# Convenience name for target.
+guidanceNodeTest: Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/rule
+.PHONY : guidanceNodeTest
+
+# clean rule for target.
+Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/clean:
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/clean
+.PHONY : Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/clean
+
+# clean rule for target.
+clean: Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_cpp.dir
+
+# All Build rule for target.
+Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_cpp.dir/all:
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_cpp.dir/depend
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_cpp.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 
+	@echo "Built target roscpp_generate_messages_cpp"
+.PHONY : Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_cpp.dir/all
+
+# Build rule for subdir invocation for target.
+Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_cpp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_cpp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
+.PHONY : Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+roscpp_generate_messages_cpp: Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
+.PHONY : roscpp_generate_messages_cpp
+
+# clean rule for target.
+Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_cpp.dir/clean:
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_cpp.dir/clean
+.PHONY : Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_cpp.dir/clean
+
+# clean rule for target.
+clean: Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_cpp.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_lisp.dir
+
+# All Build rule for target.
+Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_lisp.dir/all:
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_lisp.dir/depend
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_lisp.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 
+	@echo "Built target roscpp_generate_messages_lisp"
+.PHONY : Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_lisp.dir/all
+
+# Build rule for subdir invocation for target.
+Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_lisp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_lisp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
+.PHONY : Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+roscpp_generate_messages_lisp: Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
+.PHONY : roscpp_generate_messages_lisp
+
+# clean rule for target.
+Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_lisp.dir/clean:
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_lisp.dir/clean
+.PHONY : Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_lisp.dir/clean
+
+# clean rule for target.
+clean: Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_lisp.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_py.dir
+
+# All Build rule for target.
+Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_py.dir/all:
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_py.dir/build.make Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_py.dir/depend
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_py.dir/build.make Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_py.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 
+	@echo "Built target roscpp_generate_messages_py"
+.PHONY : Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_py.dir/all
+
+# Build rule for subdir invocation for target.
+Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_py.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_py.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
+.PHONY : Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_py.dir/rule
+
+# Convenience name for target.
+roscpp_generate_messages_py: Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_py.dir/rule
+.PHONY : roscpp_generate_messages_py
+
+# clean rule for target.
+Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_py.dir/clean:
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_py.dir/build.make Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_py.dir/clean
+.PHONY : Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_py.dir/clean
+
+# clean rule for target.
+clean: Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_py.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir
+
+# All Build rule for target.
+Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all:
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/depend
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 
+	@echo "Built target rosgraph_msgs_generate_messages_cpp"
+.PHONY : Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all
+
+# Build rule for subdir invocation for target.
+Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
+.PHONY : Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+rosgraph_msgs_generate_messages_cpp: Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
+.PHONY : rosgraph_msgs_generate_messages_cpp
+
+# clean rule for target.
+Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/clean:
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/clean
+.PHONY : Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/clean
+
+# clean rule for target.
+clean: Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir
+
+# All Build rule for target.
+Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all:
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/depend
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 
+	@echo "Built target rosgraph_msgs_generate_messages_lisp"
+.PHONY : Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all
+
+# Build rule for subdir invocation for target.
+Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
+.PHONY : Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+rosgraph_msgs_generate_messages_lisp: Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
+.PHONY : rosgraph_msgs_generate_messages_lisp
+
+# clean rule for target.
+Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/clean:
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/clean
+.PHONY : Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/clean
+
+# clean rule for target.
+clean: Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_py.dir
+
+# All Build rule for target.
+Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all:
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/depend
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 
+	@echo "Built target rosgraph_msgs_generate_messages_py"
+.PHONY : Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
+
+# Build rule for subdir invocation for target.
+Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
+.PHONY : Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+rosgraph_msgs_generate_messages_py: Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
+.PHONY : rosgraph_msgs_generate_messages_py
+
+# clean rule for target.
+Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean:
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean
+.PHONY : Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean
+
+# clean rule for target.
+clean: Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_cpp.dir
+
+# All Build rule for target.
+Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/all:
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/depend
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 
+	@echo "Built target sensor_msgs_generate_messages_cpp"
+.PHONY : Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/all
+
+# Build rule for subdir invocation for target.
+Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
+.PHONY : Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+sensor_msgs_generate_messages_cpp: Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
+.PHONY : sensor_msgs_generate_messages_cpp
+
+# clean rule for target.
+Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/clean:
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/clean
+.PHONY : Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/clean
+
+# clean rule for target.
+clean: Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_lisp.dir
+
+# All Build rule for target.
+Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all:
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/depend
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 
+	@echo "Built target sensor_msgs_generate_messages_lisp"
+.PHONY : Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all
+
+# Build rule for subdir invocation for target.
+Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
+.PHONY : Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+sensor_msgs_generate_messages_lisp: Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
+.PHONY : sensor_msgs_generate_messages_lisp
+
+# clean rule for target.
+Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/clean:
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/clean
+.PHONY : Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/clean
+
+# clean rule for target.
+clean: Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_py.dir
+
+# All Build rule for target.
+Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_py.dir/all:
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_py.dir/depend
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_py.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 
+	@echo "Built target sensor_msgs_generate_messages_py"
+.PHONY : Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_py.dir/all
+
+# Build rule for subdir invocation for target.
+Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_py.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
+.PHONY : Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+sensor_msgs_generate_messages_py: Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
+.PHONY : sensor_msgs_generate_messages_py
+
+# clean rule for target.
+Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean:
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean
+.PHONY : Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean
+
+# clean rule for target.
+clean: Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_cpp.dir
+
+# All Build rule for target.
+Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_cpp.dir/all:
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_cpp.dir/depend
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 
+	@echo "Built target std_msgs_generate_messages_cpp"
+.PHONY : Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
+
+# Build rule for subdir invocation for target.
+Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
+.PHONY : Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+std_msgs_generate_messages_cpp: Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
+.PHONY : std_msgs_generate_messages_cpp
+
+# clean rule for target.
+Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean:
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
+.PHONY : Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
+
+# clean rule for target.
+clean: Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_lisp.dir
+
+# All Build rule for target.
+Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_lisp.dir/all:
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_lisp.dir/depend
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 
+	@echo "Built target std_msgs_generate_messages_lisp"
+.PHONY : Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
+
+# Build rule for subdir invocation for target.
+Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
+.PHONY : Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+std_msgs_generate_messages_lisp: Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
+.PHONY : std_msgs_generate_messages_lisp
+
+# clean rule for target.
+Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean:
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean
+.PHONY : Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean
+
+# clean rule for target.
+clean: Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_py.dir
+
+# All Build rule for target.
+Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_py.dir/all:
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_py.dir/build.make Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_py.dir/depend
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_py.dir/build.make Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_py.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 
+	@echo "Built target std_msgs_generate_messages_py"
+.PHONY : Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_py.dir/all
+
+# Build rule for subdir invocation for target.
+Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_py.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_py.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
+.PHONY : Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+std_msgs_generate_messages_py: Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_py.dir/rule
+.PHONY : std_msgs_generate_messages_py
+
+# clean rule for target.
+Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_py.dir/clean:
+	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_py.dir/build.make Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_py.dir/clean
+.PHONY : Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_py.dir/clean
+
+# clean rule for target.
+clean: Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_py.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -400,17 +1004,8 @@ pid/clean: pid/CMakeFiles/pid_generate_messages_py.dir/clean
 pid/clean: pid/CMakeFiles/pid_genlisp.dir/clean
 pid/clean: pid/CMakeFiles/pid_genpy.dir/clean
 pid/clean: pid/CMakeFiles/plant_sim.dir/clean
-pid/clean: pid/CMakeFiles/roscpp_generate_messages_cpp.dir/clean
-pid/clean: pid/CMakeFiles/roscpp_generate_messages_lisp.dir/clean
-pid/clean: pid/CMakeFiles/roscpp_generate_messages_py.dir/clean
-pid/clean: pid/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/clean
-pid/clean: pid/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/clean
-pid/clean: pid/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean
 pid/clean: pid/CMakeFiles/setpoint_node.dir/clean
 pid/clean: pid/CMakeFiles/sim_time.dir/clean
-pid/clean: pid/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
-pid/clean: pid/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean
-pid/clean: pid/CMakeFiles/std_msgs_generate_messages_py.dir/clean
 .PHONY : pid/clean
 
 # Convenience name for "preinstall" pass in the directory.
@@ -421,26 +1016,26 @@ pid/preinstall:
 # Target rules for target pid/CMakeFiles/controller.dir
 
 # All Build rule for target.
-pid/CMakeFiles/controller.dir/all: pid/CMakeFiles/pid_gencfg.dir/all
 pid/CMakeFiles/controller.dir/all: pid/CMakeFiles/pid_generate_messages_cpp.dir/all
-pid/CMakeFiles/controller.dir/all: pid/CMakeFiles/roscpp_generate_messages_cpp.dir/all
-pid/CMakeFiles/controller.dir/all: pid/CMakeFiles/roscpp_generate_messages_lisp.dir/all
-pid/CMakeFiles/controller.dir/all: pid/CMakeFiles/roscpp_generate_messages_py.dir/all
-pid/CMakeFiles/controller.dir/all: pid/CMakeFiles/diagnostic_msgs_generate_messages_cpp.dir/all
-pid/CMakeFiles/controller.dir/all: pid/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
-pid/CMakeFiles/controller.dir/all: pid/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/all
-pid/CMakeFiles/controller.dir/all: pid/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/all
-pid/CMakeFiles/controller.dir/all: pid/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all
-pid/CMakeFiles/controller.dir/all: pid/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
-pid/CMakeFiles/controller.dir/all: pid/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
-pid/CMakeFiles/controller.dir/all: pid/CMakeFiles/std_msgs_generate_messages_py.dir/all
-pid/CMakeFiles/controller.dir/all: pid/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all
-pid/CMakeFiles/controller.dir/all: pid/CMakeFiles/diagnostic_msgs_generate_messages_lisp.dir/all
-pid/CMakeFiles/controller.dir/all: pid/CMakeFiles/diagnostic_msgs_generate_messages_py.dir/all
-pid/CMakeFiles/controller.dir/all: pid/CMakeFiles/dynamic_reconfigure_gencfg.dir/all
-pid/CMakeFiles/controller.dir/all: pid/CMakeFiles/pid_generate_messages_py.dir/all
 pid/CMakeFiles/controller.dir/all: pid/CMakeFiles/pid_generate_messages_lisp.dir/all
+pid/CMakeFiles/controller.dir/all: pid/CMakeFiles/pid_generate_messages_py.dir/all
+pid/CMakeFiles/controller.dir/all: Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
+pid/CMakeFiles/controller.dir/all: Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_cpp.dir/all
+pid/CMakeFiles/controller.dir/all: Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_lisp.dir/all
+pid/CMakeFiles/controller.dir/all: Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_py.dir/all
+pid/CMakeFiles/controller.dir/all: Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
+pid/CMakeFiles/controller.dir/all: Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
+pid/CMakeFiles/controller.dir/all: Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_py.dir/all
+pid/CMakeFiles/controller.dir/all: Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all
+pid/CMakeFiles/controller.dir/all: Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all
+pid/CMakeFiles/controller.dir/all: pid/CMakeFiles/pid_gencfg.dir/all
 pid/CMakeFiles/controller.dir/all: pid/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/all
+pid/CMakeFiles/controller.dir/all: pid/CMakeFiles/dynamic_reconfigure_gencfg.dir/all
+pid/CMakeFiles/controller.dir/all: pid/CMakeFiles/diagnostic_msgs_generate_messages_lisp.dir/all
+pid/CMakeFiles/controller.dir/all: pid/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/all
+pid/CMakeFiles/controller.dir/all: pid/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/all
+pid/CMakeFiles/controller.dir/all: pid/CMakeFiles/diagnostic_msgs_generate_messages_py.dir/all
+pid/CMakeFiles/controller.dir/all: pid/CMakeFiles/diagnostic_msgs_generate_messages_cpp.dir/all
 	$(MAKE) -f pid/CMakeFiles/controller.dir/build.make pid/CMakeFiles/controller.dir/depend
 	$(MAKE) -f pid/CMakeFiles/controller.dir/build.make pid/CMakeFiles/controller.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 
@@ -759,8 +1354,8 @@ clean: pid/CMakeFiles/pid_gencpp.dir/clean
 
 # All Build rule for target.
 pid/CMakeFiles/pid_generate_messages.dir/all: pid/CMakeFiles/pid_generate_messages_cpp.dir/all
-pid/CMakeFiles/pid_generate_messages.dir/all: pid/CMakeFiles/pid_generate_messages_py.dir/all
 pid/CMakeFiles/pid_generate_messages.dir/all: pid/CMakeFiles/pid_generate_messages_lisp.dir/all
+pid/CMakeFiles/pid_generate_messages.dir/all: pid/CMakeFiles/pid_generate_messages_py.dir/all
 	$(MAKE) -f pid/CMakeFiles/pid_generate_messages.dir/build.make pid/CMakeFiles/pid_generate_messages.dir/depend
 	$(MAKE) -f pid/CMakeFiles/pid_generate_messages.dir/build.make pid/CMakeFiles/pid_generate_messages.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 
@@ -795,7 +1390,7 @@ clean: pid/CMakeFiles/pid_generate_messages.dir/clean
 # Target rules for target pid/CMakeFiles/pid_generate_messages_cpp.dir
 
 # All Build rule for target.
-pid/CMakeFiles/pid_generate_messages_cpp.dir/all: pid/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
+pid/CMakeFiles/pid_generate_messages_cpp.dir/all: Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
 	$(MAKE) -f pid/CMakeFiles/pid_generate_messages_cpp.dir/build.make pid/CMakeFiles/pid_generate_messages_cpp.dir/depend
 	$(MAKE) -f pid/CMakeFiles/pid_generate_messages_cpp.dir/build.make pid/CMakeFiles/pid_generate_messages_cpp.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 
@@ -826,7 +1421,7 @@ clean: pid/CMakeFiles/pid_generate_messages_cpp.dir/clean
 # Target rules for target pid/CMakeFiles/pid_generate_messages_lisp.dir
 
 # All Build rule for target.
-pid/CMakeFiles/pid_generate_messages_lisp.dir/all: pid/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
+pid/CMakeFiles/pid_generate_messages_lisp.dir/all: Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
 	$(MAKE) -f pid/CMakeFiles/pid_generate_messages_lisp.dir/build.make pid/CMakeFiles/pid_generate_messages_lisp.dir/depend
 	$(MAKE) -f pid/CMakeFiles/pid_generate_messages_lisp.dir/build.make pid/CMakeFiles/pid_generate_messages_lisp.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 
@@ -857,7 +1452,7 @@ clean: pid/CMakeFiles/pid_generate_messages_lisp.dir/clean
 # Target rules for target pid/CMakeFiles/pid_generate_messages_py.dir
 
 # All Build rule for target.
-pid/CMakeFiles/pid_generate_messages_py.dir/all: pid/CMakeFiles/std_msgs_generate_messages_py.dir/all
+pid/CMakeFiles/pid_generate_messages_py.dir/all: Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_py.dir/all
 	$(MAKE) -f pid/CMakeFiles/pid_generate_messages_py.dir/build.make pid/CMakeFiles/pid_generate_messages_py.dir/depend
 	$(MAKE) -f pid/CMakeFiles/pid_generate_messages_py.dir/build.make pid/CMakeFiles/pid_generate_messages_py.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 
@@ -950,26 +1545,26 @@ clean: pid/CMakeFiles/pid_genpy.dir/clean
 # Target rules for target pid/CMakeFiles/plant_sim.dir
 
 # All Build rule for target.
-pid/CMakeFiles/plant_sim.dir/all: pid/CMakeFiles/pid_gencfg.dir/all
 pid/CMakeFiles/plant_sim.dir/all: pid/CMakeFiles/pid_generate_messages_cpp.dir/all
-pid/CMakeFiles/plant_sim.dir/all: pid/CMakeFiles/roscpp_generate_messages_cpp.dir/all
-pid/CMakeFiles/plant_sim.dir/all: pid/CMakeFiles/roscpp_generate_messages_lisp.dir/all
-pid/CMakeFiles/plant_sim.dir/all: pid/CMakeFiles/roscpp_generate_messages_py.dir/all
-pid/CMakeFiles/plant_sim.dir/all: pid/CMakeFiles/diagnostic_msgs_generate_messages_cpp.dir/all
-pid/CMakeFiles/plant_sim.dir/all: pid/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
-pid/CMakeFiles/plant_sim.dir/all: pid/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/all
-pid/CMakeFiles/plant_sim.dir/all: pid/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/all
-pid/CMakeFiles/plant_sim.dir/all: pid/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all
-pid/CMakeFiles/plant_sim.dir/all: pid/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
-pid/CMakeFiles/plant_sim.dir/all: pid/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
-pid/CMakeFiles/plant_sim.dir/all: pid/CMakeFiles/std_msgs_generate_messages_py.dir/all
-pid/CMakeFiles/plant_sim.dir/all: pid/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all
-pid/CMakeFiles/plant_sim.dir/all: pid/CMakeFiles/diagnostic_msgs_generate_messages_lisp.dir/all
-pid/CMakeFiles/plant_sim.dir/all: pid/CMakeFiles/diagnostic_msgs_generate_messages_py.dir/all
-pid/CMakeFiles/plant_sim.dir/all: pid/CMakeFiles/dynamic_reconfigure_gencfg.dir/all
-pid/CMakeFiles/plant_sim.dir/all: pid/CMakeFiles/pid_generate_messages_py.dir/all
 pid/CMakeFiles/plant_sim.dir/all: pid/CMakeFiles/pid_generate_messages_lisp.dir/all
+pid/CMakeFiles/plant_sim.dir/all: pid/CMakeFiles/pid_generate_messages_py.dir/all
+pid/CMakeFiles/plant_sim.dir/all: Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
+pid/CMakeFiles/plant_sim.dir/all: Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_cpp.dir/all
+pid/CMakeFiles/plant_sim.dir/all: Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_lisp.dir/all
+pid/CMakeFiles/plant_sim.dir/all: Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_py.dir/all
+pid/CMakeFiles/plant_sim.dir/all: Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
+pid/CMakeFiles/plant_sim.dir/all: Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
+pid/CMakeFiles/plant_sim.dir/all: Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_py.dir/all
+pid/CMakeFiles/plant_sim.dir/all: Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all
+pid/CMakeFiles/plant_sim.dir/all: Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all
+pid/CMakeFiles/plant_sim.dir/all: pid/CMakeFiles/pid_gencfg.dir/all
 pid/CMakeFiles/plant_sim.dir/all: pid/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/all
+pid/CMakeFiles/plant_sim.dir/all: pid/CMakeFiles/dynamic_reconfigure_gencfg.dir/all
+pid/CMakeFiles/plant_sim.dir/all: pid/CMakeFiles/diagnostic_msgs_generate_messages_lisp.dir/all
+pid/CMakeFiles/plant_sim.dir/all: pid/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/all
+pid/CMakeFiles/plant_sim.dir/all: pid/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/all
+pid/CMakeFiles/plant_sim.dir/all: pid/CMakeFiles/diagnostic_msgs_generate_messages_py.dir/all
+pid/CMakeFiles/plant_sim.dir/all: pid/CMakeFiles/diagnostic_msgs_generate_messages_cpp.dir/all
 	$(MAKE) -f pid/CMakeFiles/plant_sim.dir/build.make pid/CMakeFiles/plant_sim.dir/depend
 	$(MAKE) -f pid/CMakeFiles/plant_sim.dir/build.make pid/CMakeFiles/plant_sim.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 
@@ -1001,215 +1596,29 @@ clean: pid/CMakeFiles/plant_sim.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target pid/CMakeFiles/roscpp_generate_messages_cpp.dir
-
-# All Build rule for target.
-pid/CMakeFiles/roscpp_generate_messages_cpp.dir/all:
-	$(MAKE) -f pid/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make pid/CMakeFiles/roscpp_generate_messages_cpp.dir/depend
-	$(MAKE) -f pid/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make pid/CMakeFiles/roscpp_generate_messages_cpp.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 
-	@echo "Built target roscpp_generate_messages_cpp"
-.PHONY : pid/CMakeFiles/roscpp_generate_messages_cpp.dir/all
-
-# Build rule for subdir invocation for target.
-pid/CMakeFiles/roscpp_generate_messages_cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 pid/CMakeFiles/roscpp_generate_messages_cpp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
-.PHONY : pid/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_cpp: pid/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
-.PHONY : roscpp_generate_messages_cpp
-
-# clean rule for target.
-pid/CMakeFiles/roscpp_generate_messages_cpp.dir/clean:
-	$(MAKE) -f pid/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make pid/CMakeFiles/roscpp_generate_messages_cpp.dir/clean
-.PHONY : pid/CMakeFiles/roscpp_generate_messages_cpp.dir/clean
-
-# clean rule for target.
-clean: pid/CMakeFiles/roscpp_generate_messages_cpp.dir/clean
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target pid/CMakeFiles/roscpp_generate_messages_lisp.dir
-
-# All Build rule for target.
-pid/CMakeFiles/roscpp_generate_messages_lisp.dir/all:
-	$(MAKE) -f pid/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make pid/CMakeFiles/roscpp_generate_messages_lisp.dir/depend
-	$(MAKE) -f pid/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make pid/CMakeFiles/roscpp_generate_messages_lisp.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 
-	@echo "Built target roscpp_generate_messages_lisp"
-.PHONY : pid/CMakeFiles/roscpp_generate_messages_lisp.dir/all
-
-# Build rule for subdir invocation for target.
-pid/CMakeFiles/roscpp_generate_messages_lisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 pid/CMakeFiles/roscpp_generate_messages_lisp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
-.PHONY : pid/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_lisp: pid/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
-.PHONY : roscpp_generate_messages_lisp
-
-# clean rule for target.
-pid/CMakeFiles/roscpp_generate_messages_lisp.dir/clean:
-	$(MAKE) -f pid/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make pid/CMakeFiles/roscpp_generate_messages_lisp.dir/clean
-.PHONY : pid/CMakeFiles/roscpp_generate_messages_lisp.dir/clean
-
-# clean rule for target.
-clean: pid/CMakeFiles/roscpp_generate_messages_lisp.dir/clean
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target pid/CMakeFiles/roscpp_generate_messages_py.dir
-
-# All Build rule for target.
-pid/CMakeFiles/roscpp_generate_messages_py.dir/all:
-	$(MAKE) -f pid/CMakeFiles/roscpp_generate_messages_py.dir/build.make pid/CMakeFiles/roscpp_generate_messages_py.dir/depend
-	$(MAKE) -f pid/CMakeFiles/roscpp_generate_messages_py.dir/build.make pid/CMakeFiles/roscpp_generate_messages_py.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 
-	@echo "Built target roscpp_generate_messages_py"
-.PHONY : pid/CMakeFiles/roscpp_generate_messages_py.dir/all
-
-# Build rule for subdir invocation for target.
-pid/CMakeFiles/roscpp_generate_messages_py.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 pid/CMakeFiles/roscpp_generate_messages_py.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
-.PHONY : pid/CMakeFiles/roscpp_generate_messages_py.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_py: pid/CMakeFiles/roscpp_generate_messages_py.dir/rule
-.PHONY : roscpp_generate_messages_py
-
-# clean rule for target.
-pid/CMakeFiles/roscpp_generate_messages_py.dir/clean:
-	$(MAKE) -f pid/CMakeFiles/roscpp_generate_messages_py.dir/build.make pid/CMakeFiles/roscpp_generate_messages_py.dir/clean
-.PHONY : pid/CMakeFiles/roscpp_generate_messages_py.dir/clean
-
-# clean rule for target.
-clean: pid/CMakeFiles/roscpp_generate_messages_py.dir/clean
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target pid/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir
-
-# All Build rule for target.
-pid/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all:
-	$(MAKE) -f pid/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make pid/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/depend
-	$(MAKE) -f pid/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make pid/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 
-	@echo "Built target rosgraph_msgs_generate_messages_cpp"
-.PHONY : pid/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all
-
-# Build rule for subdir invocation for target.
-pid/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 pid/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
-.PHONY : pid/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_cpp: pid/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
-.PHONY : rosgraph_msgs_generate_messages_cpp
-
-# clean rule for target.
-pid/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/clean:
-	$(MAKE) -f pid/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make pid/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/clean
-.PHONY : pid/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/clean
-
-# clean rule for target.
-clean: pid/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/clean
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target pid/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir
-
-# All Build rule for target.
-pid/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all:
-	$(MAKE) -f pid/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make pid/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/depend
-	$(MAKE) -f pid/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make pid/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 
-	@echo "Built target rosgraph_msgs_generate_messages_lisp"
-.PHONY : pid/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all
-
-# Build rule for subdir invocation for target.
-pid/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 pid/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
-.PHONY : pid/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_lisp: pid/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
-.PHONY : rosgraph_msgs_generate_messages_lisp
-
-# clean rule for target.
-pid/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/clean:
-	$(MAKE) -f pid/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make pid/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/clean
-.PHONY : pid/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/clean
-
-# clean rule for target.
-clean: pid/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/clean
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target pid/CMakeFiles/rosgraph_msgs_generate_messages_py.dir
-
-# All Build rule for target.
-pid/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all:
-	$(MAKE) -f pid/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make pid/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/depend
-	$(MAKE) -f pid/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make pid/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 
-	@echo "Built target rosgraph_msgs_generate_messages_py"
-.PHONY : pid/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
-
-# Build rule for subdir invocation for target.
-pid/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 pid/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
-.PHONY : pid/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_py: pid/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
-.PHONY : rosgraph_msgs_generate_messages_py
-
-# clean rule for target.
-pid/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean:
-	$(MAKE) -f pid/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make pid/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean
-.PHONY : pid/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean
-
-# clean rule for target.
-clean: pid/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean
-.PHONY : clean
-
-#=============================================================================
 # Target rules for target pid/CMakeFiles/setpoint_node.dir
 
 # All Build rule for target.
-pid/CMakeFiles/setpoint_node.dir/all: pid/CMakeFiles/pid_gencfg.dir/all
 pid/CMakeFiles/setpoint_node.dir/all: pid/CMakeFiles/pid_generate_messages_cpp.dir/all
-pid/CMakeFiles/setpoint_node.dir/all: pid/CMakeFiles/roscpp_generate_messages_cpp.dir/all
-pid/CMakeFiles/setpoint_node.dir/all: pid/CMakeFiles/roscpp_generate_messages_lisp.dir/all
-pid/CMakeFiles/setpoint_node.dir/all: pid/CMakeFiles/roscpp_generate_messages_py.dir/all
-pid/CMakeFiles/setpoint_node.dir/all: pid/CMakeFiles/diagnostic_msgs_generate_messages_cpp.dir/all
-pid/CMakeFiles/setpoint_node.dir/all: pid/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
-pid/CMakeFiles/setpoint_node.dir/all: pid/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/all
-pid/CMakeFiles/setpoint_node.dir/all: pid/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/all
-pid/CMakeFiles/setpoint_node.dir/all: pid/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all
-pid/CMakeFiles/setpoint_node.dir/all: pid/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
-pid/CMakeFiles/setpoint_node.dir/all: pid/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
-pid/CMakeFiles/setpoint_node.dir/all: pid/CMakeFiles/std_msgs_generate_messages_py.dir/all
-pid/CMakeFiles/setpoint_node.dir/all: pid/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all
-pid/CMakeFiles/setpoint_node.dir/all: pid/CMakeFiles/diagnostic_msgs_generate_messages_lisp.dir/all
-pid/CMakeFiles/setpoint_node.dir/all: pid/CMakeFiles/diagnostic_msgs_generate_messages_py.dir/all
-pid/CMakeFiles/setpoint_node.dir/all: pid/CMakeFiles/dynamic_reconfigure_gencfg.dir/all
-pid/CMakeFiles/setpoint_node.dir/all: pid/CMakeFiles/pid_generate_messages_py.dir/all
 pid/CMakeFiles/setpoint_node.dir/all: pid/CMakeFiles/pid_generate_messages_lisp.dir/all
+pid/CMakeFiles/setpoint_node.dir/all: pid/CMakeFiles/pid_generate_messages_py.dir/all
+pid/CMakeFiles/setpoint_node.dir/all: Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
+pid/CMakeFiles/setpoint_node.dir/all: Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_cpp.dir/all
+pid/CMakeFiles/setpoint_node.dir/all: Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_lisp.dir/all
+pid/CMakeFiles/setpoint_node.dir/all: Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_py.dir/all
+pid/CMakeFiles/setpoint_node.dir/all: Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
+pid/CMakeFiles/setpoint_node.dir/all: Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
+pid/CMakeFiles/setpoint_node.dir/all: Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_py.dir/all
+pid/CMakeFiles/setpoint_node.dir/all: Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all
+pid/CMakeFiles/setpoint_node.dir/all: Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all
+pid/CMakeFiles/setpoint_node.dir/all: pid/CMakeFiles/pid_gencfg.dir/all
 pid/CMakeFiles/setpoint_node.dir/all: pid/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/all
+pid/CMakeFiles/setpoint_node.dir/all: pid/CMakeFiles/dynamic_reconfigure_gencfg.dir/all
+pid/CMakeFiles/setpoint_node.dir/all: pid/CMakeFiles/diagnostic_msgs_generate_messages_lisp.dir/all
+pid/CMakeFiles/setpoint_node.dir/all: pid/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/all
+pid/CMakeFiles/setpoint_node.dir/all: pid/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/all
+pid/CMakeFiles/setpoint_node.dir/all: pid/CMakeFiles/diagnostic_msgs_generate_messages_py.dir/all
+pid/CMakeFiles/setpoint_node.dir/all: pid/CMakeFiles/diagnostic_msgs_generate_messages_cpp.dir/all
 	$(MAKE) -f pid/CMakeFiles/setpoint_node.dir/build.make pid/CMakeFiles/setpoint_node.dir/depend
 	$(MAKE) -f pid/CMakeFiles/setpoint_node.dir/build.make pid/CMakeFiles/setpoint_node.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 
@@ -1244,26 +1653,26 @@ clean: pid/CMakeFiles/setpoint_node.dir/clean
 # Target rules for target pid/CMakeFiles/sim_time.dir
 
 # All Build rule for target.
-pid/CMakeFiles/sim_time.dir/all: pid/CMakeFiles/pid_gencfg.dir/all
 pid/CMakeFiles/sim_time.dir/all: pid/CMakeFiles/pid_generate_messages_cpp.dir/all
-pid/CMakeFiles/sim_time.dir/all: pid/CMakeFiles/roscpp_generate_messages_cpp.dir/all
-pid/CMakeFiles/sim_time.dir/all: pid/CMakeFiles/roscpp_generate_messages_lisp.dir/all
-pid/CMakeFiles/sim_time.dir/all: pid/CMakeFiles/roscpp_generate_messages_py.dir/all
-pid/CMakeFiles/sim_time.dir/all: pid/CMakeFiles/diagnostic_msgs_generate_messages_cpp.dir/all
-pid/CMakeFiles/sim_time.dir/all: pid/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
-pid/CMakeFiles/sim_time.dir/all: pid/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/all
-pid/CMakeFiles/sim_time.dir/all: pid/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/all
-pid/CMakeFiles/sim_time.dir/all: pid/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all
-pid/CMakeFiles/sim_time.dir/all: pid/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
-pid/CMakeFiles/sim_time.dir/all: pid/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
-pid/CMakeFiles/sim_time.dir/all: pid/CMakeFiles/std_msgs_generate_messages_py.dir/all
-pid/CMakeFiles/sim_time.dir/all: pid/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all
-pid/CMakeFiles/sim_time.dir/all: pid/CMakeFiles/diagnostic_msgs_generate_messages_lisp.dir/all
-pid/CMakeFiles/sim_time.dir/all: pid/CMakeFiles/diagnostic_msgs_generate_messages_py.dir/all
-pid/CMakeFiles/sim_time.dir/all: pid/CMakeFiles/dynamic_reconfigure_gencfg.dir/all
-pid/CMakeFiles/sim_time.dir/all: pid/CMakeFiles/pid_generate_messages_py.dir/all
 pid/CMakeFiles/sim_time.dir/all: pid/CMakeFiles/pid_generate_messages_lisp.dir/all
+pid/CMakeFiles/sim_time.dir/all: pid/CMakeFiles/pid_generate_messages_py.dir/all
+pid/CMakeFiles/sim_time.dir/all: Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
+pid/CMakeFiles/sim_time.dir/all: Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_cpp.dir/all
+pid/CMakeFiles/sim_time.dir/all: Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_lisp.dir/all
+pid/CMakeFiles/sim_time.dir/all: Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_py.dir/all
+pid/CMakeFiles/sim_time.dir/all: Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
+pid/CMakeFiles/sim_time.dir/all: Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
+pid/CMakeFiles/sim_time.dir/all: Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_py.dir/all
+pid/CMakeFiles/sim_time.dir/all: Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all
+pid/CMakeFiles/sim_time.dir/all: Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all
+pid/CMakeFiles/sim_time.dir/all: pid/CMakeFiles/pid_gencfg.dir/all
 pid/CMakeFiles/sim_time.dir/all: pid/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/all
+pid/CMakeFiles/sim_time.dir/all: pid/CMakeFiles/dynamic_reconfigure_gencfg.dir/all
+pid/CMakeFiles/sim_time.dir/all: pid/CMakeFiles/diagnostic_msgs_generate_messages_lisp.dir/all
+pid/CMakeFiles/sim_time.dir/all: pid/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/all
+pid/CMakeFiles/sim_time.dir/all: pid/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/all
+pid/CMakeFiles/sim_time.dir/all: pid/CMakeFiles/diagnostic_msgs_generate_messages_py.dir/all
+pid/CMakeFiles/sim_time.dir/all: pid/CMakeFiles/diagnostic_msgs_generate_messages_cpp.dir/all
 	$(MAKE) -f pid/CMakeFiles/sim_time.dir/build.make pid/CMakeFiles/sim_time.dir/depend
 	$(MAKE) -f pid/CMakeFiles/sim_time.dir/build.make pid/CMakeFiles/sim_time.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles  100
@@ -1292,99 +1701,6 @@ pid/CMakeFiles/sim_time.dir/clean:
 
 # clean rule for target.
 clean: pid/CMakeFiles/sim_time.dir/clean
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target pid/CMakeFiles/std_msgs_generate_messages_cpp.dir
-
-# All Build rule for target.
-pid/CMakeFiles/std_msgs_generate_messages_cpp.dir/all:
-	$(MAKE) -f pid/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make pid/CMakeFiles/std_msgs_generate_messages_cpp.dir/depend
-	$(MAKE) -f pid/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make pid/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 
-	@echo "Built target std_msgs_generate_messages_cpp"
-.PHONY : pid/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
-
-# Build rule for subdir invocation for target.
-pid/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 pid/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
-.PHONY : pid/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_cpp: pid/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-.PHONY : std_msgs_generate_messages_cpp
-
-# clean rule for target.
-pid/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean:
-	$(MAKE) -f pid/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make pid/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
-.PHONY : pid/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
-
-# clean rule for target.
-clean: pid/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target pid/CMakeFiles/std_msgs_generate_messages_lisp.dir
-
-# All Build rule for target.
-pid/CMakeFiles/std_msgs_generate_messages_lisp.dir/all:
-	$(MAKE) -f pid/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make pid/CMakeFiles/std_msgs_generate_messages_lisp.dir/depend
-	$(MAKE) -f pid/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make pid/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 
-	@echo "Built target std_msgs_generate_messages_lisp"
-.PHONY : pid/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
-
-# Build rule for subdir invocation for target.
-pid/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 pid/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
-.PHONY : pid/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_lisp: pid/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-.PHONY : std_msgs_generate_messages_lisp
-
-# clean rule for target.
-pid/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean:
-	$(MAKE) -f pid/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make pid/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean
-.PHONY : pid/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean
-
-# clean rule for target.
-clean: pid/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target pid/CMakeFiles/std_msgs_generate_messages_py.dir
-
-# All Build rule for target.
-pid/CMakeFiles/std_msgs_generate_messages_py.dir/all:
-	$(MAKE) -f pid/CMakeFiles/std_msgs_generate_messages_py.dir/build.make pid/CMakeFiles/std_msgs_generate_messages_py.dir/depend
-	$(MAKE) -f pid/CMakeFiles/std_msgs_generate_messages_py.dir/build.make pid/CMakeFiles/std_msgs_generate_messages_py.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 
-	@echo "Built target std_msgs_generate_messages_py"
-.PHONY : pid/CMakeFiles/std_msgs_generate_messages_py.dir/all
-
-# Build rule for subdir invocation for target.
-pid/CMakeFiles/std_msgs_generate_messages_py.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 pid/CMakeFiles/std_msgs_generate_messages_py.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
-.PHONY : pid/CMakeFiles/std_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_py: pid/CMakeFiles/std_msgs_generate_messages_py.dir/rule
-.PHONY : std_msgs_generate_messages_py
-
-# clean rule for target.
-pid/CMakeFiles/std_msgs_generate_messages_py.dir/clean:
-	$(MAKE) -f pid/CMakeFiles/std_msgs_generate_messages_py.dir/build.make pid/CMakeFiles/std_msgs_generate_messages_py.dir/clean
-.PHONY : pid/CMakeFiles/std_msgs_generate_messages_py.dir/clean
-
-# clean rule for target.
-clean: pid/CMakeFiles/std_msgs_generate_messages_py.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -1501,15 +1817,9 @@ dji_sdk/clean: dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/clean
 dji_sdk/clean: dji_sdk/CMakeFiles/dji_sdk_genlisp.dir/clean
 dji_sdk/clean: dji_sdk/CMakeFiles/dji_sdk_genpy.dir/clean
 dji_sdk/clean: dji_sdk/CMakeFiles/dji_sdk_node.dir/clean
-dji_sdk/clean: dji_sdk/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean
-dji_sdk/clean: dji_sdk/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean
-dji_sdk/clean: dji_sdk/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
 dji_sdk/clean: dji_sdk/CMakeFiles/nav_msgs_generate_messages_cpp.dir/clean
 dji_sdk/clean: dji_sdk/CMakeFiles/nav_msgs_generate_messages_lisp.dir/clean
 dji_sdk/clean: dji_sdk/CMakeFiles/nav_msgs_generate_messages_py.dir/clean
-dji_sdk/clean: dji_sdk/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/clean
-dji_sdk/clean: dji_sdk/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/clean
-dji_sdk/clean: dji_sdk/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean
 dji_sdk/clean: dji_sdk/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/clean
 dji_sdk/clean: dji_sdk/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/clean
 dji_sdk/clean: dji_sdk/CMakeFiles/tf2_msgs_generate_messages_py.dir/clean
@@ -4579,7 +4889,7 @@ all: dji_sdk/CMakeFiles/dji_sdk_generate_messages.dir/all
 
 # Build rule for subdir invocation for target.
 dji_sdk/CMakeFiles/dji_sdk_generate_messages.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 91
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 89
 	$(MAKE) -f CMakeFiles/Makefile2 dji_sdk/CMakeFiles/dji_sdk_generate_messages.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
 .PHONY : dji_sdk/CMakeFiles/dji_sdk_generate_messages.dir/rule
@@ -4601,31 +4911,31 @@ clean: dji_sdk/CMakeFiles/dji_sdk_generate_messages.dir/clean
 # Target rules for target dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir
 
 # All Build rule for target.
-dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all: dji_sdk/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all
-dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all: pid/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
+dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all: Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
+dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all: Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all: dji_sdk/CMakeFiles/nav_msgs_generate_messages_cpp.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all: dji_sdk/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/all
-dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_GlobalPositionNavigationGoal.dir/all
+dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_DroneTaskGoal.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_MissionHotpointTask.dir/all
-dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_MissionHpResetYaw.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_MissionWpDownload.dir/all
-dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_AttitudeControl.dir/all
-dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_DroneTaskActionFeedback.dir/all
+dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_MissionHpResetYaw.dir/all
+dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_Gimbal.dir/all
+dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_WaypointList.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_GimbalSpeedControl.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_DroneTaskActionGoal.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_WaypointNavigationActionGoal.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_CameraActionControl.dir/all
+dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_A3GPS.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_Acceleration.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_MissionStatusWaypoint.dir/all
-dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_A3GPS.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_MissionEventWpReach.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_Reldist.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_MissionWpSetSpeed.dir/all
-dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_WaypointList.dir/all
-dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_MissionFmSetTarget.dir/all
-dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_Gimbal.dir/all
+dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_DroneTaskActionFeedback.dir/all
+dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_GlobalPositionNavigationGoal.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_GlobalPositionNavigationActionGoal.dir/all
-dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_DroneTaskGoal.dir/all
+dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_AttitudeControl.dir/all
+dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_MissionFmSetTarget.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_GlobalPosition.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_MissionStatusOther.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_Compass.dir/all
@@ -4726,31 +5036,31 @@ clean: dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/clean
 # Target rules for target dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir
 
 # All Build rule for target.
-dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/all: pid/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
-dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/all: dji_sdk/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all
+dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/all: Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
+dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/all: Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/all: dji_sdk/CMakeFiles/nav_msgs_generate_messages_lisp.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/all: dji_sdk/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/all
-dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_GlobalPositionNavigationGoal.dir/all
+dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_DroneTaskGoal.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_MissionHotpointTask.dir/all
-dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_MissionHpResetYaw.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_MissionWpDownload.dir/all
-dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_AttitudeControl.dir/all
-dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_DroneTaskActionFeedback.dir/all
+dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_MissionHpResetYaw.dir/all
+dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_Gimbal.dir/all
+dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_WaypointList.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_GimbalSpeedControl.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_DroneTaskActionGoal.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_WaypointNavigationActionGoal.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_CameraActionControl.dir/all
+dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_A3GPS.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_Acceleration.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_MissionStatusWaypoint.dir/all
-dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_A3GPS.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_MissionEventWpReach.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_Reldist.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_MissionWpSetSpeed.dir/all
-dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_WaypointList.dir/all
-dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_MissionFmSetTarget.dir/all
-dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_Gimbal.dir/all
+dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_DroneTaskActionFeedback.dir/all
+dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_GlobalPositionNavigationGoal.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_GlobalPositionNavigationActionGoal.dir/all
-dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_DroneTaskGoal.dir/all
+dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_AttitudeControl.dir/all
+dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_MissionFmSetTarget.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_GlobalPosition.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_MissionStatusOther.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_Compass.dir/all
@@ -4823,13 +5133,13 @@ dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/all: dji_sdk/CMakeFiles/_d
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_LocalPosition.dir/all
 	$(MAKE) -f dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/build.make dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/depend
 	$(MAKE) -f dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/build.make dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles  31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles  31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59
 	@echo "Built target dji_sdk_generate_messages_lisp"
 .PHONY : dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 30
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 29
 	$(MAKE) -f CMakeFiles/Makefile2 dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
 .PHONY : dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/rule
@@ -4851,31 +5161,31 @@ clean: dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/clean
 # Target rules for target dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir
 
 # All Build rule for target.
-dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/all: pid/CMakeFiles/std_msgs_generate_messages_py.dir/all
-dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/all: dji_sdk/CMakeFiles/nav_msgs_generate_messages_py.dir/all
-dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/all: dji_sdk/CMakeFiles/geometry_msgs_generate_messages_py.dir/all
+dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/all: Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_py.dir/all
+dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/all: Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_py.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/all: dji_sdk/CMakeFiles/actionlib_msgs_generate_messages_py.dir/all
-dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_GlobalPositionNavigationGoal.dir/all
+dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/all: dji_sdk/CMakeFiles/nav_msgs_generate_messages_py.dir/all
+dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_DroneTaskGoal.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_MissionHotpointTask.dir/all
-dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_MissionHpResetYaw.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_MissionWpDownload.dir/all
-dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_AttitudeControl.dir/all
-dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_DroneTaskActionFeedback.dir/all
+dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_MissionHpResetYaw.dir/all
+dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_Gimbal.dir/all
+dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_WaypointList.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_GimbalSpeedControl.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_DroneTaskActionGoal.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_WaypointNavigationActionGoal.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_CameraActionControl.dir/all
+dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_A3GPS.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_Acceleration.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_MissionStatusWaypoint.dir/all
-dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_A3GPS.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_MissionEventWpReach.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_Reldist.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_MissionWpSetSpeed.dir/all
-dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_WaypointList.dir/all
-dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_MissionFmSetTarget.dir/all
-dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_Gimbal.dir/all
+dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_DroneTaskActionFeedback.dir/all
+dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_GlobalPositionNavigationGoal.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_GlobalPositionNavigationActionGoal.dir/all
-dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_DroneTaskGoal.dir/all
+dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_AttitudeControl.dir/all
+dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_MissionFmSetTarget.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_GlobalPosition.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_MissionStatusOther.dir/all
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_Compass.dir/all
@@ -4948,13 +5258,13 @@ dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/all: dji_sdk/CMakeFiles/_dji
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_LocalPosition.dir/all
 	$(MAKE) -f dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/build.make dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/depend
 	$(MAKE) -f dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/build.make dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles  61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles  60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89
 	@echo "Built target dji_sdk_generate_messages_py"
 .PHONY : dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/all
 
 # Build rule for subdir invocation for target.
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 31
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 30
 	$(MAKE) -f CMakeFiles/Makefile2 dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
 .PHONY : dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/rule
@@ -4985,7 +5295,7 @@ dji_sdk/CMakeFiles/dji_sdk_genlisp.dir/all: dji_sdk/CMakeFiles/dji_sdk_generate_
 
 # Build rule for subdir invocation for target.
 dji_sdk/CMakeFiles/dji_sdk_genlisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 30
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 29
 	$(MAKE) -f CMakeFiles/Makefile2 dji_sdk/CMakeFiles/dji_sdk_genlisp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
 .PHONY : dji_sdk/CMakeFiles/dji_sdk_genlisp.dir/rule
@@ -5016,7 +5326,7 @@ dji_sdk/CMakeFiles/dji_sdk_genpy.dir/all: dji_sdk/CMakeFiles/dji_sdk_generate_me
 
 # Build rule for subdir invocation for target.
 dji_sdk/CMakeFiles/dji_sdk_genpy.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 31
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 30
 	$(MAKE) -f CMakeFiles/Makefile2 dji_sdk/CMakeFiles/dji_sdk_genpy.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
 .PHONY : dji_sdk/CMakeFiles/dji_sdk_genpy.dir/rule
@@ -5042,7 +5352,7 @@ dji_sdk/CMakeFiles/dji_sdk_node.dir/all: dji_sdk_lib/CMakeFiles/dji_sdk_lib.dir/
 dji_sdk/CMakeFiles/dji_sdk_node.dir/all: dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all
 	$(MAKE) -f dji_sdk/CMakeFiles/dji_sdk_node.dir/build.make dji_sdk/CMakeFiles/dji_sdk_node.dir/depend
 	$(MAKE) -f dji_sdk/CMakeFiles/dji_sdk_node.dir/build.make dji_sdk/CMakeFiles/dji_sdk_node.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles  96 97
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles  95
 	@echo "Built target dji_sdk_node"
 .PHONY : dji_sdk/CMakeFiles/dji_sdk_node.dir/all
 
@@ -5068,99 +5378,6 @@ dji_sdk/CMakeFiles/dji_sdk_node.dir/clean:
 
 # clean rule for target.
 clean: dji_sdk/CMakeFiles/dji_sdk_node.dir/clean
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target dji_sdk/CMakeFiles/geometry_msgs_generate_messages_cpp.dir
-
-# All Build rule for target.
-dji_sdk/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all:
-	$(MAKE) -f dji_sdk/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make dji_sdk/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/depend
-	$(MAKE) -f dji_sdk/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make dji_sdk/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 
-	@echo "Built target geometry_msgs_generate_messages_cpp"
-.PHONY : dji_sdk/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all
-
-# Build rule for subdir invocation for target.
-dji_sdk/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 dji_sdk/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
-.PHONY : dji_sdk/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_cpp: dji_sdk/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
-.PHONY : geometry_msgs_generate_messages_cpp
-
-# clean rule for target.
-dji_sdk/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean:
-	$(MAKE) -f dji_sdk/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make dji_sdk/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean
-.PHONY : dji_sdk/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean
-
-# clean rule for target.
-clean: dji_sdk/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target dji_sdk/CMakeFiles/geometry_msgs_generate_messages_lisp.dir
-
-# All Build rule for target.
-dji_sdk/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all:
-	$(MAKE) -f dji_sdk/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make dji_sdk/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/depend
-	$(MAKE) -f dji_sdk/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make dji_sdk/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 
-	@echo "Built target geometry_msgs_generate_messages_lisp"
-.PHONY : dji_sdk/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all
-
-# Build rule for subdir invocation for target.
-dji_sdk/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 dji_sdk/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
-.PHONY : dji_sdk/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_lisp: dji_sdk/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
-.PHONY : geometry_msgs_generate_messages_lisp
-
-# clean rule for target.
-dji_sdk/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean:
-	$(MAKE) -f dji_sdk/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make dji_sdk/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean
-.PHONY : dji_sdk/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean
-
-# clean rule for target.
-clean: dji_sdk/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target dji_sdk/CMakeFiles/geometry_msgs_generate_messages_py.dir
-
-# All Build rule for target.
-dji_sdk/CMakeFiles/geometry_msgs_generate_messages_py.dir/all:
-	$(MAKE) -f dji_sdk/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make dji_sdk/CMakeFiles/geometry_msgs_generate_messages_py.dir/depend
-	$(MAKE) -f dji_sdk/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make dji_sdk/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 
-	@echo "Built target geometry_msgs_generate_messages_py"
-.PHONY : dji_sdk/CMakeFiles/geometry_msgs_generate_messages_py.dir/all
-
-# Build rule for subdir invocation for target.
-dji_sdk/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 dji_sdk/CMakeFiles/geometry_msgs_generate_messages_py.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
-.PHONY : dji_sdk/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_py: dji_sdk/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-.PHONY : geometry_msgs_generate_messages_py
-
-# clean rule for target.
-dji_sdk/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean:
-	$(MAKE) -f dji_sdk/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make dji_sdk/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
-.PHONY : dji_sdk/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
-
-# clean rule for target.
-clean: dji_sdk/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -5254,99 +5471,6 @@ dji_sdk/CMakeFiles/nav_msgs_generate_messages_py.dir/clean:
 
 # clean rule for target.
 clean: dji_sdk/CMakeFiles/nav_msgs_generate_messages_py.dir/clean
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target dji_sdk/CMakeFiles/sensor_msgs_generate_messages_cpp.dir
-
-# All Build rule for target.
-dji_sdk/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/all:
-	$(MAKE) -f dji_sdk/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make dji_sdk/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/depend
-	$(MAKE) -f dji_sdk/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make dji_sdk/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 
-	@echo "Built target sensor_msgs_generate_messages_cpp"
-.PHONY : dji_sdk/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/all
-
-# Build rule for subdir invocation for target.
-dji_sdk/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 dji_sdk/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
-.PHONY : dji_sdk/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_cpp: dji_sdk/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
-.PHONY : sensor_msgs_generate_messages_cpp
-
-# clean rule for target.
-dji_sdk/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/clean:
-	$(MAKE) -f dji_sdk/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make dji_sdk/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/clean
-.PHONY : dji_sdk/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/clean
-
-# clean rule for target.
-clean: dji_sdk/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/clean
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target dji_sdk/CMakeFiles/sensor_msgs_generate_messages_lisp.dir
-
-# All Build rule for target.
-dji_sdk/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all:
-	$(MAKE) -f dji_sdk/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make dji_sdk/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/depend
-	$(MAKE) -f dji_sdk/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make dji_sdk/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 
-	@echo "Built target sensor_msgs_generate_messages_lisp"
-.PHONY : dji_sdk/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all
-
-# Build rule for subdir invocation for target.
-dji_sdk/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 dji_sdk/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
-.PHONY : dji_sdk/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_lisp: dji_sdk/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
-.PHONY : sensor_msgs_generate_messages_lisp
-
-# clean rule for target.
-dji_sdk/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/clean:
-	$(MAKE) -f dji_sdk/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make dji_sdk/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/clean
-.PHONY : dji_sdk/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/clean
-
-# clean rule for target.
-clean: dji_sdk/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/clean
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target dji_sdk/CMakeFiles/sensor_msgs_generate_messages_py.dir
-
-# All Build rule for target.
-dji_sdk/CMakeFiles/sensor_msgs_generate_messages_py.dir/all:
-	$(MAKE) -f dji_sdk/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make dji_sdk/CMakeFiles/sensor_msgs_generate_messages_py.dir/depend
-	$(MAKE) -f dji_sdk/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make dji_sdk/CMakeFiles/sensor_msgs_generate_messages_py.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 
-	@echo "Built target sensor_msgs_generate_messages_py"
-.PHONY : dji_sdk/CMakeFiles/sensor_msgs_generate_messages_py.dir/all
-
-# Build rule for subdir invocation for target.
-dji_sdk/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 dji_sdk/CMakeFiles/sensor_msgs_generate_messages_py.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
-.PHONY : dji_sdk/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_py: dji_sdk/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
-.PHONY : sensor_msgs_generate_messages_py
-
-# clean rule for target.
-dji_sdk/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean:
-	$(MAKE) -f dji_sdk/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make dji_sdk/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean
-.PHONY : dji_sdk/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean
-
-# clean rule for target.
-clean: dji_sdk/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -5568,7 +5692,7 @@ all: dji_sdk_demo_mine/CMakeFiles/dji_sdk_client_mine.dir/all
 
 # Build rule for subdir invocation for target.
 dji_sdk_demo_mine/CMakeFiles/dji_sdk_client_mine.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 34
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 35
 	$(MAKE) -f CMakeFiles/Makefile2 dji_sdk_demo_mine/CMakeFiles/dji_sdk_client_mine.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
 .PHONY : dji_sdk_demo_mine/CMakeFiles/dji_sdk_client_mine.dir/rule
@@ -5609,7 +5733,7 @@ dji_sdk_read_cam/CMakeFiles/dji_sdk_read_cam.dir/all: dji_sdk_lib/CMakeFiles/dji
 dji_sdk_read_cam/CMakeFiles/dji_sdk_read_cam.dir/all: dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all
 	$(MAKE) -f dji_sdk_read_cam/CMakeFiles/dji_sdk_read_cam.dir/build.make dji_sdk_read_cam/CMakeFiles/dji_sdk_read_cam.dir/depend
 	$(MAKE) -f dji_sdk_read_cam/CMakeFiles/dji_sdk_read_cam.dir/build.make dji_sdk_read_cam/CMakeFiles/dji_sdk_read_cam.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles  98
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles  96
 	@echo "Built target dji_sdk_read_cam"
 .PHONY : dji_sdk_read_cam/CMakeFiles/dji_sdk_read_cam.dir/all
 
@@ -5619,7 +5743,7 @@ all: dji_sdk_read_cam/CMakeFiles/dji_sdk_read_cam.dir/all
 
 # Build rule for subdir invocation for target.
 dji_sdk_read_cam/CMakeFiles/dji_sdk_read_cam.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 35
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 36
 	$(MAKE) -f CMakeFiles/Makefile2 dji_sdk_read_cam/CMakeFiles/dji_sdk_read_cam.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
 .PHONY : dji_sdk_read_cam/CMakeFiles/dji_sdk_read_cam.dir/rule

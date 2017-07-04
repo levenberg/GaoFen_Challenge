@@ -178,7 +178,7 @@ void ApriltagDetector::print_detections ( )
   rel_dist.header.frame_id = "x3_reldist";
 
   ROS_INFO ( "%d tags detected.",detections.size() );
-  ROS_INFO ( "%f tag family.", m_tagCodes);
+  //ROS_INFO ( "%f tag family.", m_tagCodes);
 // ROS_INFO ( "Publish detection routine is working..." );
 
 // float last_flight_height = 0.0;
