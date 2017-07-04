@@ -138,7 +138,7 @@ include_directories(
 # target_link_libraries(dji_sdk_demo_node
 #   ${catkin_LIBRARIES}
 # )
-add_executable(dji_sdk_client_mine src/client_new.cpp)
+add_executable(dji_sdk_client_mine src/main_1.cpp)
 target_link_libraries(dji_sdk_client_mine
   ${catkin_LIBRARIES}
 )

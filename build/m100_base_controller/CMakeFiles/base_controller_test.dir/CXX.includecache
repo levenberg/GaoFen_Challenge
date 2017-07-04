@@ -1076,22 +1076,6 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/root/Documents/roswork/DJI2016_Challenge_v1.0/build/devel/include/dji_sdk/DetectionPoints.h
-string
--
-vector
--
-map
--
-ros/types.h
--
-ros/serialization.h
--
-ros/builtin_message_traits.h
--
-ros/message_operations.h
--
-
 /root/Documents/roswork/DJI2016_Challenge_v1.0/devel/include/dji_sdk/A3GPS.h
 string
 -
@@ -3487,7 +3471,7 @@ functional
 /root/Documents/roswork/DJI2016_Challenge_v1.0/src/dji_sdk/include/dji_sdk/dji_drone.h
 dji_sdk/dji_sdk.h
 -
-../../build/devel/include/dji_sdk/DetectionPoints.h
+../../../devel/include/dji_sdk/DetectionPoints.h
 -
 ros/ros.h
 -

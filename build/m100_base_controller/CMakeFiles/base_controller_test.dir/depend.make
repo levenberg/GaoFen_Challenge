@@ -90,7 +90,6 @@ m100_base_controller/CMakeFiles/base_controller_test.dir/src/base_controller_tes
 m100_base_controller/CMakeFiles/base_controller_test.dir/src/base_controller_test.cpp.o: /opt/ros/indigo/include/std_msgs/Float64.h
 m100_base_controller/CMakeFiles/base_controller_test.dir/src/base_controller_test.cpp.o: /opt/ros/indigo/include/std_msgs/Header.h
 m100_base_controller/CMakeFiles/base_controller_test.dir/src/base_controller_test.cpp.o: /opt/ros/indigo/include/std_msgs/UInt8.h
-m100_base_controller/CMakeFiles/base_controller_test.dir/src/base_controller_test.cpp.o: devel/include/dji_sdk/DetectionPoints.h
 m100_base_controller/CMakeFiles/base_controller_test.dir/src/base_controller_test.cpp.o: /root/Documents/roswork/DJI2016_Challenge_v1.0/devel/include/dji_sdk/A3GPS.h
 m100_base_controller/CMakeFiles/base_controller_test.dir/src/base_controller_test.cpp.o: /root/Documents/roswork/DJI2016_Challenge_v1.0/devel/include/dji_sdk/A3RTK.h
 m100_base_controller/CMakeFiles/base_controller_test.dir/src/base_controller_test.cpp.o: /root/Documents/roswork/DJI2016_Challenge_v1.0/devel/include/dji_sdk/Acceleration.h

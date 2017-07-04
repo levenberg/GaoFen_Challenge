@@ -118,15 +118,10 @@ IF(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   INCLUDE("/root/Documents/roswork/DJI2016_Challenge_v1.0/build/gtest/cmake_install.cmake")
   INCLUDE("/root/Documents/roswork/DJI2016_Challenge_v1.0/build/dji_sdk_lib/cmake_install.cmake")
-  INCLUDE("/root/Documents/roswork/DJI2016_Challenge_v1.0/build/Guidance-SDK-ROS/cmake_install.cmake")
-  INCLUDE("/root/Documents/roswork/DJI2016_Challenge_v1.0/build/m100_navigation_goals/cmake_install.cmake")
   INCLUDE("/root/Documents/roswork/DJI2016_Challenge_v1.0/build/pid/cmake_install.cmake")
   INCLUDE("/root/Documents/roswork/DJI2016_Challenge_v1.0/build/dji_sdk/cmake_install.cmake")
   INCLUDE("/root/Documents/roswork/DJI2016_Challenge_v1.0/build/dji_sdk_demo_mine/cmake_install.cmake")
   INCLUDE("/root/Documents/roswork/DJI2016_Challenge_v1.0/build/dji_sdk_read_cam/cmake_install.cmake")
-  INCLUDE("/root/Documents/roswork/DJI2016_Challenge_v1.0/build/m100_base_controller/cmake_install.cmake")
-  INCLUDE("/root/Documents/roswork/DJI2016_Challenge_v1.0/build/m100_tf/cmake_install.cmake")
-  INCLUDE("/root/Documents/roswork/DJI2016_Challenge_v1.0/build/m100_2dnav/cmake_install.cmake")
 
 ENDIF(NOT CMAKE_INSTALL_LOCAL_ONLY)
 

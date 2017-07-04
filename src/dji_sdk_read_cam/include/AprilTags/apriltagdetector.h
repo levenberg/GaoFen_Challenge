@@ -1,7 +1,7 @@
 #ifndef APRILTAGDETECTOR_H
 #define APRILTAGDETECTOR_H
 
-// AprilTag family
+// AprilTag family 
 #include "AprilTags/TagDetector.h"
 #include "AprilTags/Tag16h5.h"
 #include "AprilTags/Tag25h7.h"
@@ -33,11 +33,11 @@
 #include<dji_sdk/Gimbal.h>
 #endif
 
-
+/*   for gaofen competition, small tags are not needed. only 36h11 used.
 #ifndef SMALL_TAG_USED
 #define SMALL_TAG_USED
 #endif
-
+*/
 
 #ifndef PI
 const double PI = 3.14159265358979323846;
@@ -106,7 +106,7 @@ public:
   int m_used_apriltag_type;
 public:
   ApriltagDetector ( ros::NodeHandle& node ) :
-    m_tagCodes ( AprilTags::tagCodes25h9 ),
+    m_tagCodes ( AprilTags::tagCodes36h11 ),
     m_tagDetector ( NULL ),
 
 
@@ -118,7 +118,7 @@ public:
 
     m_width ( 640 ),
     m_height ( 360 ),
-    m_tagSize ( 0.31 ),
+    m_tagSize ( 0.161 ),
     m_fx ( 373 ), //Specified by x3 Camera;
     m_fy ( 373 ),
     m_px ( 318 ),
@@ -170,7 +170,7 @@ public:
   void processImage ( cv::Mat& image );
   // get window with (1+2*delta)*TagSize
   std::vector<int> point2win ( cv::Mat image, float delta = 0 );
-
+  
   void print_detections ();
 #ifdef GIMBAL_USED
   void gimbal_read_callback ( const dji_sdk::Gimbal & gimbal )
@@ -179,7 +179,7 @@ public:
   }
 
 #endif
-
+  void Line_detection(cv::Mat& image, dji_sdk::Reldist & result);
 
 
 
