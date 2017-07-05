@@ -320,7 +320,7 @@ int main ( int argc, char **argv )
     //  ROS_INFO ( "I am in" );
       if ( ret != -1 )
         {
-
+          ROS_INFO ( "I am in" );
           if ( gray_or_rgb )
             {
               NV12ToRGB ( buffer,pData,1280,720 );
