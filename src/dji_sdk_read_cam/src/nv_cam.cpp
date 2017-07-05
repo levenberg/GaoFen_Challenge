@@ -306,14 +306,16 @@ int main ( int argc, char **argv )
   //int res = pthread_create ( &pid, NULL, trackLoop,  detectorAndTracker);
   //if ( res != 0 )
   //  printf ( "pthread_create error!\n" );
-
+  ROS_INFO ( "I am 0.0" );
   ret = manifold_cam_init ( mode );
+  ROS_INFO ( "I am 0.1" );
   if ( ret == -1 )
     {
+      ROS_INFO ( "I am 1.0" );
       printf ( "manifold init error \n" );
       return -1;
     }
-
+ ROS_INFO ( "I am 0.3" );
   while ( 1 )
     {
       ret = manifold_cam_read ( buffer, &nframe, 1 );
