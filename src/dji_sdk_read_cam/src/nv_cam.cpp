@@ -319,7 +319,7 @@ int main ( int argc, char **argv )
   while ( 1 )
     {
       ROS_INFO ( "I am 2.1" );
-      ret = manifold_cam_read ( buffer, &nframe, 0 );
+      ret = manifold_cam_read ( buffer, &nframe, 1 );
       ROS_INFO ( "I am 2.2" );
       if ( ret != -1 )
         {
