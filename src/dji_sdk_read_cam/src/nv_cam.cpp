@@ -350,7 +350,8 @@ int main ( int argc, char **argv )
           cam_info.header.stamp = time;
           caminfo_pub.publish ( cam_info );
          // image_pub.publish(im);
-
+	  imshow ( "img", pImg );
+          waitKey ( 1 );
           ros::spinOnce();
           nCount++;
 
