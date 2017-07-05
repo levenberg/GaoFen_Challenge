@@ -317,7 +317,7 @@ int main ( int argc, char **argv )
   while ( 1 )
     {
       ret = manifold_cam_read ( buffer, &nframe, 1 );
-    //  ROS_INFO ( "I am in" );
+      ROS_INFO ( "I am in" );
       if ( ret != -1 )
         {
           ROS_INFO ( "I am in" );
