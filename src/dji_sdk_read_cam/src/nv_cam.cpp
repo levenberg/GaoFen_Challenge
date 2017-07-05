@@ -303,9 +303,9 @@ int main ( int argc, char **argv )
   pthread_t pid;
 
   ApriltagDetector* detectorAndTracker = new ApriltagDetector ( node );
-  int res = pthread_create ( &pid, NULL, trackLoop,  detectorAndTracker);
-  if ( res != 0 )
-    printf ( "pthread_create error!\n" );
+  //int res = pthread_create ( &pid, NULL, trackLoop,  detectorAndTracker);
+  //if ( res != 0 )
+  //  printf ( "pthread_create error!\n" );
 
   ret = manifold_cam_init ( mode );
   if ( ret == -1 )
