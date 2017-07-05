@@ -227,7 +227,7 @@ int main ( int argc, char **argv )
 	  /********************************************************************************************************************/
 	  case 'q':
 	  {
-	    ROS_INFO ( "take off" );
+	    //ROS_INFO ( "take off" );
 	    writeF<<"take off"<<drone->local_position.z<<endl;
 	    drone->attitude_control ( 0x9B,0,0,flying_height_control_tracking,0 );
 	    start_yaw = drone->yaw_from_drone;//Record the yaw of taking off
@@ -237,7 +237,7 @@ int main ( int argc, char **argv )
 	  /*****************************************************************************************************************/
 	  case 'd':
 	  {
-	    ROS_INFO ( "line following" );
+	    //ROS_INFO ( "line following" );
 	    writeF<<"line following"<<drone->local_position.z<<endl;
 	    last_flight_x = filtered_x;
 	    last_flight_y = filtered_y;
