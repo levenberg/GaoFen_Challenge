@@ -112,7 +112,7 @@ public:
 
     m_mode ( 1 ),
 
-    m_draw ( true ),
+    m_draw ( false ),
     m_timing ( true ),
     m_isShowResult ( true ),
 
