@@ -204,12 +204,12 @@ void* trackLoop ( void* tmp )
       if(tracker->m_mission_type==false)  //line follow
       {
         tracker->Line_detection(gray, result);
-	ROS_INFO("Line following");
+	//ROS_INFO("Line following");
       }
       if(tracker->m_mission_type==true)  //human follow
       {
           tracker->processImage ( gray );
-	  ROS_INFO("Human tracking");
+	 // ROS_INFO("Human tracking");
       }
 
 
