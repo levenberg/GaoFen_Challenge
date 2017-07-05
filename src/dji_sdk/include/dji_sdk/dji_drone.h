@@ -10,6 +10,7 @@
 //#include<geometry_msgs/PoseWithCovarianceStamped.h>
 #include <dji_sdk/Reldist.h>
 #include <std_msgs/Float64.h>
+#include <std_msgs/Bool.h>
 #include <dji_sdk/DetectionPoints.h>
 
 
@@ -83,7 +84,7 @@ private:
   ros::Subscriber time_stamp_subscriber;
   ros::Subscriber mission_status_subscriber;
   ros::Subscriber mission_event_subscriber;
-
+  ros::Subscriber mission_type_sub;
   //Add a subscriber to listen to data sent by mobile device
   ros::Subscriber data_received_from_remote_device_subscriber;
 //Add a subscriber to obtain the detected Tag's position in an image;
@@ -139,6 +140,7 @@ public:
   float flight_x, flight_y, flight_x_tag,flight_y_tag,flight_norm,flight_height, flight_yaw,flight_gimbal_angle_pitch_inc,flight_gimbal_angle_yaw_inc;
   float yaw_from_apriltag;
   float yaw_from_drone;
+  bool  g_mission_type;
   
 private:
   void acceleration_subscriber_callback ( dji_sdk::Acceleration acceleration )
@@ -300,11 +302,30 @@ private:
   void apriltag_datection_callback ( const dji_sdk::Reldist & detection ) // geometry_msgs::PoseWithCovarianceStamped &msg)
   {
 #ifndef PID_USED
-    this->flight_x = detection.z;
-    this->flight_y = -detection.y;
+    if(!this->g_mission_type)    //for round 1
+    {
+      ROS_INFO("Round 1");
+      this->flight_x = detection.z;
+      this->flight_y = -detection.y;
+    }
+    else     //for round 2
+    {
+      ROS_INFO("Round 2");
+      this->flight_x = detection.x-1.0;   //keep the safe distance
+      this->flight_y = -detection.y;
+    }
 #endif
-    this->flight_x_tag = detection.z;
-    this->flight_y_tag = -detection.y;
+    if(!this->g_mission_type)    //for round 1
+    {
+      this->flight_x_tag = detection.z;
+      this->flight_y_tag = -detection.y;
+    }
+    else
+    {
+      this->flight_x_tag = detection.x-1.0;
+      this->flight_y_tag = -detection.y;
+    }
+    
     this->flight_gimbal_angle_pitch_inc = detection.gimbal_pitch_inc;// = atan(detection.z/(detection.x+0.00000001))*57.3;//To angle
     this->flight_norm = detection.norm;
     this->flight_height = detection.height_with_gimbal;
@@ -326,7 +347,11 @@ private:
           }
       }
   }
-
+  
+  void mission_type_callback(const std_msgs::Bool &mission_data)
+  {
+    this->g_mission_type=mission_data.data;
+  }
 
 
   //
@@ -418,7 +443,7 @@ public:
     time_stamp_subscriber = nh.subscribe<dji_sdk::TimeStamp> ( "dji_sdk/time_stamp", 10, &DJIDrone::time_stamp_subscriber_callback,this );
     mission_status_subscriber = nh.subscribe<dji_sdk::MissionPushInfo> ( "dji_sdk/mission_status", 10, &DJIDrone::mission_status_push_info_callback, this );
     mission_event_subscriber = nh.subscribe<dji_sdk::MissionPushInfo> ( "dji_sdk/mission_event", 10, &DJIDrone::mission_event_push_info_callback, this );
-
+    mission_type_sub = nh.subscribe ( "dji_sdk_demo/mission_type",10,&DJIDrone::mission_type_callback,this );
     m_detectionPoints_subscriber = nh.subscribe ( "apriltag_detection/detectionPoints",10,&DJIDrone::received_detectionPoints_callback,this );
 
     //Subscribe the data_received_from_remote_device

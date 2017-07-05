@@ -42,10 +42,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/cmake-gui
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /root/Documents/roswork/DJI2016_Challenge_v1.0/src
+CMAKE_SOURCE_DIR = /root/Documents/roswork/GaoFen_Challenge/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /root/Documents/roswork/DJI2016_Challenge_v1.0/build
+CMAKE_BINARY_DIR = /root/Documents/roswork/GaoFen_Challenge/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -123,14 +123,14 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles /root/Documents/roswork/DJI2016_Challenge_v1.0/build/Guidance-SDK-ROS/CMakeFiles/progress.marks
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/GaoFen_Challenge/build/CMakeFiles /root/Documents/roswork/GaoFen_Challenge/build/Guidance-SDK-ROS/CMakeFiles/progress.marks
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/GaoFen_Challenge/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/clean
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/clean
 .PHONY : clean
 
 # The main clean target
@@ -139,22 +139,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/preinstall
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/preinstall
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
 .PHONY : Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
@@ -163,12 +163,12 @@ geometry_msgs_generate_messages_cpp: Guidance-SDK-ROS/CMakeFiles/geometry_msgs_g
 
 # fast build rule for target.
 geometry_msgs_generate_messages_cpp/fast:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
 .PHONY : geometry_msgs_generate_messages_cpp/fast
 
 # Convenience name for target.
 Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
 .PHONY : Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
@@ -177,12 +177,12 @@ geometry_msgs_generate_messages_lisp: Guidance-SDK-ROS/CMakeFiles/geometry_msgs_
 
 # fast build rule for target.
 geometry_msgs_generate_messages_lisp/fast:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
 .PHONY : geometry_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
 Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
 .PHONY : Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
 
 # Convenience name for target.
@@ -191,12 +191,12 @@ geometry_msgs_generate_messages_py: Guidance-SDK-ROS/CMakeFiles/geometry_msgs_ge
 
 # fast build rule for target.
 geometry_msgs_generate_messages_py/fast:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make Guidance-SDK-ROS/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
 .PHONY : geometry_msgs_generate_messages_py/fast
 
 # Convenience name for target.
 Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/rule:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/rule
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/rule
 .PHONY : Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/rule
 
 # Convenience name for target.
@@ -205,12 +205,12 @@ guidanceNode: Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/rule
 
 # fast build rule for target.
 guidanceNode/fast:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/build
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/build
 .PHONY : guidanceNode/fast
 
 # Convenience name for target.
 Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/rule:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/rule
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/rule
 .PHONY : Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/rule
 
 # Convenience name for target.
@@ -219,12 +219,12 @@ guidanceNodeCalibration: Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir
 
 # fast build rule for target.
 guidanceNodeCalibration/fast:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/build
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/build
 .PHONY : guidanceNodeCalibration/fast
 
 # Convenience name for target.
 Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/rule:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/rule
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/rule
 .PHONY : Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/rule
 
 # Convenience name for target.
@@ -233,12 +233,12 @@ guidanceNodeTest: Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/rule
 
 # fast build rule for target.
 guidanceNodeTest/fast:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/build
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/build
 .PHONY : guidanceNodeTest/fast
 
 # Convenience name for target.
 Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_cpp.dir/rule:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
 .PHONY : Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
@@ -247,12 +247,12 @@ roscpp_generate_messages_cpp: Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messag
 
 # fast build rule for target.
 roscpp_generate_messages_cpp/fast:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_cpp.dir/build
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_cpp.dir/build
 .PHONY : roscpp_generate_messages_cpp/fast
 
 # Convenience name for target.
 Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_lisp.dir/rule:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
 .PHONY : Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
@@ -261,12 +261,12 @@ roscpp_generate_messages_lisp: Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messa
 
 # fast build rule for target.
 roscpp_generate_messages_lisp/fast:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_lisp.dir/build
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_lisp.dir/build
 .PHONY : roscpp_generate_messages_lisp/fast
 
 # Convenience name for target.
 Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_py.dir/rule:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_py.dir/rule
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_py.dir/rule
 .PHONY : Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_py.dir/rule
 
 # Convenience name for target.
@@ -275,12 +275,12 @@ roscpp_generate_messages_py: Guidance-SDK-ROS/CMakeFiles/roscpp_generate_message
 
 # fast build rule for target.
 roscpp_generate_messages_py/fast:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_py.dir/build.make Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_py.dir/build
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_py.dir/build.make Guidance-SDK-ROS/CMakeFiles/roscpp_generate_messages_py.dir/build
 .PHONY : roscpp_generate_messages_py/fast
 
 # Convenience name for target.
 Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
 .PHONY : Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
@@ -289,12 +289,12 @@ rosgraph_msgs_generate_messages_cpp: Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_g
 
 # fast build rule for target.
 rosgraph_msgs_generate_messages_cpp/fast:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
 .PHONY : rosgraph_msgs_generate_messages_cpp/fast
 
 # Convenience name for target.
 Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
 .PHONY : Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
@@ -303,12 +303,12 @@ rosgraph_msgs_generate_messages_lisp: Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_
 
 # fast build rule for target.
 rosgraph_msgs_generate_messages_lisp/fast:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
 .PHONY : rosgraph_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
 Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
 .PHONY : Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
 
 # Convenience name for target.
@@ -317,12 +317,12 @@ rosgraph_msgs_generate_messages_py: Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_ge
 
 # fast build rule for target.
 rosgraph_msgs_generate_messages_py/fast:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make Guidance-SDK-ROS/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
 .PHONY : rosgraph_msgs_generate_messages_py/fast
 
 # Convenience name for target.
 Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
 .PHONY : Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
@@ -331,12 +331,12 @@ sensor_msgs_generate_messages_cpp: Guidance-SDK-ROS/CMakeFiles/sensor_msgs_gener
 
 # fast build rule for target.
 sensor_msgs_generate_messages_cpp/fast:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build
 .PHONY : sensor_msgs_generate_messages_cpp/fast
 
 # Convenience name for target.
 Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
 .PHONY : Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
@@ -345,12 +345,12 @@ sensor_msgs_generate_messages_lisp: Guidance-SDK-ROS/CMakeFiles/sensor_msgs_gene
 
 # fast build rule for target.
 sensor_msgs_generate_messages_lisp/fast:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build
 .PHONY : sensor_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
 Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
 .PHONY : Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
 
 # Convenience name for target.
@@ -359,12 +359,12 @@ sensor_msgs_generate_messages_py: Guidance-SDK-ROS/CMakeFiles/sensor_msgs_genera
 
 # fast build rule for target.
 sensor_msgs_generate_messages_py/fast:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_py.dir/build
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make Guidance-SDK-ROS/CMakeFiles/sensor_msgs_generate_messages_py.dir/build
 .PHONY : sensor_msgs_generate_messages_py/fast
 
 # Convenience name for target.
 Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
 .PHONY : Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
@@ -373,12 +373,12 @@ std_msgs_generate_messages_cpp: Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_me
 
 # fast build rule for target.
 std_msgs_generate_messages_cpp/fast:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
 .PHONY : std_msgs_generate_messages_cpp/fast
 
 # Convenience name for target.
 Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
 .PHONY : Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
@@ -387,12 +387,12 @@ std_msgs_generate_messages_lisp: Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_m
 
 # fast build rule for target.
 std_msgs_generate_messages_lisp/fast:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
 .PHONY : std_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
 Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_py.dir/rule:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_py.dir/rule
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f CMakeFiles/Makefile2 Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_py.dir/rule
 .PHONY : Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_py.dir/rule
 
 # Convenience name for target.
@@ -401,7 +401,7 @@ std_msgs_generate_messages_py: Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_mes
 
 # fast build rule for target.
 std_msgs_generate_messages_py/fast:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_py.dir/build.make Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_py.dir/build
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_py.dir/build.make Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_py.dir/build
 .PHONY : std_msgs_generate_messages_py/fast
 
 src/DJI_utility.o: src/DJI_utility.cpp.o
@@ -409,8 +409,8 @@ src/DJI_utility.o: src/DJI_utility.cpp.o
 
 # target to build an object file
 src/DJI_utility.cpp.o:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/src/DJI_utility.cpp.o
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/src/DJI_utility.cpp.o
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/src/DJI_utility.cpp.o
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/src/DJI_utility.cpp.o
 .PHONY : src/DJI_utility.cpp.o
 
 src/DJI_utility.i: src/DJI_utility.cpp.i
@@ -418,8 +418,8 @@ src/DJI_utility.i: src/DJI_utility.cpp.i
 
 # target to preprocess a source file
 src/DJI_utility.cpp.i:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/src/DJI_utility.cpp.i
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/src/DJI_utility.cpp.i
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/src/DJI_utility.cpp.i
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/src/DJI_utility.cpp.i
 .PHONY : src/DJI_utility.cpp.i
 
 src/DJI_utility.s: src/DJI_utility.cpp.s
@@ -427,8 +427,8 @@ src/DJI_utility.s: src/DJI_utility.cpp.s
 
 # target to generate assembly for a file
 src/DJI_utility.cpp.s:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/src/DJI_utility.cpp.s
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/src/DJI_utility.cpp.s
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/src/DJI_utility.cpp.s
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/src/DJI_utility.cpp.s
 .PHONY : src/DJI_utility.cpp.s
 
 src/GuidanceNode.o: src/GuidanceNode.cpp.o
@@ -436,7 +436,7 @@ src/GuidanceNode.o: src/GuidanceNode.cpp.o
 
 # target to build an object file
 src/GuidanceNode.cpp.o:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/src/GuidanceNode.cpp.o
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/src/GuidanceNode.cpp.o
 .PHONY : src/GuidanceNode.cpp.o
 
 src/GuidanceNode.i: src/GuidanceNode.cpp.i
@@ -444,7 +444,7 @@ src/GuidanceNode.i: src/GuidanceNode.cpp.i
 
 # target to preprocess a source file
 src/GuidanceNode.cpp.i:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/src/GuidanceNode.cpp.i
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/src/GuidanceNode.cpp.i
 .PHONY : src/GuidanceNode.cpp.i
 
 src/GuidanceNode.s: src/GuidanceNode.cpp.s
@@ -452,7 +452,7 @@ src/GuidanceNode.s: src/GuidanceNode.cpp.s
 
 # target to generate assembly for a file
 src/GuidanceNode.cpp.s:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/src/GuidanceNode.cpp.s
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNode.dir/src/GuidanceNode.cpp.s
 .PHONY : src/GuidanceNode.cpp.s
 
 src/GuidanceNodeCalibration.o: src/GuidanceNodeCalibration.cpp.o
@@ -460,7 +460,7 @@ src/GuidanceNodeCalibration.o: src/GuidanceNodeCalibration.cpp.o
 
 # target to build an object file
 src/GuidanceNodeCalibration.cpp.o:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/src/GuidanceNodeCalibration.cpp.o
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/src/GuidanceNodeCalibration.cpp.o
 .PHONY : src/GuidanceNodeCalibration.cpp.o
 
 src/GuidanceNodeCalibration.i: src/GuidanceNodeCalibration.cpp.i
@@ -468,7 +468,7 @@ src/GuidanceNodeCalibration.i: src/GuidanceNodeCalibration.cpp.i
 
 # target to preprocess a source file
 src/GuidanceNodeCalibration.cpp.i:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/src/GuidanceNodeCalibration.cpp.i
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/src/GuidanceNodeCalibration.cpp.i
 .PHONY : src/GuidanceNodeCalibration.cpp.i
 
 src/GuidanceNodeCalibration.s: src/GuidanceNodeCalibration.cpp.s
@@ -476,7 +476,7 @@ src/GuidanceNodeCalibration.s: src/GuidanceNodeCalibration.cpp.s
 
 # target to generate assembly for a file
 src/GuidanceNodeCalibration.cpp.s:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/src/GuidanceNodeCalibration.cpp.s
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNodeCalibration.dir/src/GuidanceNodeCalibration.cpp.s
 .PHONY : src/GuidanceNodeCalibration.cpp.s
 
 src/GuidanceNodeTest.o: src/GuidanceNodeTest.cpp.o
@@ -484,7 +484,7 @@ src/GuidanceNodeTest.o: src/GuidanceNodeTest.cpp.o
 
 # target to build an object file
 src/GuidanceNodeTest.cpp.o:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/src/GuidanceNodeTest.cpp.o
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/src/GuidanceNodeTest.cpp.o
 .PHONY : src/GuidanceNodeTest.cpp.o
 
 src/GuidanceNodeTest.i: src/GuidanceNodeTest.cpp.i
@@ -492,7 +492,7 @@ src/GuidanceNodeTest.i: src/GuidanceNodeTest.cpp.i
 
 # target to preprocess a source file
 src/GuidanceNodeTest.cpp.i:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/src/GuidanceNodeTest.cpp.i
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/src/GuidanceNodeTest.cpp.i
 .PHONY : src/GuidanceNodeTest.cpp.i
 
 src/GuidanceNodeTest.s: src/GuidanceNodeTest.cpp.s
@@ -500,7 +500,7 @@ src/GuidanceNodeTest.s: src/GuidanceNodeTest.cpp.s
 
 # target to generate assembly for a file
 src/GuidanceNodeTest.cpp.s:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/src/GuidanceNodeTest.cpp.s
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(MAKE) -f Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/build.make Guidance-SDK-ROS/CMakeFiles/guidanceNodeTest.dir/src/GuidanceNodeTest.cpp.s
 .PHONY : src/GuidanceNodeTest.cpp.s
 
 # Help Target
@@ -557,6 +557,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /root/Documents/roswork/DJI2016_Challenge_v1.0/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /root/Documents/roswork/GaoFen_Challenge/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

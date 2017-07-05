@@ -1,8 +1,8 @@
-prefix=/root/Documents/roswork/DJI2016_Challenge_v1.0/install
+prefix=/root/Documents/roswork/GaoFen_Challenge/install
 
 Name: dji_sdk
 Description: Description of dji_sdk
 Version: 0.1.7
-Cflags: -I/root/Documents/roswork/DJI2016_Challenge_v1.0/install/include
-Libs: -L/root/Documents/roswork/DJI2016_Challenge_v1.0/install/lib 
+Cflags: -I/root/Documents/roswork/GaoFen_Challenge/install/include
+Libs: -L/root/Documents/roswork/GaoFen_Challenge/install/lib 
 Requires: message_runtime actionlib actionlib_msgs geometry_msgs nav_msgs std_msgs dji_sdk_lib

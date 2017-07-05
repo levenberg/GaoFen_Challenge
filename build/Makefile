@@ -42,10 +42,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/cmake-gui
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /root/Documents/roswork/DJI2016_Challenge_v1.0/src
+CMAKE_SOURCE_DIR = /root/Documents/roswork/GaoFen_Challenge/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /root/Documents/roswork/DJI2016_Challenge_v1.0/build
+CMAKE_BINARY_DIR = /root/Documents/roswork/GaoFen_Challenge/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -123,9 +123,9 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/GaoFen_Challenge/build/CMakeFiles /root/Documents/roswork/GaoFen_Challenge/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/DJI2016_Challenge_v1.0/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/GaoFen_Challenge/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -502,253 +502,6 @@ std_msgs_generate_messages_py: cmake_check_build_system
 std_msgs_generate_messages_py/fast:
 	$(MAKE) -f Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_py.dir/build.make Guidance-SDK-ROS/CMakeFiles/std_msgs_generate_messages_py.dir/build
 .PHONY : std_msgs_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named controller
-
-# Build rule for target.
-controller: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 controller
-.PHONY : controller
-
-# fast build rule for target.
-controller/fast:
-	$(MAKE) -f pid/CMakeFiles/controller.dir/build.make pid/CMakeFiles/controller.dir/build
-.PHONY : controller/fast
-
-#=============================================================================
-# Target rules for targets named diagnostic_msgs_generate_messages_cpp
-
-# Build rule for target.
-diagnostic_msgs_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 diagnostic_msgs_generate_messages_cpp
-.PHONY : diagnostic_msgs_generate_messages_cpp
-
-# fast build rule for target.
-diagnostic_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f pid/CMakeFiles/diagnostic_msgs_generate_messages_cpp.dir/build.make pid/CMakeFiles/diagnostic_msgs_generate_messages_cpp.dir/build
-.PHONY : diagnostic_msgs_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named diagnostic_msgs_generate_messages_lisp
-
-# Build rule for target.
-diagnostic_msgs_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 diagnostic_msgs_generate_messages_lisp
-.PHONY : diagnostic_msgs_generate_messages_lisp
-
-# fast build rule for target.
-diagnostic_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f pid/CMakeFiles/diagnostic_msgs_generate_messages_lisp.dir/build.make pid/CMakeFiles/diagnostic_msgs_generate_messages_lisp.dir/build
-.PHONY : diagnostic_msgs_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named diagnostic_msgs_generate_messages_py
-
-# Build rule for target.
-diagnostic_msgs_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 diagnostic_msgs_generate_messages_py
-.PHONY : diagnostic_msgs_generate_messages_py
-
-# fast build rule for target.
-diagnostic_msgs_generate_messages_py/fast:
-	$(MAKE) -f pid/CMakeFiles/diagnostic_msgs_generate_messages_py.dir/build.make pid/CMakeFiles/diagnostic_msgs_generate_messages_py.dir/build
-.PHONY : diagnostic_msgs_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named dynamic_reconfigure_gencfg
-
-# Build rule for target.
-dynamic_reconfigure_gencfg: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 dynamic_reconfigure_gencfg
-.PHONY : dynamic_reconfigure_gencfg
-
-# fast build rule for target.
-dynamic_reconfigure_gencfg/fast:
-	$(MAKE) -f pid/CMakeFiles/dynamic_reconfigure_gencfg.dir/build.make pid/CMakeFiles/dynamic_reconfigure_gencfg.dir/build
-.PHONY : dynamic_reconfigure_gencfg/fast
-
-#=============================================================================
-# Target rules for targets named dynamic_reconfigure_generate_messages_cpp
-
-# Build rule for target.
-dynamic_reconfigure_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 dynamic_reconfigure_generate_messages_cpp
-.PHONY : dynamic_reconfigure_generate_messages_cpp
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_cpp/fast:
-	$(MAKE) -f pid/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build.make pid/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named dynamic_reconfigure_generate_messages_lisp
-
-# Build rule for target.
-dynamic_reconfigure_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 dynamic_reconfigure_generate_messages_lisp
-.PHONY : dynamic_reconfigure_generate_messages_lisp
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_lisp/fast:
-	$(MAKE) -f pid/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build.make pid/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named dynamic_reconfigure_generate_messages_py
-
-# Build rule for target.
-dynamic_reconfigure_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 dynamic_reconfigure_generate_messages_py
-.PHONY : dynamic_reconfigure_generate_messages_py
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_py/fast:
-	$(MAKE) -f pid/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/build.make pid/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named pid_gencfg
-
-# Build rule for target.
-pid_gencfg: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 pid_gencfg
-.PHONY : pid_gencfg
-
-# fast build rule for target.
-pid_gencfg/fast:
-	$(MAKE) -f pid/CMakeFiles/pid_gencfg.dir/build.make pid/CMakeFiles/pid_gencfg.dir/build
-.PHONY : pid_gencfg/fast
-
-#=============================================================================
-# Target rules for targets named pid_gencpp
-
-# Build rule for target.
-pid_gencpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 pid_gencpp
-.PHONY : pid_gencpp
-
-# fast build rule for target.
-pid_gencpp/fast:
-	$(MAKE) -f pid/CMakeFiles/pid_gencpp.dir/build.make pid/CMakeFiles/pid_gencpp.dir/build
-.PHONY : pid_gencpp/fast
-
-#=============================================================================
-# Target rules for targets named pid_generate_messages
-
-# Build rule for target.
-pid_generate_messages: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 pid_generate_messages
-.PHONY : pid_generate_messages
-
-# fast build rule for target.
-pid_generate_messages/fast:
-	$(MAKE) -f pid/CMakeFiles/pid_generate_messages.dir/build.make pid/CMakeFiles/pid_generate_messages.dir/build
-.PHONY : pid_generate_messages/fast
-
-#=============================================================================
-# Target rules for targets named pid_generate_messages_cpp
-
-# Build rule for target.
-pid_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 pid_generate_messages_cpp
-.PHONY : pid_generate_messages_cpp
-
-# fast build rule for target.
-pid_generate_messages_cpp/fast:
-	$(MAKE) -f pid/CMakeFiles/pid_generate_messages_cpp.dir/build.make pid/CMakeFiles/pid_generate_messages_cpp.dir/build
-.PHONY : pid_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named pid_generate_messages_lisp
-
-# Build rule for target.
-pid_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 pid_generate_messages_lisp
-.PHONY : pid_generate_messages_lisp
-
-# fast build rule for target.
-pid_generate_messages_lisp/fast:
-	$(MAKE) -f pid/CMakeFiles/pid_generate_messages_lisp.dir/build.make pid/CMakeFiles/pid_generate_messages_lisp.dir/build
-.PHONY : pid_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named pid_generate_messages_py
-
-# Build rule for target.
-pid_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 pid_generate_messages_py
-.PHONY : pid_generate_messages_py
-
-# fast build rule for target.
-pid_generate_messages_py/fast:
-	$(MAKE) -f pid/CMakeFiles/pid_generate_messages_py.dir/build.make pid/CMakeFiles/pid_generate_messages_py.dir/build
-.PHONY : pid_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named pid_genlisp
-
-# Build rule for target.
-pid_genlisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 pid_genlisp
-.PHONY : pid_genlisp
-
-# fast build rule for target.
-pid_genlisp/fast:
-	$(MAKE) -f pid/CMakeFiles/pid_genlisp.dir/build.make pid/CMakeFiles/pid_genlisp.dir/build
-.PHONY : pid_genlisp/fast
-
-#=============================================================================
-# Target rules for targets named pid_genpy
-
-# Build rule for target.
-pid_genpy: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 pid_genpy
-.PHONY : pid_genpy
-
-# fast build rule for target.
-pid_genpy/fast:
-	$(MAKE) -f pid/CMakeFiles/pid_genpy.dir/build.make pid/CMakeFiles/pid_genpy.dir/build
-.PHONY : pid_genpy/fast
-
-#=============================================================================
-# Target rules for targets named plant_sim
-
-# Build rule for target.
-plant_sim: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 plant_sim
-.PHONY : plant_sim
-
-# fast build rule for target.
-plant_sim/fast:
-	$(MAKE) -f pid/CMakeFiles/plant_sim.dir/build.make pid/CMakeFiles/plant_sim.dir/build
-.PHONY : plant_sim/fast
-
-#=============================================================================
-# Target rules for targets named setpoint_node
-
-# Build rule for target.
-setpoint_node: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 setpoint_node
-.PHONY : setpoint_node
-
-# fast build rule for target.
-setpoint_node/fast:
-	$(MAKE) -f pid/CMakeFiles/setpoint_node.dir/build.make pid/CMakeFiles/setpoint_node.dir/build
-.PHONY : setpoint_node/fast
-
-#=============================================================================
-# Target rules for targets named sim_time
-
-# Build rule for target.
-sim_time: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 sim_time
-.PHONY : sim_time
-
-# fast build rule for target.
-sim_time/fast:
-	$(MAKE) -f pid/CMakeFiles/sim_time.dir/build.make pid/CMakeFiles/sim_time.dir/build
-.PHONY : sim_time/fast
 
 #=============================================================================
 # Target rules for targets named _dji_sdk_generate_messages_check_deps_A3GPS
@@ -2246,6 +1999,19 @@ dji_sdk_client_mine/fast:
 .PHONY : dji_sdk_client_mine/fast
 
 #=============================================================================
+# Target rules for targets named dji_sdk_gaofen_2
+
+# Build rule for target.
+dji_sdk_gaofen_2: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 dji_sdk_gaofen_2
+.PHONY : dji_sdk_gaofen_2
+
+# fast build rule for target.
+dji_sdk_gaofen_2/fast:
+	$(MAKE) -f dji_sdk_demo_mine/CMakeFiles/dji_sdk_gaofen_2.dir/build.make dji_sdk_demo_mine/CMakeFiles/dji_sdk_gaofen_2.dir/build
+.PHONY : dji_sdk_gaofen_2/fast
+
+#=============================================================================
 # Target rules for targets named dji_sdk_read_cam
 
 # Build rule for target.
@@ -2298,25 +2064,6 @@ help:
 	@echo "... std_msgs_generate_messages_cpp"
 	@echo "... std_msgs_generate_messages_lisp"
 	@echo "... std_msgs_generate_messages_py"
-	@echo "... controller"
-	@echo "... diagnostic_msgs_generate_messages_cpp"
-	@echo "... diagnostic_msgs_generate_messages_lisp"
-	@echo "... diagnostic_msgs_generate_messages_py"
-	@echo "... dynamic_reconfigure_gencfg"
-	@echo "... dynamic_reconfigure_generate_messages_cpp"
-	@echo "... dynamic_reconfigure_generate_messages_lisp"
-	@echo "... dynamic_reconfigure_generate_messages_py"
-	@echo "... pid_gencfg"
-	@echo "... pid_gencpp"
-	@echo "... pid_generate_messages"
-	@echo "... pid_generate_messages_cpp"
-	@echo "... pid_generate_messages_lisp"
-	@echo "... pid_generate_messages_py"
-	@echo "... pid_genlisp"
-	@echo "... pid_genpy"
-	@echo "... plant_sim"
-	@echo "... setpoint_node"
-	@echo "... sim_time"
 	@echo "... _dji_sdk_generate_messages_check_deps_A3GPS"
 	@echo "... _dji_sdk_generate_messages_check_deps_A3RTK"
 	@echo "... _dji_sdk_generate_messages_check_deps_Acceleration"
@@ -2432,6 +2179,7 @@ help:
 	@echo "... tf_generate_messages_lisp"
 	@echo "... tf_generate_messages_py"
 	@echo "... dji_sdk_client_mine"
+	@echo "... dji_sdk_gaofen_2"
 	@echo "... dji_sdk_read_cam"
 .PHONY : help
 

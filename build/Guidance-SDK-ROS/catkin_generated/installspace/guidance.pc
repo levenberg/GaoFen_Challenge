@@ -1,8 +1,8 @@
-prefix=/root/Documents/roswork/DJI2016_Challenge_v1.0/install
+prefix=/root/Documents/roswork/GaoFen_Challenge/install
 
 Name: guidance
 Description: Description of guidance
 Version: 0.0.1
 Cflags: 
-Libs: -L/root/Documents/roswork/DJI2016_Challenge_v1.0/install/lib 
+Libs: -L/root/Documents/roswork/GaoFen_Challenge/install/lib 
 Requires: 
