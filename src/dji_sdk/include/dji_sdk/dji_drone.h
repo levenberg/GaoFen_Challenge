@@ -307,7 +307,7 @@ private:
       ROS_INFO("Round 1");
       this->flight_x = detection.z;
       this->flight_y = -detection.y;
-      this->flight_yaw= detection.pitch;
+      this->flight_yaw= detection.pitch*57.3;
     }
     else     //for round 2
     {

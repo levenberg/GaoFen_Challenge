@@ -14,7 +14,7 @@
 #include<fstream>
 
 #define GIMBAL_USED
-#define filter_N 4
+#define filter_N 5
 #define EPS 0.0000000001
 #define USE_OBDIST
 
@@ -161,13 +161,13 @@ int main ( int argc, char **argv )
 
     //float flight_x_filtered = 0.0;
     // std_msgs::Float64 filtered_x_msg,not_filtered_x_msg;
-    float filtered_x=0.0,filtered_y=0.0;
+    float filtered_x=0.0,filtered_y=0.0, filtered_yaw=0.0;
     //filtered_x_msg.data = 0.0;
     float yaw=0;
     // not_filtered_x_msg.data = 0.0;
 
     //For filtering;
-    float filter_seq_x[filter_N]= {0},filter_seq_y[filter_N]= {0};
+    float filter_seq_x[filter_N]= {0},filter_seq_y[filter_N]= {0}, filter_seq_yaw[filter_N]={0};
 
     //For vel_MODE
     float vel_x_drone = 0.0, vel_y_drone = 0.0;
@@ -205,15 +205,17 @@ int main ( int argc, char **argv )
         {
             filter_seq_x[i] = filter_seq_x[i+1];
             filter_seq_y[i] = filter_seq_y[i+1];
+	    filter_seq_yaw[i]=filter_seq_yaw[i+1];
         }
 
         filter_seq_x[filter_N-1] = drone->flight_x;
         filter_seq_y[filter_N-1] = drone->flight_y;
-
+	filter_seq_yaw[filter_N-1]=drone->flight_yaw;
         filtered_x =  drone->flight_x;//( sum ( filter_seq_x,filter_N )-find_max ( filter_seq_x,filter_N )-find_min ( filter_seq_x,filter_N ) ) / ( filter_N-2 );
 
         filtered_y =  drone->flight_y;//( sum ( filter_seq_y,filter_N )-find_max ( filter_seq_y,filter_N )-find_min ( filter_seq_y,filter_N ) ) / ( filter_N-2 );
-
+        
+        filtered_yaw= (sum ( filter_seq_y,filter_N )-find_max ( filter_seq_y,filter_N )-find_min ( filter_seq_y,filter_N ) ) / ( filter_N-2 );
         // if start_searching=1, follow line
         start_searching_pub.publish ( start_searching );
 	mission_type_pub.publish ( mission_type );
