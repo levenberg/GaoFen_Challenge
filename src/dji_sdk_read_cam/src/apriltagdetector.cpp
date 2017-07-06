@@ -110,7 +110,7 @@ void ApriltagDetector::processImage ( cv::Mat& image )
   // no prev window, do detection on the whole image; if searching for apriltags, detect the whole image
   if ( m_win.size() !=4||m_mode==0 )//||m_mission_type==true)
     {
-      ROS_INFO("No prev window");
+      //ROS_INFO("No prev window");
       detections = m_tagDetector->extractTags ( image_gray );
     }
   // prev window exists, only process in it

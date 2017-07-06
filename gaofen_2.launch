@@ -16,7 +16,7 @@
 
 	</node>
 
-       <node pkg="guidance" type="guidanceNode" name="guidanceNode" output="screen" />
+     <!--  <node pkg="guidance" type="guidanceNode" name="guidanceNode" output="screen" />  -->
 
 	<node pkg="dji_sdk_demo_mine" type="dji_sdk_gaofen_2" name="dji_sdk_gaofen_2"  output="screen">
 		<param name="delayCount" type="int" value="20"/>

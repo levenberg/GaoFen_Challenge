@@ -303,27 +303,27 @@ int main ( int argc, char **argv )
   pthread_t pid;
 
   ApriltagDetector* detectorAndTracker = new ApriltagDetector ( node );
-  //int res = pthread_create ( &pid, NULL, trackLoop,  detectorAndTracker);
-  //if ( res != 0 )
-  //  printf ( "pthread_create error!\n" );
-  ROS_INFO ( "I am 0.0" );
+  int res = pthread_create ( &pid, NULL, trackLoop,  detectorAndTracker);
+  if ( res != 0 )
+    printf ( "pthread_create error!\n" );
+  
   ret = manifold_cam_init ( mode );
-  ROS_INFO ( "I am 0.1" );
+ 
   if ( ret == -1 )
     {
-      ROS_INFO ( "I am 1.0" );
+ 
       printf ( "manifold init error \n" );
       return -1;
     }
- ROS_INFO ( "I am 0.3" );
+ 
   while ( 1 )
     {
-      ROS_INFO ( "I am 2.1" );
+      
       ret = manifold_cam_read ( buffer, &nframe, 1 );
-      ROS_INFO ( "I am 2.2" );
+  
       if ( ret != -1 )
         {
-          ROS_INFO ( "I am in" );
+       
           if ( gray_or_rgb )
             {
               NV12ToRGB ( buffer,pData,1280,720 );
@@ -352,10 +352,10 @@ int main ( int argc, char **argv )
           cam_info.header.seq = nCount;
           cam_info.header.stamp = time;
           caminfo_pub.publish ( cam_info );
-         // image_pub.publish(im);
-	  cv::Mat imageshow = cv::Mat ( pImg, true );
-	  cv::imshow ( "img", imageshow );
-          cv::waitKey ( 1 );
+          // image_pub.publish(im);
+	  // cv::Mat imageshow = cv::Mat ( pImg, true );
+	  // cv::imshow ( "img", imageshow );
+          // cv::waitKey ( 1 );
           ros::spinOnce();
           nCount++;
 
