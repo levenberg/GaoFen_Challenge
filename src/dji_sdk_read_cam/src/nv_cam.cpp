@@ -227,6 +227,20 @@ void* trackLoop ( void* tmp )
 }
 
 
+void cvMouseCallback(int mouseEvent,int x,int y,int flags,void* param)
+{
+  int *count=(int*)param;
+  string str=std::format("%n",*count);
+  switch(mouseEvent)
+  {
+    case CV_EVENT_LBUTTONDOWN:
+      cvSaveImage(str,pImg);
+      break;
+  }
+  return;
+}
+
+
 int main ( int argc, char **argv )
 {
   ros::init ( argc,argv,"image_raw" );
@@ -316,6 +330,10 @@ int main ( int argc, char **argv )
       return -1;
     }
  
+ cv::namedWindow("img",CV_WINDOW_AUTOSIZE);
+	cv::setMouseCallback("img",cvMouseCallback,&nCount);
+ 
+ 
   while ( 1 )
     {
       
@@ -353,11 +371,14 @@ int main ( int argc, char **argv )
           cam_info.header.stamp = time;
           caminfo_pub.publish ( cam_info );
           // image_pub.publish(im);
-	  // cv::Mat imageshow = cv::Mat ( pImg, true );
-	  // cv::imshow ( "img", imageshow );
-          // cv::waitKey ( 1 );
+	  cv::Mat imageshow = cv::Mat ( pImg, true );
+	   cv::imshow ( "img", imageshow );
+           cv::waitKey ( 1 );
           ros::spinOnce();
           nCount++;
+	  
+	  
+	  
 
         }
       else
