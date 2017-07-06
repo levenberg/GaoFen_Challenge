@@ -307,12 +307,14 @@ private:
       ROS_INFO("Round 1");
       this->flight_x = detection.z;
       this->flight_y = -detection.y;
+      this->flight_yaw= detection.pitch;
     }
     else     //for round 2
     {
       //ROS_INFO("Round 2");
       this->flight_x = detection.x-1.0;   //keep the safe distance
       this->flight_y = -detection.y;
+      this->flight_yaw= detection.pitch*57.3;
     }
 #endif
     if(!this->g_mission_type)    //for round 1
