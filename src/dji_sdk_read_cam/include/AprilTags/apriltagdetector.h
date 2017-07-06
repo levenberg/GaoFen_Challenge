@@ -118,11 +118,11 @@ public:
 
     m_width ( 640 ),
     m_height ( 360 ),
-    m_tagSize ( 0.161 ),
-    m_fx ( 373 ), //Specified by x3 Camera;
-    m_fy ( 373 ),
-    m_px ( 318 ),
-    m_py ( 181 ),
+    m_tagSize ( 0.163 ),
+    m_fx ( 263.5 ), //Specified by x3 Camera;
+    m_fy ( 253.6 ),
+    m_px ( 318.44 ),
+    m_py ( 170 ),
     m_frames ( 0 ),
     m_isTracking ( false ),
     m_CMD_from_remote('W'),
