@@ -241,11 +241,11 @@ int main ( int argc, char **argv )
 	    writeF<<"line following"<<drone->local_position.z<<endl;
 	    last_flight_x = filtered_x;
 	    last_flight_y = filtered_y;
-	    if ( (drone->local_position.z<1.9||ob_distance[0]<1.9))// ||flying_height_control_tracking<1.8 )
+	    if ( (drone->local_position.z<tracking_flight_height-0.1||ob_distance[0]<tracking_flight_height-0.1))// ||flying_height_control_tracking<1.8 )
 	    {
 	      flying_height_control_tracking += 0.02;
 	    }
-	    else if ( (drone->local_position.z>2.1||ob_distance[0]>2.1)&ob_distance[0]<10)// &&flying_height_control_tracking>2.2 ) //ob_distance[0]>1.8 )
+	    else if ( (drone->local_position.z>tracking_flight_height+0.1||ob_distance[0]>tracking_flight_height+0.1)&ob_distance[0]<10)// &&flying_height_control_tracking>2.2 ) //ob_distance[0]>1.8 )
 	    {  //ob_distance[0]<10 for data aviliable
 	      flying_height_control_tracking -= 0.02;
 	    }

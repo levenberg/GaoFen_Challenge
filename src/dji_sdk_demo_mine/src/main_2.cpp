@@ -225,12 +225,12 @@ int main ( int argc, char **argv )
 	{
 	  
 	  /*****************************************************'Q' : TAKE OFF**********************************************/
-	  /********************************************************************************************************************/
+	  /***********************take off and keep more safe distance, at the same time keep drone still ************************************************************/
 	  case 'q':
 	  {
 	    //ROS_INFO ( "take off" );
 	    writeF<<"take off"<<drone->local_position.z<<endl;
-	    drone->attitude_control ( 0x9B,0,0,flying_height_control_tracking,0 );
+	    drone->attitude_control ( 0x9B,filtered_x-0.3,filtered_y,flying_height_control_tracking, filtered_yaw );
 	    start_yaw = drone->yaw_from_drone;//Record the yaw of taking off
 	    break;
 	  }
@@ -251,7 +251,7 @@ int main ( int argc, char **argv )
 	      flying_height_control_tracking -= 0.02;
 	    }
 
-	    drone->attitude_control ( 0x9B,filtered_x,filtered_y,flying_height_control_tracking,0 );	    
+	    drone->attitude_control ( 0x9B,filtered_x,filtered_y,flying_height_control_tracking,filtered_yaw );	    
 	    
 	    break;
 	  }

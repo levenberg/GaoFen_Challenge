@@ -22,7 +22,7 @@
 		<param name="delayCount" type="int" value="20"/>
 		<param name="maxTakeoffWaitCount" type="int" value="700"/>
 		<param name="descendingSpeed"  value="0.005"/>
-		<param name="initTrackingHeight" value="2.0"/>
+		<param name="initTrackingHeight" value="1.5"/>
 	        <param name="initDescedingHeightSearch" value="18.0"/>  
           <param name="initial_searching_height" value="1.7"/>
 	</node>
