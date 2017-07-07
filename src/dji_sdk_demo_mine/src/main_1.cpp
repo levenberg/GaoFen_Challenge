@@ -229,7 +229,9 @@ int main ( int argc, char **argv )
 	  {
 	    //ROS_INFO ( "take off" );
 	    writeF<<"take off"<<drone->local_position.z<<endl;
-	    drone->attitude_control ( 0x9B,0,0,flying_height_control_tracking,0 );
+	    //cannot use flying_height_control_tracking for second time flight.
+	    drone->attitude_control ( 0x9B,0,0,tracking_flight_height,0 );
+	    flying_height_control_tracking = tracking_flight_height;;
 	    start_yaw = drone->yaw_from_drone;//Record the yaw of taking off
 	    break;
 	  }

@@ -374,10 +374,10 @@ int main ( int argc, char **argv )
           caminfo_pub.publish ( cam_info );
           // image_pub.publish(im);
 	  //for calibration only
-	 /*cv::Mat imageshow = cv::Mat ( pImg, true );
+	 cv::Mat imageshow = cv::Mat ( pImg, true );
 	   cv::imshow ( "img", imageshow );
            cv::waitKey ( 1 );
-          */
+          
           ros::spinOnce();
           nCount++;
 

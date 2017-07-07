@@ -28,7 +28,7 @@ static uint8_t numOfDetections = 0;
 static float last_flight_x = 0.0;
 static float last_flight_y = 0.0;
 static float last_flight_yaw = 0.0;//not used yet
-static bool using_smallTags = false;
+static bool using_smallTags = false; 
 static float flight_yaw_relative = 0.0;//not used yet
 static float ob_distance[5]= {10.0};
 
@@ -215,7 +215,7 @@ int main ( int argc, char **argv )
 
         filtered_y =  drone->flight_y;//( sum ( filter_seq_y,filter_N )-find_max ( filter_seq_y,filter_N )-find_min ( filter_seq_y,filter_N ) ) / ( filter_N-2 );
         
-        filtered_yaw= (sum ( filter_seq_y,filter_N )-find_max ( filter_seq_y,filter_N )-find_min ( filter_seq_y,filter_N ) ) / ( filter_N-2 );
+        filtered_yaw= drone->flight_yaw;//(sum ( filter_seq_y,filter_N )-find_max ( filter_seq_y,filter_N )-find_min ( filter_seq_y,filter_N ) ) / ( filter_N-2 );
         // if start_searching=1, follow line
         start_searching_pub.publish ( start_searching );
 	mission_type_pub.publish ( mission_type );
@@ -230,7 +230,9 @@ int main ( int argc, char **argv )
 	  {
 	    //ROS_INFO ( "take off" );
 	    writeF<<"take off"<<drone->local_position.z<<endl;
-	    drone->attitude_control ( 0x9B,filtered_x-0.3,filtered_y,flying_height_control_tracking, filtered_yaw );
+	    //only can use tracking_flight_height
+	    drone->attitude_control ( 0x9B,filtered_x,filtered_y,tracking_flight_height, 0 );
+	    flying_height_control_tracking = tracking_flight_height;
 	    start_yaw = drone->yaw_from_drone;//Record the yaw of taking off
 	    break;
 	  }
@@ -239,14 +241,15 @@ int main ( int argc, char **argv )
 	  case 'd':
 	  {
 	    //ROS_INFO ( "human tracking" );
-	    writeF<<"human tracking"<<drone->local_position.z<<endl;
+	    writeF<<"human tracking "<<drone->local_position.z<<",ob="<<ob_distance[0]<<endl;
 	    last_flight_x = filtered_x;
 	    last_flight_y = filtered_y;
-	    if ( (drone->local_position.z<tracking_flight_height-0.1||ob_distance[0]<tracking_flight_height-0.1))// ||flying_height_control_tracking<1.8 )
+	    //ob_distance[0] must be reliable
+	    if ( drone->local_position.z<tracking_flight_height-0.1||ob_distance[0]<tracking_flight_height-0.1)// ||flying_height_control_tracking<1.8 )
 	    {
 	      flying_height_control_tracking += 0.02;
 	    }
-	    else if ( (drone->local_position.z>tracking_flight_height+0.1||ob_distance[0]>tracking_flight_height+0.1)&ob_distance[0]<10)// &&flying_height_control_tracking>2.2 ) //ob_distance[0]>1.8 )
+	    if ( (drone->local_position.z>tracking_flight_height+0.1||ob_distance[0]>tracking_flight_height+0.1)&ob_distance[0]<10)// &&flying_height_control_tracking>2.2 ) //ob_distance[0]>1.8 )
 	    {  //ob_distance[0]<10 for data aviliable
 	      flying_height_control_tracking -= 0.02;
 	    }

@@ -14,21 +14,21 @@
 #include<fstream>
 
 #define GIMBAL_USED
-#define filter_N 4
+#define filter_N 5
 #define EPS 0.0000000001
 #define USE_OBDIST
 
 #define PI 3.1415926536
 #define VEL_MODE
 
-ofstream writeF ( "/root/log.txt",ios::app );
+ofstream writeF ( "/root/log_2.txt",ios::app );
 using namespace DJI::onboardSDK;
 using namespace actionlib;
 static uint8_t numOfDetections = 0;
 static float last_flight_x = 0.0;
 static float last_flight_y = 0.0;
 static float last_flight_yaw = 0.0;//not used yet
-static bool using_smallTags = false;
+static bool using_smallTags = false; 
 static float flight_yaw_relative = 0.0;//not used yet
 static float ob_distance[5]= {10.0};
 
@@ -161,20 +161,20 @@ int main ( int argc, char **argv )
 
     //float flight_x_filtered = 0.0;
     // std_msgs::Float64 filtered_x_msg,not_filtered_x_msg;
-    float filtered_x=0.0,filtered_y=0.0;
+    float filtered_x=0.0,filtered_y=0.0, filtered_yaw=0.0;
     //filtered_x_msg.data = 0.0;
     float yaw=0;
     // not_filtered_x_msg.data = 0.0;
 
     //For filtering;
-    float filter_seq_x[filter_N]= {0},filter_seq_y[filter_N]= {0};
+    float filter_seq_x[filter_N]= {0},filter_seq_y[filter_N]= {0}, filter_seq_yaw[filter_N]={0};
 
     //For vel_MODE
     float vel_x_drone = 0.0, vel_y_drone = 0.0;
 
     float initial_DeltaX, initial_DeltaY,DeltaX,DeltaY,initial_speedingup_height;
     float last_x_tag, last_y_tag;
-    drone->gimbal_angle_control ( 0,-450,0,20 ); //Head for-downward for better perspective.
+    drone->gimbal_angle_control ( 0,0,0,20 ); //Head forward for better perspective.
 
     int landing_state = 0;
     int state_in_mission = 0;
@@ -191,7 +191,6 @@ int main ( int argc, char **argv )
 
     std_msgs::Bool start_searching;
     start_searching.data= true;
-    bool flip_once = true;
     
     /******************************************IMPORTANT*************************************************/
     std_msgs::Bool mission_type;
@@ -206,15 +205,17 @@ int main ( int argc, char **argv )
         {
             filter_seq_x[i] = filter_seq_x[i+1];
             filter_seq_y[i] = filter_seq_y[i+1];
+	    filter_seq_yaw[i]=filter_seq_yaw[i+1];
         }
 
         filter_seq_x[filter_N-1] = drone->flight_x;
         filter_seq_y[filter_N-1] = drone->flight_y;
-
+	filter_seq_yaw[filter_N-1]=drone->flight_yaw;
         filtered_x =  drone->flight_x;//( sum ( filter_seq_x,filter_N )-find_max ( filter_seq_x,filter_N )-find_min ( filter_seq_x,filter_N ) ) / ( filter_N-2 );
 
         filtered_y =  drone->flight_y;//( sum ( filter_seq_y,filter_N )-find_max ( filter_seq_y,filter_N )-find_min ( filter_seq_y,filter_N ) ) / ( filter_N-2 );
-
+        
+        filtered_yaw= drone->flight_yaw;//(sum ( filter_seq_y,filter_N )-find_max ( filter_seq_y,filter_N )-find_min ( filter_seq_y,filter_N ) ) / ( filter_N-2 );
         // if start_searching=1, follow line
         start_searching_pub.publish ( start_searching );
 	mission_type_pub.publish ( mission_type );
@@ -224,12 +225,12 @@ int main ( int argc, char **argv )
 	{
 	  
 	  /*****************************************************'Q' : TAKE OFF**********************************************/
-	  /********************************************************************************************************************/
+	  /***********************take off and keep more safe distance, at the same time keep drone still ************************************************************/
 	  case 'q':
 	  {
-	    ROS_INFO ( "take off" );
+	    //ROS_INFO ( "take off" );
 	    writeF<<"take off"<<drone->local_position.z<<endl;
-	    drone->attitude_control ( 0x9B,0,0,flying_height_control_tracking,0 );
+	    drone->attitude_control ( 0x9B,filtered_x,filtered_y,flying_height_control_tracking, filtered_yaw );
 	    start_yaw = drone->yaw_from_drone;//Record the yaw of taking off
 	    break;
 	  }
@@ -237,20 +238,20 @@ int main ( int argc, char **argv )
 	  /*****************************************************************************************************************/
 	  case 'd':
 	  {
-	    ROS_INFO ( "human tracking" );
+	    //ROS_INFO ( "human tracking" );
 	    writeF<<"human tracking"<<drone->local_position.z<<endl;
 	    last_flight_x = filtered_x;
 	    last_flight_y = filtered_y;
-	    if ( (drone->local_position.z<1.9||ob_distance[0]<1.9))// ||flying_height_control_tracking<1.8 )
+	    if ( (drone->local_position.z<tracking_flight_height-0.1||ob_distance[0]<tracking_flight_height-0.1))// ||flying_height_control_tracking<1.8 )
 	    {
 	      flying_height_control_tracking += 0.02;
 	    }
-	    else if ( (drone->local_position.z>2.1||ob_distance[0]>2.1)&ob_distance[0]<10)// &&flying_height_control_tracking>2.2 ) //ob_distance[0]>1.8 )
+	    else if ( (drone->local_position.z>tracking_flight_height+0.1||ob_distance[0]>tracking_flight_height+0.1)&ob_distance[0]<10)// &&flying_height_control_tracking>2.2 ) //ob_distance[0]>1.8 )
 	    {  //ob_distance[0]<10 for data aviliable
 	      flying_height_control_tracking -= 0.02;
 	    }
 
-	    drone->attitude_control ( 0x9B,filtered_x,filtered_y,flying_height_control_tracking,0 );	    
+	    drone->attitude_control ( 0x9B,filtered_x,filtered_y,flying_height_control_tracking,filtered_yaw );	    
 	    
 	    break;
 	  }

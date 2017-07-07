@@ -188,9 +188,13 @@ void ApriltagDetector::print_detections ( )
   if ( detections.empty() ) // no Tag found
     {
       rel_dist.header.stamp = ros::Time::now();
-      rel_dist.x = 0;
+      rel_dist.x = 1.0;  //for safe distance, 1 meters
       rel_dist.y = 0;
       rel_dist.z = 0;
+      rel_dist.yaw = 0;
+      rel_dist.pitch = 0;
+      rel_dist.roll = 0;
+   
       rel_dist.norm = 0.0;
       rel_dist.gimbal_pitch_inc = 0.0;
       rel_dist.istracked = false;
