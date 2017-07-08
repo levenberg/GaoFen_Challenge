@@ -231,7 +231,7 @@ int main ( int argc, char **argv )
 	    //ROS_INFO ( "take off" );
 	    writeF<<"take off"<<drone->local_position.z<<endl;
 	    //only can use tracking_flight_height
-	    drone->attitude_control ( 0x9B,filtered_x,filtered_y,tracking_flight_height, 0 );
+	    drone->attitude_control ( 0x9B,0,0,tracking_flight_height, 0 );
 	    flying_height_control_tracking = tracking_flight_height;
 	    start_yaw = drone->yaw_from_drone;//Record the yaw of taking off
 	    break;
@@ -245,11 +245,11 @@ int main ( int argc, char **argv )
 	    last_flight_x = filtered_x;
 	    last_flight_y = filtered_y;
 	    //ob_distance[0] must be reliable
-	    if ( drone->local_position.z<tracking_flight_height-0.1||ob_distance[0]<tracking_flight_height-0.1)// ||flying_height_control_tracking<1.8 )
+	    if (ob_distance[0]<tracking_flight_height-0.1)// ||flying_height_control_tracking<1.8 ) drone->local_position.z<tracking_flight_height-0.1||
 	    {
 	      flying_height_control_tracking += 0.02;
 	    }
-	    if ( (drone->local_position.z>tracking_flight_height+0.1||ob_distance[0]>tracking_flight_height+0.1)&ob_distance[0]<10)// &&flying_height_control_tracking>2.2 ) //ob_distance[0]>1.8 )
+	    if ( (ob_distance[0]>tracking_flight_height+0.1)&ob_distance[0]<10)// &&flying_height_control_tracking>2.2 ) //ob_distance[0]>1.8 )drone->local_position.z>tracking_flight_height+0.1||
 	    {  //ob_distance[0]<10 for data aviliable
 	      flying_height_control_tracking -= 0.02;
 	    }
