@@ -246,12 +246,12 @@ int main ( int argc, char **argv )
 	    last_flight_y = filtered_y;
 	    //ob_distance[0] must be reliable
 	    if (ob_distance[0]<tracking_flight_height-0.1)// ||flying_height_control_tracking<1.8 ) drone->local_position.z<tracking_flight_height-0.1||
-	    {
-	      flying_height_control_tracking += 0.02;
+	    { 
+	      flying_height_control_tracking += 0.001;
 	    }
 	    if ( (ob_distance[0]>tracking_flight_height+0.1)&ob_distance[0]<10)// &&flying_height_control_tracking>2.2 ) //ob_distance[0]>1.8 )drone->local_position.z>tracking_flight_height+0.1||
 	    {  //ob_distance[0]<10 for data aviliable
-	      flying_height_control_tracking -= 0.02;
+	      flying_height_control_tracking -= 0.001;
 	    }
 
 	    drone->attitude_control ( 0x9B,filtered_x,filtered_y,flying_height_control_tracking,filtered_yaw );	    
