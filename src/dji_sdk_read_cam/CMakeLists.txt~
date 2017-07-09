@@ -30,7 +30,7 @@ include_directories(
 include
   include/AprilTags
   include/DJI
-  include/MST 
+  include/MST
   ${catkin_INCLUDE_DIRS}
   /usr/include/eigen3)
 

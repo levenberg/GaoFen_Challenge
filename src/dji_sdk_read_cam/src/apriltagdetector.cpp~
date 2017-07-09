@@ -1,14 +1,8 @@
 #include "apriltagdetector.h"
 #include <sys/time.h>
-#include "DenseGraph.h"
-#include "SparseGraph.h"
-#include "ReadGraph.h"
-#include "LazyPrimMST.h"
-#include "CircleDetection.h"
 #include "opencv2/features2d/features2d.hpp"
 #include "opencv2/calib3d/calib3d.hpp"
-#include "opencv2/highgui/highgui.hpp"
-#include "opencv2/imgproc/imgproc.hpp"
+
 using namespace cv;
 using namespace std;
 
@@ -197,10 +191,6 @@ void ApriltagDetector::print_detections ( )
       rel_dist.x = 1.0;  //for safe distance, 1 meters
       rel_dist.y = 0;
       rel_dist.z = 0;
-      rel_dist.yaw = 0;
-      rel_dist.pitch = 0;
-      rel_dist.roll = 0;
-   
       rel_dist.norm = 0.0;
       rel_dist.gimbal_pitch_inc = 0.0;
       rel_dist.istracked = false;
@@ -390,22 +380,37 @@ std::vector<int> ApriltagDetector::point2win ( cv::Mat image, float delta )
 
 void ApriltagDetector::Line_detection(cv::Mat& image, dji_sdk::Reldist & result)
 {
-  //Mat image_gray;
+  Mat image_gray;
   //medianBlur(image, image, 5);
-  if ( image.channels()==3 )
-  { 
-    ROS_INFO("color image");
-    //cv::cvtColor ( image, image_gray, CV_BGR2GRAY );
-  }
+  if ( image.dims!=2 )
+    cv::cvtColor ( image, image_gray, CV_BGR2GRAY );
   else
+    image_gray = image.clone();
+  vector<Vec3f> circles;
+  HoughCircles(image_gray, circles, CV_HOUGH_GRADIENT, 1, 10,
+	       100, 30, 1, 60 // change the last two parameters
+	       // (min_radius & max_radius) to detect larger circles
+  );
+  //show the detected circles
+  /*for (size_t i = 0; i < circles.size(); i++)
   {
-    ROS_INFO("gray image");
-    return ;
+    Vec3i c = circles[i];
+    circle(image, Point(c[0], c[1]), c[2], Scalar(0, 0, 255), 3, CV_AA);
+    circle(image, Point(c[0], c[1]), 1, Scalar(0, 255, 0), 3, CV_AA);
+    //char words[20];
+    //snprintf(words, "%d", i);
+    //putText(image, words, Point(c[0], c[1]), CV_FONT_HERSHEY_COMPLEX, 1, Scalar(255, 0, 0));
   }
-  
-  
+  Vec3i a = circles[0];
+  Vec3i b = circles[1];
+  Vec3i c = circles[2];
+  line(image, Point(a[0], a[1]), Point(b[0], b[1]), Scalar(255, 0, 0), 1, CV_AA);
+  line(image, Point(a[0], a[1]), Point(c[0], c[1]), Scalar(255, 0, 0), 1, CV_AA);
+  imshow("detected circles", image);
+  */
+  //calculate the lines
   int error_y=0, yaw=0;
-  calculate(image,error_y,yaw);
+  
   
   //output the result
   result.header.frame_id = "x3_reldist";
@@ -414,7 +419,7 @@ void ApriltagDetector::Line_detection(cv::Mat& image, dji_sdk::Reldist & result)
   result.x = 0;
   result.y = error_y;
   result.z = 0.6;   //the forward speed
-  result.yaw = 90-yaw;
+  result.yaw = yaw;
   
   result.pitch = 0;
   result.roll = 0;
@@ -422,176 +427,4 @@ void ApriltagDetector::Line_detection(cv::Mat& image, dji_sdk::Reldist & result)
   result.gimbal_pitch_inc = 0;
   result.istracked = true;
   m_result_pub.publish ( result );
-}
-
-void ApriltagDetector::calculate(cv::Mat &img, double & intercept, double & slope)
-{
-	//圆检测
-		pair<vector<vector<double>>, vector<Vec3f>> results = circleDetection(img);
-		vector<vector<double>> disMat = results.first;
-		vector<Vec3f> circles = results.second;
-		if (circles.size() <= 1)
-		{
-			cout << "detected circles number: " << circles.size() << endl;
-			cout << "can't detect circle" << endl;
-			intercept=0;
-			slope=90;
-			 return ;
-		}
-
-		//图节点数量
-		int V = circles.size();
-
-		//构造图
-		SparseGraph<double> g = SparseGraph<double>(V, false);
-		//ReadGraph<SparseGraph<double>, double> readGraph(g, filename);
-
-		for (int i = 0; i < V; i++)
-		{
-			for (int j = 0; j < V; j++)
-			{
-				g.addEdge(i, j, disMat[i][j]);
-			}
-		}
-
-		// Test Lazy Prim MST
-		//求解最小生成树
-
-		LazyPrimMST<SparseGraph<double>, double> lazyPrimMST(g);
-
-		//MST结果
-		vector<Edge<double>> mst = lazyPrimMST.mstEdges();
-
-		// [1] 十字路口
-		vector<vector<int>> crossroadMatrix(V);
-
-		//找到每个节点相连的节点
-		for (int i = 0; i < V - 1; i++)
-		{
-			crossroadMatrix[mst[i].v()].push_back(mst[i].w());  // mst is the edges vector 
-			crossroadMatrix[mst[i].w()].push_back(mst[i].v());
-		}
-		//十字路口节点距离矩阵
-		vector<vector<double>> distanceCrossroad(6, vector<double>(3));
-		int indexMaxBelow = 0, indexMaxUp = 0;
-		int CrossTpLine=img.cols, CrossBwLine=0;
-		for (int i = 0; i < V; i++)
-		{
-			// cout << i << " " << crossroadMatrix[i].size() << endl;
-			if (crossroadMatrix[i].size() == 4)
-			{
-				cout << "发现十字路口!!!! " << i << " 节点是十字路口" << endl;
-				flagSituation = 1;
-				int k = 0;
-				double maxBelow = 0, maxUp = 0;
-
-				for (int m = 0; m < 3; m++)
-				{
-					for (int n = m + 1; n < 4; n++)
-					{
-						distanceCrossroad[k][0] = crossroadMatrix[i][m];
-						if(circles[crossroadMatrix[i][m]][1]<=CrossTpLine) CrossTpLine=circles[crossroadMatrix[i][m]][1];
-						if(circles[crossroadMatrix[i][m]][1]>CrossBwLine) CrossBwLine=circles[crossroadMatrix[i][m]][1];
-						distanceCrossroad[k][1] = crossroadMatrix[i][n];
-						if(circles[crossroadMatrix[i][n]][1]<=CrossTpLine) CrossTpLine=circles[crossroadMatrix[i][n]][1];
-						if(circles[crossroadMatrix[i][n]][1]>CrossBwLine) CrossBwLine=circles[crossroadMatrix[i][n]][1];
-		
-						distanceCrossroad[k][2] = circleDistance(circles[crossroadMatrix[i][m]], circles[crossroadMatrix[i][n]]);
-						if (distanceCrossroad[k][2] > maxUp)
-						{
-							maxUp = distanceCrossroad[k][2];
-							indexMaxUp = k;
-						}
-						else if (distanceCrossroad[k][2] > maxBelow)
-						{
-							maxBelow = distanceCrossroad[k][2];
-							indexMaxBelow = k;
-						}
-						k++;
-					}
-				}
-				//cout << distanceCrossroad[indexMaxUp][0] << " " <<distanceCrossroad[indexMaxUp][1] << " " << distanceCrossroad[indexMaxBelow][0] << " " << distanceCrossroad[indexMaxBelow][1] << endl;
-			}
-		}
-		//十字路口进入
-		if (flagSituation == 1&&(MAX_LINE+MIN_LINE)/2>CrossTpLine&&(MAX_LINE+MIN_LINE)/2<CrossBwLine)
-		{
-			double crossRoad_Line1_Slope = slopeAndIntercept(circles, distanceCrossroad[indexMaxUp][0], distanceCrossroad[indexMaxUp][1], MAX_LINE, MIN_LINE).first;
-			double crossRoad_Line2_Slope = slopeAndIntercept(circles, distanceCrossroad[indexMaxBelow][0], distanceCrossroad[indexMaxBelow][1], MAX_LINE, MIN_LINE).first;
-			int crossRoadPoint1 = 0, crossRoadPoint2 = 0;
-			if (crossRoad_Line1_Slope > 75 && crossRoad_Line1_Slope < 105)
-			{
-				crossRoadPoint1 = distanceCrossroad[indexMaxUp][0];
-				crossRoadPoint2 = distanceCrossroad[indexMaxUp][1];
-			}
-			else
-			{
-				crossRoadPoint1 = distanceCrossroad[indexMaxBelow][0];
-				crossRoadPoint2 = distanceCrossroad[indexMaxBelow][1];
-			}
-			pair<double, double> slopeAndInterceptResult = slopeAndIntercept(circles, crossRoadPoint1, crossRoadPoint2, (circles[crossRoadPoint1][1] + circles[crossRoadPoint2][1]) / 2, (circles[crossRoadPoint1][1] + circles[crossRoadPoint2][1]) / 2);
-			slope = slopeAndInterceptResult.first;
-			intercept = slopeAndInterceptResult.second;
-			cout << "十字路口: " << crossRoadPoint1 << " ------crossRoad------ " << crossRoadPoint2 << endl;
-			//cout << "intercept: " << intercept << endl;
-			//cout << "slope: " << slope << endl;
-		}
-		else  //control line is not in the cross road
-		{
-		//[2] 点--线--点
-		vector<vector<double>> thetaMatrix;
-		vector<double> theta(3);
-		thetaMatrix.clear();
-		for (int i = 0; i < mst.size(); i++)
-		{
-			// cout << "start: " << mst[i].v() << " end: " << mst[i].w() << " weight: " << mst[i].wt() << " theta : " << theta[2] << endl;
-			if ((circles[mst[i].v()][1] < MIN_LINE && circles[mst[i].w()][1] > MAX_LINE) || (circles[mst[i].w()][1] < MIN_LINE && circles[mst[i].v()][1] > MAX_LINE))
-			{
-				theta[0] = mst[i].v();
-				theta[1] = mst[i].w();
-				pair<double, double> slopeAndInterceptResult = slopeAndIntercept(circles, mst[i].v(), mst[i].w(), MAX_LINE, MIN_LINE);
-				theta[2] = slopeAndInterceptResult.first;
-				slope = slopeAndInterceptResult.first;
-				intercept = slopeAndInterceptResult.second;
-				thetaMatrix.push_back(theta);
-
-				cout << "普通: " << mst[i].v() << "---------------" << mst[i].w() << endl;
-				//cout << "intercept: " << intercept << endl;
-				//cout << "slope: " << slope << endl;
-			}
-		}
-		//[3-4] 起点和终点
-		double thetaSinglePoint = 0;
-		double distanceSinglePoint = 0;
-		pair<int, int> result_Max_Min = Y_Point_Max_Min(circles);
-		//Up(起点)
-		if ((MAX_LINE + MIN_LINE) / 2.0 > circles[result_Max_Min.first][1])
-		{
-			slope = slopeAndIntercept(circles, result_Max_Min.first, crossroadMatrix[result_Max_Min.first][0], MAX_LINE, MIN_LINE).first;
-			intercept = 320 - circles[result_Max_Min.first][0];
-			cout << "起点: " << result_Max_Min.first << "--------------- " << endl;
-			//cout << "intercept: " << intercept << endl;
-			//cout << "slope: " << slope << endl;
-		}
-		//Down(终点)
-		if ((MAX_LINE + MIN_LINE) / 2.0 < circles[result_Max_Min.second][1])
-		{
-			slope = slopeAndIntercept(circles, result_Max_Min.second, crossroadMatrix[result_Max_Min.second][0], MAX_LINE, MIN_LINE).first;
-			intercept = 320 - circles[result_Max_Min.second][0];
-			cout << "终点: "
-				 << "--------------- " << result_Max_Min.second << endl;
-			//cout << "intercept: " << intercept << endl;
-			//cout << "slope: " << slope << endl;
-		}
-		}
-#ifdef SHOW_DETECTION_RESULT
-		for (int i = 0; i < circles.size() - 1; i++)
-		{
-			Vec3i pointBegin = circles[mst[i].v()];
-			Vec3i pointEnd = circles[mst[i].w()];
-			line(img, Point(pointBegin[0], pointBegin[1]), Point(pointEnd[0], pointEnd[1]), Scalar(0, 0, 255), 1, CV_AA);
-		}
-		imshow("Paint Line Result", img);
-		waitKey(1);
-#endif
 }
