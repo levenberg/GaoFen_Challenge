@@ -413,15 +413,20 @@ void ApriltagDetector::Line_detection(cv::Mat& image, dji_sdk::Reldist & result)
   result.header.stamp = ros::Time::now();
   //if camera faces down, x is the vertical distance, y is horizontal y, z is horizontal x
   result.x = 0;
-  result.y = error_y;
-  result.z = 0.6;   //the forward speed
+  result.y = error_y*0.03/20;   //radius=20 pixles=3cm
   result.yaw = 90-yaw;
+  
+  if(abs(result.yaw)<30) result.z=1.0;
+  else if(abs(result.yaw)<60) result.z=0.8;
+  else result.z=0.5;
   
   result.pitch = 0;
   result.roll = 0;
   result.norm = 0;
   result.gimbal_pitch_inc = 0;
   result.istracked = true;
+  if(flagSituation==3)  //endpoint
+    result.z = 0.1;   //the forward speed
   m_result_pub.publish ( result );
 }
 
@@ -568,6 +573,7 @@ void ApriltagDetector::calculate(cv::Mat &img, double & intercept, double & slop
 		//Up(起点)
 		if ((MAX_LINE + MIN_LINE) / 2.0 > circles[result_Max_Min.first][1])
 		{
+			flagSituation=2;  //the start point
 			slope = slopeAndIntercept(circles, result_Max_Min.first, crossroadMatrix[result_Max_Min.first][0], MAX_LINE, MIN_LINE).first;
 			intercept = 320 - circles[result_Max_Min.first][0];
 			cout << "起点: " << result_Max_Min.first << "--------------- " << endl;
@@ -577,6 +583,7 @@ void ApriltagDetector::calculate(cv::Mat &img, double & intercept, double & slop
 		//Down(终点)
 		if ((MAX_LINE + MIN_LINE) / 2.0 < circles[result_Max_Min.second][1])
 		{
+			flagSituation=3;  //endpoint
 			slope = slopeAndIntercept(circles, result_Max_Min.second, crossroadMatrix[result_Max_Min.second][0], MAX_LINE, MIN_LINE).first;
 			intercept = 320 - circles[result_Max_Min.second][0];
 			cout << "终点: "

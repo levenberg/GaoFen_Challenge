@@ -161,7 +161,7 @@ int main ( int argc, char **argv )
 
     //float flight_x_filtered = 0.0;
     // std_msgs::Float64 filtered_x_msg,not_filtered_x_msg;
-    float filtered_x=0.0,filtered_y=0.0;
+    float filtered_x=0.0,filtered_y=0.0, filtered_yaw=0.0;
     //filtered_x_msg.data = 0.0;
     float yaw=0;
     // not_filtered_x_msg.data = 0.0;
@@ -214,7 +214,8 @@ int main ( int argc, char **argv )
         filtered_x =  drone->flight_x;//( sum ( filter_seq_x,filter_N )-find_max ( filter_seq_x,filter_N )-find_min ( filter_seq_x,filter_N ) ) / ( filter_N-2 );
 
         filtered_y =  drone->flight_y;//( sum ( filter_seq_y,filter_N )-find_max ( filter_seq_y,filter_N )-find_min ( filter_seq_y,filter_N ) ) / ( filter_N-2 );
-
+	
+	filtered_yaw= drone->flight_yaw;
         // if start_searching=1, follow line
         start_searching_pub.publish ( start_searching );
 	mission_type_pub.publish ( mission_type );
@@ -252,7 +253,7 @@ int main ( int argc, char **argv )
 	      flying_height_control_tracking -= 0.001;
 	    }
 
-	    drone->attitude_control ( 0x9B,filtered_x,filtered_y,flying_height_control_tracking,0 );	    
+	    drone->attitude_control ( 0x9B,0,filtered_y,flying_height_control_tracking,0 );	    
 	    
 	    break;
 	  } 
