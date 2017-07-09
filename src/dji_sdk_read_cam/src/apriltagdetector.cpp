@@ -392,6 +392,7 @@ void ApriltagDetector::Line_detection(cv::Mat& image, dji_sdk::Reldist & result)
 {
   //Mat image_gray;
   //medianBlur(image, image, 5);
+  int flagSituation=0;
   if ( image.channels()==3 )
   { 
     ROS_INFO("color image");
@@ -404,8 +405,8 @@ void ApriltagDetector::Line_detection(cv::Mat& image, dji_sdk::Reldist & result)
   }
   
   
-  int error_y=0, yaw=0;
-  calculate(image,error_y,yaw);
+  double error_y=0, yaw=0;
+  calculate(image,error_y,yaw,flagSituation);
   
   //output the result
   result.header.frame_id = "x3_reldist";
@@ -424,7 +425,7 @@ void ApriltagDetector::Line_detection(cv::Mat& image, dji_sdk::Reldist & result)
   m_result_pub.publish ( result );
 }
 
-void ApriltagDetector::calculate(cv::Mat &img, double & intercept, double & slope)
+void ApriltagDetector::calculate(cv::Mat &img, double & intercept, double & slope, int &flagSituation)
 {
 	//圆检测
 		pair<vector<vector<double>>, vector<Vec3f>> results = circleDetection(img);

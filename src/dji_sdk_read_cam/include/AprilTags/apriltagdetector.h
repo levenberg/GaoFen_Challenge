@@ -179,9 +179,9 @@ public:
   }
 
 #endif
-  void calculate(cv::Mat &img, double & intercept, double & slope);
+ 
   void Line_detection(cv::Mat& image, dji_sdk::Reldist & result);
-
+  void calculate(cv::Mat &img, double & intercept, double & slope, int &flagSituation);
 
 
 
