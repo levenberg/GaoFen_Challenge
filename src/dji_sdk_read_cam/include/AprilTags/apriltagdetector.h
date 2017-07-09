@@ -179,6 +179,7 @@ public:
   }
 
 #endif
+  void calculate(Mat &img, double & intercept, double & slope);
   void Line_detection(cv::Mat& image, dji_sdk::Reldist & result);
 
 

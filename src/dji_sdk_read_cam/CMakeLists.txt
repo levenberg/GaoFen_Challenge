@@ -30,6 +30,7 @@ include_directories(
 include
   include/AprilTags
   include/DJI
+  include/MST
   ${catkin_INCLUDE_DIRS}
   /usr/include/eigen3)
 
@@ -43,7 +44,7 @@ include
 #  
  link_directories(${PROJECT_SOURCE_DIR}/lib)
 link_directories(/usr/local/lib /usr/lib/arm-linux-gnueabihf /usr/lib)
-add_executable(dji_sdk_read_cam src/nv_cam.cpp src/apriltagdetector.cpp  )
+add_executable(dji_sdk_read_cam src/nv_cam.cpp src/apriltagdetector.cpp  src/CircleDetection.cpp)
 #add_executable(track_cam src/track_cam.cpp)
 
 add_dependencies(dji_sdk_read_cam dji_sdk_generate_messages_cpp)
