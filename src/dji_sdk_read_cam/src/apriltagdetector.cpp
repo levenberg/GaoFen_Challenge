@@ -12,7 +12,7 @@
 using namespace cv;
 using namespace std;
 
-
+ofstream fcout( "/root/circleDetection.txt",ios::app );
 float flight_height = 0.0;
 bool change_once_flag = true;
 const float EPS = 0.00000001;
@@ -413,13 +413,13 @@ void ApriltagDetector::Line_detection(cv::Mat& image, dji_sdk::Reldist & result)
   result.header.stamp = ros::Time::now();
   //if camera faces down, x is the vertical distance, y is horizontal y, z is horizontal x
   result.x = 0;
-  result.y = error_y*0.03/20;   //radius=20 pixles=3cm
+  result.y = error_y*0.03/10;   //radius=10 pixles=3cm
   result.yaw =  yaww-90;
   
   if(abs(result.yaw)<30) result.z=1.0;
   else if(abs(result.yaw)<60) result.z=0.8;
   else result.z=0.5;
-  
+  fcout<<"yaw="<<result.yaw<<endl;
   result.pitch = 0;
   result.roll = 0;
   result.norm = 0;
@@ -436,13 +436,13 @@ void ApriltagDetector::calculate(cv::Mat &img, double & intercept, double & slop
 		pair<vector<vector<double>>, vector<Vec3f>> results = circleDetection(img);
 		vector<vector<double>> disMat = results.first;
 		vector<Vec3f> circles = results.second;
-		if (circles.size() <= 1)
+		if (circles.size() <= 2)
 		{
-			cout << "detected circles number: " << circles.size() << endl;
-			cout << "can't detect circle" << endl;
+			fcout << "detected circles number: " << circles.size() << endl;
+			fcout << "can't detect circle" << endl;
 			intercept=0;
 			slope=90;
-			 return ;
+			return ;
 		}
 
 		//图节点数量
@@ -486,7 +486,7 @@ void ApriltagDetector::calculate(cv::Mat &img, double & intercept, double & slop
 			// cout << i << " " << crossroadMatrix[i].size() << endl;
 			if (crossroadMatrix[i].size() == 4)
 			{
-				cout << "发现十字路口!!!! " << i << " 节点是十字路口" << endl;
+				
 				flagSituation = 1;
 				int k = 0;
 				double maxBelow = 0, maxUp = 0;
@@ -538,9 +538,10 @@ void ApriltagDetector::calculate(cv::Mat &img, double & intercept, double & slop
 			pair<double, double> slopeAndInterceptResult = slopeAndIntercept(circles, crossRoadPoint1, crossRoadPoint2, (circles[crossRoadPoint1][1] + circles[crossRoadPoint2][1]) / 2, (circles[crossRoadPoint1][1] + circles[crossRoadPoint2][1]) / 2);
 			slope = slopeAndInterceptResult.first;
 			intercept = slopeAndInterceptResult.second;
-			cout << "十字路口: " << crossRoadPoint1 << " ------crossRoad------ " << crossRoadPoint2 << endl;
-			//cout << "intercept: " << intercept << endl;
-			//cout << "slope: " << slope << endl;
+			//cout << "十字路口: " << crossRoadPoint1 << " ------crossRoad------ " << crossRoadPoint2 << endl;
+			fcout<< "crossroad detected"<<endl;
+			fcout << "intercept: " << intercept << endl;
+			fcout << "slope: " << slope << endl;
 		}
 		else  //control line is not in the cross road
 		{
@@ -561,9 +562,10 @@ void ApriltagDetector::calculate(cv::Mat &img, double & intercept, double & slop
 				intercept = slopeAndInterceptResult.second;
 				thetaMatrix.push_back(theta);
 
-				cout << "普通: " << mst[i].v() << "---------------" << mst[i].w() << endl;
-				//cout << "intercept: " << intercept << endl;
-				//cout << "slope: " << slope << endl;
+				//cout << "普通: " << mst[i].v() << "---------------" << mst[i].w() << endl;
+				fcout << "nomal two point"<<endl;
+				fcout << "intercept: " << intercept << endl;
+				fcout << "slope: " << slope << endl;
 			}
 		}
 		//[3-4] 起点和终点
@@ -576,9 +578,10 @@ void ApriltagDetector::calculate(cv::Mat &img, double & intercept, double & slop
 			flagSituation=2;  //the start point
 			slope = slopeAndIntercept(circles, result_Max_Min.first, crossroadMatrix[result_Max_Min.first][0], MAX_LINE, MIN_LINE).first;
 			intercept = 320 - circles[result_Max_Min.first][0];
-			cout << "起点: " << result_Max_Min.first << "--------------- " << endl;
-			//cout << "intercept: " << intercept << endl;
-			//cout << "slope: " << slope << endl;
+			//cout << "起点: " << result_Max_Min.first << "--------------- " << endl;
+			fcout<< "start point"<<endl;
+			fcout << "intercept: " << intercept << endl;
+			fcout << "slope: " << slope << endl;
 		}
 		//Down(终点)
 		if ((MAX_LINE + MIN_LINE) / 2.0 < circles[result_Max_Min.second][1])
@@ -586,10 +589,10 @@ void ApriltagDetector::calculate(cv::Mat &img, double & intercept, double & slop
 			flagSituation=3;  //endpoint
 			slope = slopeAndIntercept(circles, result_Max_Min.second, crossroadMatrix[result_Max_Min.second][0], MAX_LINE, MIN_LINE).first;
 			intercept = 320 - circles[result_Max_Min.second][0];
-			cout << "终点: "
-				 << "--------------- " << result_Max_Min.second << endl;
-			//cout << "intercept: " << intercept << endl;
-			//cout << "slope: " << slope << endl;
+			//cout << "终点: " << "--------------- " << result_Max_Min.second << endl;
+			fcout << "end point"<<endl;
+			fcout << "intercept: " << intercept << endl;
+			fcout << "slope: " << slope << endl;
 		}
 		}
 #ifdef SHOW_DETECTION_RESULT

@@ -253,7 +253,7 @@ int main ( int argc, char **argv )
 	      flying_height_control_tracking -= 0.001;
 	    }
 
-	    drone->attitude_control ( 0x9B,0,0,flying_height_control_tracking,filtered_yaw );	    
+	    drone->attitude_control ( 0x9B,filtered_x,filtered_y,flying_height_control_tracking,filtered_yaw );	    
 	    
 	    break;
 	  } 

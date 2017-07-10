@@ -11,7 +11,7 @@
 
 //#define SHOW_DETECTION_RESULT
 
-#define MIN_RADIUS 2
+#define MIN_RADIUS 6
 #define MAX_RADIUS 20
 
 #define R_G_R_RED_CIRCLE 0.5
