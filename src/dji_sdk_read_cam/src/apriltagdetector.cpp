@@ -194,7 +194,7 @@ void ApriltagDetector::print_detections ( )
   if ( detections.empty() ) // no Tag found
     {
       rel_dist.header.stamp = ros::Time::now();
-      rel_dist.x = 1.0;  //for safe distance, 1 meters
+      rel_dist.x = 1.3;  //for safe distance, 1 meters
       rel_dist.y = 0;
       rel_dist.z = 0;
       rel_dist.yaw = 0;
@@ -416,9 +416,9 @@ void ApriltagDetector::Line_detection(cv::Mat& image, dji_sdk::Reldist & result)
   result.y = error_y*0.03/10;   //radius=10 pixles=3cm
   result.yaw =  yaww-90;
   
-  if(abs(result.yaw)<30) result.z=1.0;
-  else if(abs(result.yaw)<60) result.z=0.8;
-  else result.z=0.5;
+  if(abs(result.yaw)<30) result.z=0.5;
+  else if(abs(result.yaw)<60) result.z=0.3;
+  else result.z=0.2;
   fcout<<"yaw="<<result.yaw<<endl;
   result.pitch = 0;
   result.roll = 0;
@@ -427,6 +427,8 @@ void ApriltagDetector::Line_detection(cv::Mat& image, dji_sdk::Reldist & result)
   result.istracked = true;
   if(flagSituation==3)  //endpoint
     result.z = 0.1;   //the forward speed
+  if(flagSituation==100)
+    result.z = 0.0;
   m_result_pub.publish ( result );
 }
 
@@ -442,6 +444,7 @@ void ApriltagDetector::calculate(cv::Mat &img, double & intercept, double & slop
 			fcout << "can't detect circle" << endl;
 			intercept=0;
 			slope=90;
+			flagSituation=100;
 			return ;
 		}
 

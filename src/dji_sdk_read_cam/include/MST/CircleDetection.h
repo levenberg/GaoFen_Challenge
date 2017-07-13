@@ -11,11 +11,11 @@
 
 //#define SHOW_DETECTION_RESULT
 
-#define MIN_RADIUS 6
-#define MAX_RADIUS 20
+#define MIN_RADIUS 4
+#define MAX_RADIUS 18 
 
-#define R_G_R_RED_CIRCLE 0.5
-#define R_B_R_RED_CIRCLE 0.45
+#define R_G_R_RED_CIRCLE 0.45
+#define R_B_R_RED_CIRCLE 0.50
 
 #define G_B_G_YELLOW_CIRCLE 0.2
 #define R_B_R_YELLOW_CIRCLE 0.2
@@ -24,7 +24,7 @@
 #define B_G_B_BLUE_CIRCLE 0.5
 
 #define MAX_CANNY 100
-#define MIN_CANNY 15
+#define MIN_CANNY 13
 
 #define MIN_LINE 180
 #define MAX_LINE 180

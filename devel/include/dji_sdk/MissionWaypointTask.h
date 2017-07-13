@@ -235,7 +235,7 @@ namespace serialization
       stream.next(m.mission_waypoint);
     }
 
-    ROS_DECLARE_ALLINONE_SERIALIZER;
+    ROS_DECLARE_ALLINONE_SERIALIZER
   }; // struct MissionWaypointTask_
 
 } // namespace serialization

@@ -191,7 +191,7 @@ namespace serialization
       stream.next(m.staytime);
     }
 
-    ROS_DECLARE_ALLINONE_SERIALIZER;
+    ROS_DECLARE_ALLINONE_SERIALIZER
   }; // struct Waypoint_
 
 } // namespace serialization

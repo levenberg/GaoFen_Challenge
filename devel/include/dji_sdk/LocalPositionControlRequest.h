@@ -181,7 +181,7 @@ namespace serialization
       stream.next(m.yaw);
     }
 
-    ROS_DECLARE_ALLINONE_SERIALIZER;
+    ROS_DECLARE_ALLINONE_SERIALIZER
   }; // struct LocalPositionControlRequest_
 
 } // namespace serialization

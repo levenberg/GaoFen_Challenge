@@ -245,7 +245,7 @@ namespace serialization
       stream.next(m.feedback);
     }
 
-    ROS_DECLARE_ALLINONE_SERIALIZER;
+    ROS_DECLARE_ALLINONE_SERIALIZER
   }; // struct WaypointNavigationActionFeedback_
 
 } // namespace serialization

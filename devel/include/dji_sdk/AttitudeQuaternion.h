@@ -237,7 +237,7 @@ namespace serialization
       stream.next(m.wz);
     }
 
-    ROS_DECLARE_ALLINONE_SERIALIZER;
+    ROS_DECLARE_ALLINONE_SERIALIZER
   }; // struct AttitudeQuaternion_
 
 } // namespace serialization

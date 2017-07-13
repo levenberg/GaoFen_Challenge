@@ -168,7 +168,7 @@ namespace serialization
       stream.next(m.if_back_to_real);
     }
 
-    ROS_DECLARE_ALLINONE_SERIALIZER;
+    ROS_DECLARE_ALLINONE_SERIALIZER
   }; // struct VirtualRCEnableControlRequest_
 
 } // namespace serialization

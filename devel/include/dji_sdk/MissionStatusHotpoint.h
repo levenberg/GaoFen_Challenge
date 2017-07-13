@@ -187,7 +187,7 @@ namespace serialization
       stream.next(m.hotpoint_velocity);
     }
 
-    ROS_DECLARE_ALLINONE_SERIALIZER;
+    ROS_DECLARE_ALLINONE_SERIALIZER
   }; // struct MissionStatusHotpoint_
 
 } // namespace serialization

@@ -159,7 +159,7 @@ namespace serialization
       stream.next(m.arm);
     }
 
-    ROS_DECLARE_ALLINONE_SERIALIZER;
+    ROS_DECLARE_ALLINONE_SERIALIZER
   }; // struct DroneArmControlRequest_
 
 } // namespace serialization

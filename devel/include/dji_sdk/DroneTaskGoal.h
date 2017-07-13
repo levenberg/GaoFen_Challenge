@@ -160,7 +160,7 @@ namespace serialization
       stream.next(m.task);
     }
 
-    ROS_DECLARE_ALLINONE_SERIALIZER;
+    ROS_DECLARE_ALLINONE_SERIALIZER
   }; // struct DroneTaskGoal_
 
 } // namespace serialization

@@ -208,7 +208,7 @@ namespace serialization
       stream.next(m.yaw_mode);
     }
 
-    ROS_DECLARE_ALLINONE_SERIALIZER;
+    ROS_DECLARE_ALLINONE_SERIALIZER
   }; // struct MissionHotpointTask_
 
 } // namespace serialization

@@ -169,7 +169,7 @@ namespace serialization
       stream.next(m.followme_task);
     }
 
-    ROS_DECLARE_ALLINONE_SERIALIZER;
+    ROS_DECLARE_ALLINONE_SERIALIZER
   }; // struct MissionFmUploadRequest_
 
 } // namespace serialization

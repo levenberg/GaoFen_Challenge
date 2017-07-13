@@ -173,7 +173,7 @@ namespace serialization
       stream.next(m.current_status);
     }
 
-    ROS_DECLARE_ALLINONE_SERIALIZER;
+    ROS_DECLARE_ALLINONE_SERIALIZER
   }; // struct MissionEventWpReach_
 
 } // namespace serialization

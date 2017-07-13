@@ -184,7 +184,7 @@ namespace serialization
       stream.next(m.virtual_rc_status);
     }
 
-    ROS_DECLARE_ALLINONE_SERIALIZER;
+    ROS_DECLARE_ALLINONE_SERIALIZER
   }; // struct FlightControlInfo_
 
 } // namespace serialization

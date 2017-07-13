@@ -34,7 +34,7 @@ static float ob_distance[5]= {10.0};
 
 
 float cmd_vel_x = 0.0, cmd_vel_y = 0.0 ,cmd_vel_z = 0.0;
-float searching_height = 1.5;
+float searching_height = 1.0;
 
 void apriltag_detection_resultCallback ( const std_msgs::Int8 & num_of_detection )
 {
@@ -210,12 +210,14 @@ int main ( int argc, char **argv )
 
         filter_seq_x[filter_N-1] = drone->flight_x;
         filter_seq_y[filter_N-1] = drone->flight_y;
-
+	last_flight_yaw = filtered_yaw;
+	
         filtered_x =  drone->flight_x;//( sum ( filter_seq_x,filter_N )-find_max ( filter_seq_x,filter_N )-find_min ( filter_seq_x,filter_N ) ) / ( filter_N-2 );
 
         filtered_y =  drone->flight_y;//( sum ( filter_seq_y,filter_N )-find_max ( filter_seq_y,filter_N )-find_min ( filter_seq_y,filter_N ) ) / ( filter_N-2 );
 	
 	filtered_yaw= drone->flight_yaw;
+	if(abs(filtered_yaw-last_flight_yaw)>70.0)   filtered_yaw = last_flight_yaw;
         // if start_searching=1, follow line
         start_searching_pub.publish ( start_searching );
 	mission_type_pub.publish ( mission_type );
@@ -253,7 +255,7 @@ int main ( int argc, char **argv )
 	      flying_height_control_tracking -= 0.001;
 	    }
 
-	    drone->attitude_control ( 0x9B,0,0,flying_height_control_tracking,filtered_yaw );	    
+	    drone->attitude_control ( 0x9B,filtered_x,filtered_y,flying_height_control_tracking,filtered_yaw );	    
 	    
 	    break;
 	  } 

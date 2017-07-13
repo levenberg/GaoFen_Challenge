@@ -278,7 +278,7 @@ namespace serialization
       stream.next(m.gps_state);
     }
 
-    ROS_DECLARE_ALLINONE_SERIALIZER;
+    ROS_DECLARE_ALLINONE_SERIALIZER
   }; // struct A3GPS_
 
 } // namespace serialization

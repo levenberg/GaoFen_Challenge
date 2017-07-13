@@ -177,7 +177,7 @@ namespace serialization
       stream.next(m.waypoint_list);
     }
 
-    ROS_DECLARE_ALLINONE_SERIALIZER;
+    ROS_DECLARE_ALLINONE_SERIALIZER
   }; // struct WaypointNavigationGoal_
 
 } // namespace serialization

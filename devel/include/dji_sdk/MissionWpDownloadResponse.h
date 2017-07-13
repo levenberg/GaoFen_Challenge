@@ -192,7 +192,7 @@ namespace serialization
       stream.next(m.waypoint_task);
     }
 
-    ROS_DECLARE_ALLINONE_SERIALIZER;
+    ROS_DECLARE_ALLINONE_SERIALIZER
   }; // struct MissionWpDownloadResponse_
 
 } // namespace serialization
