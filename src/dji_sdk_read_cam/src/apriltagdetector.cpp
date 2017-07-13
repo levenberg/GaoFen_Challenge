@@ -15,7 +15,7 @@ using namespace std;
 ofstream fcout( "/root/circleDetection.txt",ios::app );
 float flight_height = 0.0;
 bool change_once_flag = true;
-const float EPS = 0.00000001;
+const float EPS = 0.00000001;  
 const int tag25h9 = 1;
 //uint8_t CMD = 'W';
 /**
@@ -24,7 +24,7 @@ const int tag25h9 = 1;
 inline double standardRad ( double t )
 {
   if ( t >= 0. )
-    {
+    {  
       t = fmod ( t+PI, TWOPI ) - PI;
     }
   else
@@ -413,12 +413,14 @@ void ApriltagDetector::Line_detection(cv::Mat& image, dji_sdk::Reldist & result)
   result.header.stamp = ros::Time::now();
   //if camera faces down, x is the vertical distance, y is horizontal y, z is horizontal x
   result.x = 0;
+  if(error_y>70) error_y=70;
+  if(error_y<-70) error_y=-70;
   result.y = error_y*0.03/10;   //radius=10 pixles=3cm
   result.yaw =  yaww-90;
   
-  if(abs(result.yaw)<30) result.z=0.5;
-  else if(abs(result.yaw)<60) result.z=0.3;
-  else result.z=0.2;
+  if(abs(result.yaw)<20) result.z=0.4;
+  else if(abs(result.yaw)<50) result.z=0.2;
+  else result.z=0.1;
   fcout<<"yaw="<<result.yaw<<endl;
   result.pitch = 0;
   result.roll = 0;
@@ -426,7 +428,7 @@ void ApriltagDetector::Line_detection(cv::Mat& image, dji_sdk::Reldist & result)
   result.gimbal_pitch_inc = 0;
   result.istracked = true;
   if(flagSituation==3)  //endpoint
-    result.z = 0.1;   //the forward speed
+    result.z = 0.0;   //the forward speed
   if(flagSituation==100)
     result.z = 0.0;
   m_result_pub.publish ( result );

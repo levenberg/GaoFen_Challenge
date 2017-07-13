@@ -14,7 +14,7 @@
 #include<fstream>
 
 #define GIMBAL_USED
-#define filter_N 4
+#define filter_N 4   
 #define EPS 0.0000000001
 #define USE_OBDIST
 
@@ -214,10 +214,12 @@ int main ( int argc, char **argv )
 	
         filtered_x =  drone->flight_x;//( sum ( filter_seq_x,filter_N )-find_max ( filter_seq_x,filter_N )-find_min ( filter_seq_x,filter_N ) ) / ( filter_N-2 );
 
-        filtered_y =  drone->flight_y;//( sum ( filter_seq_y,filter_N )-find_max ( filter_seq_y,filter_N )-find_min ( filter_seq_y,filter_N ) ) / ( filter_N-2 );
+        filtered_y =  ( sum ( filter_seq_y,filter_N )-find_max ( filter_seq_y,filter_N )-find_min ( filter_seq_y,filter_N ) ) / ( filter_N-2 );
 	
 	filtered_yaw= drone->flight_yaw;
-	if(abs(filtered_yaw-last_flight_yaw)>70.0)   filtered_yaw = last_flight_yaw;
+	if(abs(filtered_yaw-last_flight_yaw)>50.0)   filtered_yaw = last_flight_yaw;
+	if(filtered_yaw>30) filtered_yaw=30;
+        if(filtered_yaw<-30) filtered_yaw=-30;
         // if start_searching=1, follow line
         start_searching_pub.publish ( start_searching );
 	mission_type_pub.publish ( mission_type );
