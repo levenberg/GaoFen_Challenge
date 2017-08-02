@@ -213,7 +213,7 @@ namespace serialization
       stream.next(m.health_flag);
     }
 
-    ROS_DECLARE_ALLINONE_SERIALIZER;
+    ROS_DECLARE_ALLINONE_SERIALIZER
   }; // struct Velocity_
 
 } // namespace serialization

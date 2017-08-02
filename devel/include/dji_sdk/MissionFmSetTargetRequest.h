@@ -166,7 +166,7 @@ namespace serialization
       stream.next(m.followme_target);
     }
 
-    ROS_DECLARE_ALLINONE_SERIALIZER;
+    ROS_DECLARE_ALLINONE_SERIALIZER
   }; // struct MissionFmSetTargetRequest_
 
 } // namespace serialization

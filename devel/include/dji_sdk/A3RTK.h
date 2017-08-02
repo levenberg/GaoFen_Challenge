@@ -287,7 +287,7 @@ namespace serialization
       stream.next(m.rtk_updated_flag);
     }
 
-    ROS_DECLARE_ALLINONE_SERIALIZER;
+    ROS_DECLARE_ALLINONE_SERIALIZER
   }; // struct A3RTK_
 
 } // namespace serialization

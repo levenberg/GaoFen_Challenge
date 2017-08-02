@@ -24,7 +24,7 @@
 #include <iostream>
 #include <opencv/cv.h>
 #include <opencv/highgui.h>
-
+  
 #include <dji_sdk/Reldist.h>
 
 #include "apriltagdetector.h"
@@ -375,11 +375,13 @@ int main ( int argc, char **argv )
           // image_pub.publish(im);
 	  //for calibration only
 	 //cv::Mat imageshow = cv::Mat ( pImg, true );
-	 // cv::imshow ( "img", imageshow );
-         // cv::waitKey ( 1 );
-          if(nCount==1500)  cvSaveImage("/root/cat.png",pImg,0);
+	  //cv::imshow ( "img", imageshow );
+          //cv::waitKey ( 1 );
+	  char str[100];
+	  sprintf(str,"/root/cap/%d.png",nCount);
+          if(nCount%500==0)   cvSaveImage(str,pImg,0);
           ros::spinOnce();
-          nCount++;
+          nCount++; 
 
         }
       else

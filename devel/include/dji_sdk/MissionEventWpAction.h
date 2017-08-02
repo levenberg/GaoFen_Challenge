@@ -166,7 +166,7 @@ namespace serialization
       stream.next(m.repeat);
     }
 
-    ROS_DECLARE_ALLINONE_SERIALIZER;
+    ROS_DECLARE_ALLINONE_SERIALIZER
   }; // struct MissionEventWpAction_
 
 } // namespace serialization

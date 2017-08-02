@@ -10,7 +10,7 @@
 #include<std_msgs/Int8.h>
 #include<std_msgs/Bool.h>
 #include <sensor_msgs/LaserScan.h>
-#include<math.h>
+#include<math.h>  
 #include<fstream>
 
 #define GIMBAL_USED
@@ -213,9 +213,9 @@ int main ( int argc, char **argv )
 	filter_seq_yaw[filter_N-1]=drone->flight_yaw;
         filtered_x =  drone->flight_x;//( sum ( filter_seq_x,filter_N )-find_max ( filter_seq_x,filter_N )-find_min ( filter_seq_x,filter_N ) ) / ( filter_N-2 );
 
-        filtered_y =  drone->flight_y;//( sum ( filter_seq_y,filter_N )-find_max ( filter_seq_y,filter_N )-find_min ( filter_seq_y,filter_N ) ) / ( filter_N-2 );
+        filtered_y = 0.5*drone->flight_y;//( sum ( filter_seq_y,filter_N )-find_max ( filter_seq_y,filter_N )-find_min ( filter_seq_y,filter_N ) ) / ( filter_N-2 );
         
-        filtered_yaw= drone->flight_yaw;//(sum ( filter_seq_y,filter_N )-find_max ( filter_seq_y,filter_N )-find_min ( filter_seq_y,filter_N ) ) / ( filter_N-2 );
+        filtered_yaw= drone->flight_yaw;//(sum ( filter_seq_y,filter_N )-find_max ( filter_seq_y,filter_N )-find_min ( filter_seq_y,filter_N ) ) / ( filter_N-2 );   
         // if start_searching=1, follow line
         start_searching_pub.publish ( start_searching );
 	mission_type_pub.publish ( mission_type );

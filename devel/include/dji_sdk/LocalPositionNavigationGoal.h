@@ -175,7 +175,7 @@ namespace serialization
       stream.next(m.z);
     }
 
-    ROS_DECLARE_ALLINONE_SERIALIZER;
+    ROS_DECLARE_ALLINONE_SERIALIZER
   }; // struct LocalPositionNavigationGoal_
 
 } // namespace serialization

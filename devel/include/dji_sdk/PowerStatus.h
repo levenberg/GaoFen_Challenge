@@ -159,7 +159,7 @@ namespace serialization
       stream.next(m.percentage);
     }
 
-    ROS_DECLARE_ALLINONE_SERIALIZER;
+    ROS_DECLARE_ALLINONE_SERIALIZER
   }; // struct PowerStatus_
 
 } // namespace serialization

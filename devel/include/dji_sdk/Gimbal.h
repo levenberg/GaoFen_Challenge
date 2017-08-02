@@ -206,7 +206,7 @@ namespace serialization
       stream.next(m.roll);
     }
 
-    ROS_DECLARE_ALLINONE_SERIALIZER;
+    ROS_DECLARE_ALLINONE_SERIALIZER
   }; // struct Gimbal_
 
 } // namespace serialization

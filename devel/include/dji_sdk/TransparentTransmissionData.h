@@ -159,7 +159,7 @@ namespace serialization
       stream.next(m.data);
     }
 
-    ROS_DECLARE_ALLINONE_SERIALIZER;
+    ROS_DECLARE_ALLINONE_SERIALIZER
   }; // struct TransparentTransmissionData_
 
 } // namespace serialization

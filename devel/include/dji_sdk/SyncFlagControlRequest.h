@@ -159,7 +159,7 @@ namespace serialization
       stream.next(m.frequency);
     }
 
-    ROS_DECLARE_ALLINONE_SERIALIZER;
+    ROS_DECLARE_ALLINONE_SERIALIZER
   }; // struct SyncFlagControlRequest_
 
 } // namespace serialization

@@ -160,7 +160,7 @@ namespace serialization
       stream.next(m.result);
     }
 
-    ROS_DECLARE_ALLINONE_SERIALIZER;
+    ROS_DECLARE_ALLINONE_SERIALIZER
   }; // struct AttitudeControlResponse_
 
 } // namespace serialization

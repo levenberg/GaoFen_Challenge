@@ -179,7 +179,7 @@ namespace serialization
       stream.next(m.command_parameter);
     }
 
-    ROS_DECLARE_ALLINONE_SERIALIZER;
+    ROS_DECLARE_ALLINONE_SERIALIZER
   }; // struct MissionWaypointAction_
 
 } // namespace serialization

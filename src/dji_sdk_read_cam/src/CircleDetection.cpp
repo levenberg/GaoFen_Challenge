@@ -10,9 +10,9 @@ vector<Vec3f> circles;
 double circleDistance(Vec3i A, Vec3i B)
 {
 	double dis = sqrt((A[0] - B[0]) * (A[0] - B[0]) + (A[1] - B[1]) * (A[1] - B[1]));
-	return dis;
+	return dis;   
 }
-
+  
 
 // 求解斜率和截距
 pair<double,double> slopeAndIntercept(vector<Vec3f> circlesTemp, int A, int B, int max_line, int min_line)
@@ -32,7 +32,7 @@ pair<double,double> slopeAndIntercept(vector<Vec3f> circlesTemp, int A, int B, i
 	result.second = distance;
 	return result;
 }
-
+ 
 
 
 //画圆
@@ -104,15 +104,15 @@ pair<vector<vector<double>>, vector<Vec3f>> circleDetection(Mat img)
 			double Th1_Red = (double)(RedChannel.at<uchar>(j, i) - GreenChannel.at<uchar>(j, i)) / ((double)RedChannel.at<uchar>(j, i) + 0.1);
 			double Th2_Red = (double)(RedChannel.at<uchar>(j, i) - BlueChannel.at<uchar>(j, i)) / ((double)RedChannel.at<uchar>(j, i) + 0.1);
 
-			double Th1_Yellow = (double)(RedChannel.at<uchar>(j, i) - BlueChannel.at<uchar>(j, i)) / ((double)BlueChannel.at<uchar>(j, i) + 0.1);
-			double Th2_Yellow = (double)(GreenChannel.at<uchar>(j, i) - BlueChannel.at<uchar>(j, i)) / ((double)GreenChannel.at<uchar>(j, i) + 0.1);
+			//double Th1_Yellow = (double)(RedChannel.at<uchar>(j, i) - BlueChannel.at<uchar>(j, i)) / ((double)BlueChannel.at<uchar>(j, i) + 0.1);
+			//double Th2_Yellow = (double)(GreenChannel.at<uchar>(j, i) - BlueChannel.at<uchar>(j, i)) / ((double)GreenChannel.at<uchar>(j, i) + 0.1);
 
-			double Th1_Blue = (double)(BlueChannel.at<uchar>(j, i) - RedChannel.at<uchar>(j, i)) / ((double)BlueChannel.at<uchar>(j, i) + 0.1);
-			double Th2_Blue = (double)(BlueChannel.at<uchar>(j, i) - GreenChannel.at<uchar>(j, i)) / ((double)BlueChannel.at<uchar>(j, i) + 0.1);
+			//double Th1_Blue = (double)(BlueChannel.at<uchar>(j, i) - RedChannel.at<uchar>(j, i)) / ((double)BlueChannel.at<uchar>(j, i) + 0.1);
+			//double Th2_Blue = (double)(BlueChannel.at<uchar>(j, i) - GreenChannel.at<uchar>(j, i)) / ((double)BlueChannel.at<uchar>(j, i) + 0.1);
 
-			if ((Th1_Red > R_G_R_RED_CIRCLE && Th2_Red > R_B_R_RED_CIRCLE) || ((Th1_Yellow > R_B_R_YELLOW_CIRCLE && Th2_Yellow > G_B_G_YELLOW_CIRCLE)) || (Th1_Blue > B_R_B_BLUE_CIRCLE && Th2_Blue > B_G_B_BLUE_CIRCLE))
+			if ((Th1_Red > R_G_R_RED_CIRCLE && Th2_Red > R_B_R_RED_CIRCLE)&&RedChannel.at<uchar>(j, i)>215)// || ((Th1_Yellow > R_B_R_YELLOW_CIRCLE && Th2_Yellow > G_B_G_YELLOW_CIRCLE)) || (Th1_Blue > B_R_B_BLUE_CIRCLE && Th2_Blue > B_G_B_BLUE_CIRCLE))
 			{
-				RedChannel.at<uchar>(j, i) = 0;
+				RedChannel.at<uchar>(j, i) = 0;    
 				GreenChannel.at<uchar>(j, i) = 0;
 				BlueChannel.at<uchar>(j, i) = 0;
 			}

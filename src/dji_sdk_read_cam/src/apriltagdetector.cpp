@@ -12,10 +12,10 @@
 using namespace cv;
 using namespace std;
 
-
+ofstream fcout( "/root/circleDetection.txt",ios::app );
 float flight_height = 0.0;
 bool change_once_flag = true;
-const float EPS = 0.00000001;
+const float EPS = 0.00000001;  
 const int tag25h9 = 1;
 //uint8_t CMD = 'W';
 /**
@@ -24,7 +24,7 @@ const int tag25h9 = 1;
 inline double standardRad ( double t )
 {
   if ( t >= 0. )
-    {
+    {  
       t = fmod ( t+PI, TWOPI ) - PI;
     }
   else
@@ -194,7 +194,7 @@ void ApriltagDetector::print_detections ( )
   if ( detections.empty() ) // no Tag found
     {
       rel_dist.header.stamp = ros::Time::now();
-      rel_dist.x = 1.0;  //for safe distance, 1 meters
+      rel_dist.x = 1.3;  //for safe distance, 1 meters
       rel_dist.y = 0;
       rel_dist.z = 0;
       rel_dist.yaw = 0;
@@ -390,10 +390,11 @@ std::vector<int> ApriltagDetector::point2win ( cv::Mat image, float delta )
 
 void ApriltagDetector::Line_detection(cv::Mat& image, dji_sdk::Reldist & result)
 {
-  Mat image_gray;
+  //Mat image_gray;
   //medianBlur(image, image, 5);
+  int flagSituation=0;
   if ( image.channels()==3 )
-  {
+  { 
     ROS_INFO("color image");
     //cv::cvtColor ( image, image_gray, CV_BGR2GRAY );
   }
@@ -404,39 +405,49 @@ void ApriltagDetector::Line_detection(cv::Mat& image, dji_sdk::Reldist & result)
   }
   
   
-  int error_y=0, yaw=0;
-  calculate(image,error_y,yaw);
+  double error_y=0, yaww=0;
+  calculate(image,error_y,yaww,flagSituation);
   
   //output the result
   result.header.frame_id = "x3_reldist";
   result.header.stamp = ros::Time::now();
   //if camera faces down, x is the vertical distance, y is horizontal y, z is horizontal x
   result.x = 0;
-  result.y = error_y;
-  result.z = 0.6;   //the forward speed
-  result.yaw = 90-yaw;
+  if(error_y>70) error_y=70;
+  if(error_y<-70) error_y=-70;
+  result.y = error_y*0.03/10;   //radius=10 pixles=3cm
+  result.yaw =  yaww-90;
   
+  if(abs(result.yaw)<20) result.z=0.4;
+  else if(abs(result.yaw)<50) result.z=0.2;
+  else result.z=0.1;
+  fcout<<"yaw="<<result.yaw<<endl;
   result.pitch = 0;
   result.roll = 0;
   result.norm = 0;
   result.gimbal_pitch_inc = 0;
   result.istracked = true;
+  if(flagSituation==3)  //endpoint
+    result.z = 0.0;   //the forward speed
+  if(flagSituation==100)
+    result.z = 0.1;
   m_result_pub.publish ( result );
 }
 
-void ApriltagDetector::calculate(Mat &img, double & intercept, double & slope)
+void ApriltagDetector::calculate(cv::Mat &img, double & intercept, double & slope, int &flagSituation)
 {
 	//圆检测
 		pair<vector<vector<double>>, vector<Vec3f>> results = circleDetection(img);
 		vector<vector<double>> disMat = results.first;
 		vector<Vec3f> circles = results.second;
-		if (circles.size() <= 1)
+		if (circles.size() < 2)
 		{
-			cout << "detected circles number: " << circles.size() << endl;
-			cout << "can't detect circle" << endl;
+			fcout << "detected circles number: " << circles.size() << endl;
+			fcout << "can't detect circle" << endl;
 			intercept=0;
 			slope=90;
-			 return ;
+			flagSituation=100;
+			return ;
 		}
 
 		//图节点数量
@@ -480,7 +491,7 @@ void ApriltagDetector::calculate(Mat &img, double & intercept, double & slope)
 			// cout << i << " " << crossroadMatrix[i].size() << endl;
 			if (crossroadMatrix[i].size() == 4)
 			{
-				cout << "发现十字路口!!!! " << i << " 节点是十字路口" << endl;
+				
 				flagSituation = 1;
 				int k = 0;
 				double maxBelow = 0, maxUp = 0;
@@ -532,9 +543,10 @@ void ApriltagDetector::calculate(Mat &img, double & intercept, double & slope)
 			pair<double, double> slopeAndInterceptResult = slopeAndIntercept(circles, crossRoadPoint1, crossRoadPoint2, (circles[crossRoadPoint1][1] + circles[crossRoadPoint2][1]) / 2, (circles[crossRoadPoint1][1] + circles[crossRoadPoint2][1]) / 2);
 			slope = slopeAndInterceptResult.first;
 			intercept = slopeAndInterceptResult.second;
-			cout << "十字路口: " << crossRoadPoint1 << " ------crossRoad------ " << crossRoadPoint2 << endl;
-			//cout << "intercept: " << intercept << endl;
-			//cout << "slope: " << slope << endl;
+			//cout << "十字路口: " << crossRoadPoint1 << " ------crossRoad------ " << crossRoadPoint2 << endl;
+			fcout<< "crossroad detected"<<endl;
+			fcout << "intercept: " << intercept << endl;
+			fcout << "slope: " << slope << endl;
 		}
 		else  //control line is not in the cross road
 		{
@@ -555,9 +567,10 @@ void ApriltagDetector::calculate(Mat &img, double & intercept, double & slope)
 				intercept = slopeAndInterceptResult.second;
 				thetaMatrix.push_back(theta);
 
-				cout << "普通: " << mst[i].v() << "---------------" << mst[i].w() << endl;
-				//cout << "intercept: " << intercept << endl;
-				//cout << "slope: " << slope << endl;
+				//cout << "普通: " << mst[i].v() << "---------------" << mst[i].w() << endl;
+				fcout << "nomal two point"<<endl;
+				fcout << "intercept: " << intercept << endl;
+				fcout << "slope: " << slope << endl;
 			}
 		}
 		//[3-4] 起点和终点
@@ -567,21 +580,24 @@ void ApriltagDetector::calculate(Mat &img, double & intercept, double & slope)
 		//Up(起点)
 		if ((MAX_LINE + MIN_LINE) / 2.0 > circles[result_Max_Min.first][1])
 		{
+			flagSituation=2;  //the start point
 			slope = slopeAndIntercept(circles, result_Max_Min.first, crossroadMatrix[result_Max_Min.first][0], MAX_LINE, MIN_LINE).first;
 			intercept = 320 - circles[result_Max_Min.first][0];
-			cout << "起点: " << result_Max_Min.first << "--------------- " << endl;
-			//cout << "intercept: " << intercept << endl;
-			//cout << "slope: " << slope << endl;
+			//cout << "起点: " << result_Max_Min.first << "--------------- " << endl;
+			fcout<< "start point"<<endl;
+			fcout << "intercept: " << intercept << endl;
+			fcout << "slope: " << slope << endl;
 		}
 		//Down(终点)
 		if ((MAX_LINE + MIN_LINE) / 2.0 < circles[result_Max_Min.second][1])
 		{
+			flagSituation=3;  //endpoint
 			slope = slopeAndIntercept(circles, result_Max_Min.second, crossroadMatrix[result_Max_Min.second][0], MAX_LINE, MIN_LINE).first;
 			intercept = 320 - circles[result_Max_Min.second][0];
-			cout << "终点: "
-				 << "--------------- " << result_Max_Min.second << endl;
-			//cout << "intercept: " << intercept << endl;
-			//cout << "slope: " << slope << endl;
+			//cout << "终点: " << "--------------- " << result_Max_Min.second << endl;
+			fcout << "end point"<<endl;
+			fcout << "intercept: " << intercept << endl;
+			fcout << "slope: " << slope << endl;
 		}
 		}
 #ifdef SHOW_DETECTION_RESULT

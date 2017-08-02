@@ -159,7 +159,7 @@ namespace serialization
       stream.next(m.radius);
     }
 
-    ROS_DECLARE_ALLINONE_SERIALIZER;
+    ROS_DECLARE_ALLINONE_SERIALIZER
   }; // struct MissionHpSetRadiusRequest_
 
 } // namespace serialization

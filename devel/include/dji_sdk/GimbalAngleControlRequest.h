@@ -212,7 +212,7 @@ namespace serialization
       stream.next(m.pitch_cmd_ignore);
     }
 
-    ROS_DECLARE_ALLINONE_SERIALIZER;
+    ROS_DECLARE_ALLINONE_SERIALIZER
   }; // struct GimbalAngleControlRequest_
 
 } // namespace serialization

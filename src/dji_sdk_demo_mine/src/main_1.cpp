@@ -14,7 +14,7 @@
 #include<fstream>
 
 #define GIMBAL_USED
-#define filter_N 4
+#define filter_N 4   
 #define EPS 0.0000000001
 #define USE_OBDIST
 
@@ -34,7 +34,7 @@ static float ob_distance[5]= {10.0};
 
 
 float cmd_vel_x = 0.0, cmd_vel_y = 0.0 ,cmd_vel_z = 0.0;
-float searching_height = 1.5;
+float searching_height = 1.0;
 
 void apriltag_detection_resultCallback ( const std_msgs::Int8 & num_of_detection )
 {
@@ -161,7 +161,7 @@ int main ( int argc, char **argv )
 
     //float flight_x_filtered = 0.0;
     // std_msgs::Float64 filtered_x_msg,not_filtered_x_msg;
-    float filtered_x=0.0,filtered_y=0.0;
+    float filtered_x=0.0,filtered_y=0.0, filtered_yaw=0.0;
     //filtered_x_msg.data = 0.0;
     float yaw=0;
     // not_filtered_x_msg.data = 0.0;
@@ -210,11 +210,16 @@ int main ( int argc, char **argv )
 
         filter_seq_x[filter_N-1] = drone->flight_x;
         filter_seq_y[filter_N-1] = drone->flight_y;
-
+	last_flight_yaw = filtered_yaw;
+	
         filtered_x =  drone->flight_x;//( sum ( filter_seq_x,filter_N )-find_max ( filter_seq_x,filter_N )-find_min ( filter_seq_x,filter_N ) ) / ( filter_N-2 );
 
-        filtered_y =  drone->flight_y;//( sum ( filter_seq_y,filter_N )-find_max ( filter_seq_y,filter_N )-find_min ( filter_seq_y,filter_N ) ) / ( filter_N-2 );
-
+        filtered_y =  ( sum ( filter_seq_y,filter_N )-find_max ( filter_seq_y,filter_N )-find_min ( filter_seq_y,filter_N ) ) / ( filter_N-2 );
+	
+	filtered_yaw= drone->flight_yaw;
+	if(abs(filtered_yaw-last_flight_yaw)>50.0)   filtered_yaw = last_flight_yaw;
+	if(filtered_yaw>30) filtered_yaw=30;
+        if(filtered_yaw<-30) filtered_yaw=-30;
         // if start_searching=1, follow line
         start_searching_pub.publish ( start_searching );
 	mission_type_pub.publish ( mission_type );
@@ -237,10 +242,10 @@ int main ( int argc, char **argv )
 	  }
 	  /************************************************'d' START LINE FOLLOW MISSION**********************************************************************/
 	  /*****************************************************************************************************************/
-	  case 'd':
+	  case 'd':  
 	  {
 	    //ROS_INFO ( "line following" );
-	    writeF<<"line following"<<ob_distance[0]<<endl;
+	    writeF<<"line following"<<ob_distance[0]<<"yaw= "<<filtered_yaw<<endl;
 	    last_flight_x = filtered_x;
 	    last_flight_y = filtered_y;
 	    if ( ob_distance[0]<tracking_flight_height-0.1)// ||flying_height_control_tracking<1.8 )
@@ -252,10 +257,10 @@ int main ( int argc, char **argv )
 	      flying_height_control_tracking -= 0.001;
 	    }
 
-	    drone->attitude_control ( 0x9B,filtered_x,filtered_y,flying_height_control_tracking,0 );	    
+	    drone->attitude_control ( 0x9B,filtered_x,filtered_y,flying_height_control_tracking,filtered_yaw );	    
 	    
 	    break;
-	  }
+	  } 
 	  
 	  /*****************************************************'a' for abort mission***************************************************************************/
 	  /********************************************************************************************************************************************/

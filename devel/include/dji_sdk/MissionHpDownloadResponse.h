@@ -172,7 +172,7 @@ namespace serialization
       stream.next(m.hotpoint_task);
     }
 
-    ROS_DECLARE_ALLINONE_SERIALIZER;
+    ROS_DECLARE_ALLINONE_SERIALIZER
   }; // struct MissionHpDownloadResponse_
 
 } // namespace serialization

@@ -176,7 +176,7 @@ namespace serialization
       stream.next(m.altitude_progress);
     }
 
-    ROS_DECLARE_ALLINONE_SERIALIZER;
+    ROS_DECLARE_ALLINONE_SERIALIZER
   }; // struct GlobalPositionNavigationFeedback_
 
 } // namespace serialization

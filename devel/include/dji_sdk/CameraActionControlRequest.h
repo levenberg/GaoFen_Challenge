@@ -162,7 +162,7 @@ namespace serialization
       stream.next(m.camera_action);
     }
 
-    ROS_DECLARE_ALLINONE_SERIALIZER;
+    ROS_DECLARE_ALLINONE_SERIALIZER
   }; // struct CameraActionControlRequest_
 
 } // namespace serialization

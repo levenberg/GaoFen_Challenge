@@ -147,7 +147,7 @@ public:
     m_mission_type_sub = node.subscribe ( "dji_sdk_demo/mission_type",10,&ApriltagDetector::mission_type_callback,this );
 
 //   m_used_apriltag_type_sub = node.subscribe("used_apriltag_type",10,&ApriltagDetector::apriltag_type_change_callback,this);
-  }
+  } 
 
   ~ApriltagDetector() {
     
@@ -179,9 +179,9 @@ public:
   }
 
 #endif
-  void calculate(Mat &img, double & intercept, double & slope);
+ 
   void Line_detection(cv::Mat& image, dji_sdk::Reldist & result);
-
+  void calculate(cv::Mat &img, double & intercept, double & slope, int &flagSituation);
 
 
 

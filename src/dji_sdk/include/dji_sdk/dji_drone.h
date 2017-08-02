@@ -306,15 +306,15 @@ private:
     {
       ROS_INFO("Round 1");
       this->flight_x = detection.z;
-      this->flight_y = -detection.y;
-      this->flight_yaw= detection.yaw;
+      this->flight_y = -detection.y;   //+-?
+      this->flight_yaw= detection.yaw; //+-?
     }
     else     //for round 2
     {
       //ROS_INFO("Round 2");
-      this->flight_x = detection.x-1.0;   //keep the safe distance
+      this->flight_x = detection.x-1.3;    //keep the safe distance
       this->flight_y = -detection.y;
-      this->flight_yaw= detection.pitch*57.3;
+      this->flight_yaw=-detection.pitch*57.3;
     }
 #endif
     if(!this->g_mission_type)    //for round 1
@@ -325,7 +325,7 @@ private:
     else
     {
       this->flight_x_tag = detection.x-1.0;
-      this->flight_y_tag = -detection.y;
+      this->flight_y_tag = -detection.y; 
     }
     
     this->flight_gimbal_angle_pitch_inc = 0;  //detection.gimbal_pitch_inc;// = atan(detection.z/(detection.x+0.00000001))*57.3;//To angle

@@ -240,7 +240,7 @@ namespace serialization
       stream.next(m.result);
     }
 
-    ROS_DECLARE_ALLINONE_SERIALIZER;
+    ROS_DECLARE_ALLINONE_SERIALIZER
   }; // struct LocalPositionNavigationActionResult_
 
 } // namespace serialization

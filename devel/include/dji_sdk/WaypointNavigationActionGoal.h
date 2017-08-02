@@ -230,7 +230,7 @@ namespace serialization
       stream.next(m.goal);
     }
 
-    ROS_DECLARE_ALLINONE_SERIALIZER;
+    ROS_DECLARE_ALLINONE_SERIALIZER
   }; // struct WaypointNavigationActionGoal_
 
 } // namespace serialization

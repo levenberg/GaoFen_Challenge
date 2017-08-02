@@ -180,7 +180,7 @@ namespace serialization
       stream.next(m.error_code);
     }
 
-    ROS_DECLARE_ALLINONE_SERIALIZER;
+    ROS_DECLARE_ALLINONE_SERIALIZER
   }; // struct MissionStatusWaypoint_
 
 } // namespace serialization
