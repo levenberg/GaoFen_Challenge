@@ -328,10 +328,10 @@ private:
       this->flight_y_tag = -detection.y;
     }
     
-    this->flight_gimbal_angle_pitch_inc = detection.gimbal_pitch_inc;// = atan(detection.z/(detection.x+0.00000001))*57.3;//To angle
-    this->flight_norm = detection.norm;
-    this->flight_height = detection.height_with_gimbal;
-    this->yaw_from_apriltag = detection.yaw;
+    this->flight_gimbal_angle_pitch_inc = 0;  //detection.gimbal_pitch_inc;// = atan(detection.z/(detection.x+0.00000001))*57.3;//To angle
+    this->flight_norm = 0; //detection.norm;
+    this->flight_height =0;// detection.height_with_gimbal;
+    this->yaw_from_apriltag = 0; //detection.yaw;
 
   }
 
