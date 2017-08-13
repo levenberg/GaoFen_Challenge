@@ -302,17 +302,16 @@ private:
   void apriltag_datection_callback ( const dji_sdk::Reldist & detection ) // geometry_msgs::PoseWithCovarianceStamped &msg)
   {
 #ifndef PID_USED
-    if(!this->g_mission_type)    //for round 1
+    if(!this->g_mission_type)    //for parking type
     {
-      ROS_INFO("Round 1");
       this->flight_x = detection.z;
       this->flight_y = -detection.y;   //+-?
-      this->flight_yaw= detection.yaw; //+-?
+      this->flight_yaw= 0;   //detection.yaw; //+-?
     }
-    else     //for round 2
+    else     //for crossing type
     {
       //ROS_INFO("Round 2");
-      this->flight_x = detection.x-1.3;    //keep the safe distance
+      this->flight_x = detection.x;    //keep the safe distance
       this->flight_y = -detection.y;
       this->flight_yaw=-detection.pitch*57.3;
     }
