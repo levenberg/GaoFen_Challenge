@@ -90,7 +90,6 @@ c7a0c40857439c6cb96d486cc87d710f /root/Documents/roswork/GaoFen_Challenge/devel/
 eb6a4f257429e1139d260fea2ded0fbe /root/Documents/roswork/GaoFen_Challenge/devel/include/dji_sdk/WaypointNavigationFeedback.h
 ab11dc1e291582630bce6576be7dbca7 /root/Documents/roswork/GaoFen_Challenge/devel/include/dji_sdk/WaypointNavigationGoal.h
 e94d5b2fe8621e7484d69f6244dd3811 /root/Documents/roswork/GaoFen_Challenge/devel/include/dji_sdk/WaypointNavigationResult.h
-735ce803593b4c076519b2813c13796c /root/Documents/roswork/GaoFen_Challenge/devel/include/pid/PidConfig.h
 7e0c47a13904e293b7630df0d4ebaa2d /root/Documents/roswork/GaoFen_Challenge/devel/lib/python2.7/dist-packages/dji_sdk/msg/_A3GPS.py
 8f5f3d0eb980ce3cc49cdd48a39a4819 /root/Documents/roswork/GaoFen_Challenge/devel/lib/python2.7/dist-packages/dji_sdk/msg/_A3RTK.py
 f6e63137864918be3ae21a7909978e78 /root/Documents/roswork/GaoFen_Challenge/devel/lib/python2.7/dist-packages/dji_sdk/msg/_Acceleration.py

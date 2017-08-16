@@ -16,7 +16,7 @@
 #define GIMBAL_USED
 #define filter_N 4   
 #define EPS 0.0000000001
-#define USE_OBDIST  
+#define USE_OBDIST
 
 #define PI 3.1415926536
 #define VEL_MODE
@@ -214,7 +214,6 @@ int main ( int argc, char **argv )
 	    ROS_INFO ( "In Mission" );
 	    writeF<<"In Mission, height="<<ob_distance[0]<<"state= "<<state_in_mission<<endl;
 	    writeF<<"filtered_x="<<filtered_x<<", filtered_y="<<filtered_y<<endl;
-	    state_in_mission=1;
 	    state_msg.data = state_in_mission;
 	    state_in_mission_pub.publish(state_msg);
 	    ROS_INFO("state_in_mission= %d",state_in_mission);
@@ -232,7 +231,7 @@ int main ( int argc, char **argv )
 		 flip_once= cbarrier(filtered_x,filtered_y,filtered_yaw,1.2,2.0,Detection_fg,drone);
 		 if(flip_once)
 		 {
-		   state_in_mission=2; 
+		   state_in_mission=2;
 		   flip_once=false;
 		 }
 		 break;
@@ -299,7 +298,7 @@ int main ( int argc, char **argv )
 		 break;
 	     }
 	    
-	    break; 
+	    break;
 	  } 
 	  
 	  /*****************************************************'a' for abort mission***************************************************************************/
@@ -330,8 +329,7 @@ int main ( int argc, char **argv )
 bool parking(float &cmd_fligh_x,float &cmd_flight_y,float height, uint8_t detection_flag,DJIDrone* drone)
 {
   drone->gimbal_angle_control ( 0,-900,0,20 );
-
-  if(land_mode==0&&drone->gimbal.pitch<-85)   //closing to landing part and landing
+  if(land_mode==0)   //closing to landing part and landing
   {
     if(detection_flag)  //parking pad detected
     {
@@ -349,21 +347,14 @@ bool parking(float &cmd_fligh_x,float &cmd_flight_y,float height, uint8_t detect
       }
       else if(abs(cmd_fligh_x)<0.16&&abs(cmd_flight_y)<0.16) 
       {
-	if ( ob_distance[0]<1.4)
-	{
-	  flying_height_control_tracking += 0.002;
-	}
-	else if ( (ob_distance[0]>1.6)&&ob_distance[0]<10)
-	{ 
-	  flying_height_control_tracking -= 0.002;
-	}
-	drone->attitude_control(0x9B,cmd_fligh_x,cmd_flight_y,flying_height_control_tracking,0);   //TODO: height adjusting
-	if(ob_distance[0]<1.6)
-	{
-	  drone->landing();
-	  land_mode=1;
-	  sleep(5);
-	}
+	if(drone->local_position.z>1.6)
+	  drone->attitude_control(0x9B,cmd_fligh_x,cmd_flight_y,1.5,0);   //TODO: height adjusting
+	  else
+	  {
+	    drone->landing();
+	    land_mode=1;
+	    sleep(5);
+	  }
       }
     }
     else    //parkinng pad undetected
@@ -373,8 +364,6 @@ bool parking(float &cmd_fligh_x,float &cmd_flight_y,float height, uint8_t detect
   {
     sleep(5);
     drone->takeoff();
-    flying_height_control_tracking=height;
-    drone->attitude_control(0x9B,0,0,flying_height_control_tracking,0);
     if(ob_distance[0]>1.0)   //TODO: adjusting using the land pad.
     {
       land_mode=0;
@@ -390,8 +379,8 @@ bool cbarrier(float &cmd_fligh_x,float &cmd_flight_y, float &cmd_yaw,float heigh
   if(cbring_mode==0)  //turn the gimbal direction
   {
     drone->gimbal_angle_control(0,0,0,20);   //look farward.
-    if(drone->gimbal.pitch>-5)
-	cbring_mode=1;
+    cbring_mode=1;
+    sleep(2);
   }
   else if(cbring_mode==1)  //closing to the hanging pad. first x,y then z
   {

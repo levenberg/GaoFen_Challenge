@@ -26,7 +26,7 @@
 #include "ros/ros.h"
 #include <ros/publisher.h>
 //#endif
-
+#define _SHOW_PHOTO
 
 #ifndef GIMBAL_USED
 #define GIMBAL_USED
@@ -79,7 +79,7 @@ public:
 #endif
 
   ros::Publisher m_result_pub;
-  ros::Publisher  m_numOfDetection_pub;
+  ros::Publisher  tag_detections_pub;
   dji_sdk::Reldist rel_dist;
   std_msgs::Int8 m_numOfDetections;
   dji_sdk::DetectionPoints m_detectionPoints;
@@ -89,6 +89,7 @@ public:
   
   ros::Subscriber m_CMD_FROM_DJI_sub;
   ros::Subscriber m_mission_type_sub;
+  ros::Subscriber m_state_in_mission_sub;
  // ros::Subscriber m_used_apriltag_type_sub;
 #ifdef GIMBAL_USED
   ros::Subscriber m_gimbal_sub;
@@ -100,6 +101,7 @@ public:
 
   uint8_t m_CMD_from_remote; 
   bool m_mission_type;
+  uint8_t m_state_in_mission;
   std::vector<cv::Point2f> points[2];
   vector<AprilTags::TagDetection> detections;
   bool usingSmallTags;
@@ -127,6 +129,7 @@ public:
     m_isTracking ( false ),
     m_CMD_from_remote('W'),
     m_mission_type ( true ),
+    m_state_in_mission(0),
 //    m_used_apriltag_type(1),
 
     usingSmallTags ( false )
@@ -135,7 +138,7 @@ public:
     m_tagDetector = new AprilTags::TagDetector ( m_tagCodes );
     // cv::namedWindow("AprilTag", 1);
     m_result_pub  = node.advertise<dji_sdk::Reldist> ( "apriltag_detection/reldist",10 );
-    m_numOfDetection_pub = node.advertise<std_msgs::Int8> ( "apriltag_detection/numofdetections",10 );
+    tag_detections_pub = node.advertise<std_msgs::Bool> ( "tag_detection/detections",10 );
     m_detectionPoints_pub = node.advertise<dji_sdk::DetectionPoints> ( "apriltag_detection/detectionPoints",10 );
 
     m_using_smallTags_pub = node.advertise<std_msgs::Bool> ( "apriltag_detection/usingSmallTags",10 );
@@ -145,7 +148,7 @@ public:
 
     m_CMD_FROM_DJI_sub = node.subscribe ( "dji_sdk/data_received_from_remote_device",10,&ApriltagDetector::cmd_from_mobile_callback,this );
     m_mission_type_sub = node.subscribe ( "dji_sdk_demo/mission_type",10,&ApriltagDetector::mission_type_callback,this );
-
+    m_state_in_mission_sub = node.subscribe ("/dji_sdk_demo/state_in_mission",10,&ApriltagDetector::state_in_mission_callback,this);
 //   m_used_apriltag_type_sub = node.subscribe("used_apriltag_type",10,&ApriltagDetector::apriltag_type_change_callback,this);
   } 
 
@@ -183,6 +186,8 @@ public:
   void Line_detection(cv::Mat& image, dji_sdk::Reldist & result);
   void calculate(cv::Mat &img, double & intercept, double & slope, int &flagSituation);
 
+  void Calcu_attitude(cv::Point2f pnt_tl_src, cv::Point2f pnt_tr_src, cv::Point2f pnt_br_src, cv::Point2f pnt_bl_src);
+  int Num_detection(cv::Mat &img,cv::Mat mimg,bool flag, dji_sdk::Reldist & pos_result);
 
 
 void cmd_from_mobile_callback(const dji_sdk::TransparentTransmissionData & transData)
@@ -194,6 +199,11 @@ void cmd_from_mobile_callback(const dji_sdk::TransparentTransmissionData & trans
 void mission_type_callback(const std_msgs::Bool &mission_data)
 {
   m_mission_type=mission_data.data;
+}
+
+void state_in_mission_callback(const std_msgs::Int8 &state_in_mission)
+{
+  m_state_in_mission=state_in_mission.data;
 }
 /*
 void apriltag_type_change_callback(const std_msgs::Int8 & used_type)

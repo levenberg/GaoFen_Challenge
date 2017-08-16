@@ -406,5 +406,6 @@ SET(CMAKE_DEPEND_INFO_FILES
   "dji_sdk/CMakeFiles/tf_generate_messages_py.dir/DependInfo.cmake"
   "dji_sdk_demo_mine/CMakeFiles/dji_sdk_client_mine.dir/DependInfo.cmake"
   "dji_sdk_demo_mine/CMakeFiles/dji_sdk_gaofen_2.dir/DependInfo.cmake"
+  "dji_sdk_demo_mine/CMakeFiles/dji_sdk_gaofen_3.dir/DependInfo.cmake"
   "dji_sdk_read_cam/CMakeFiles/dji_sdk_read_cam.dir/DependInfo.cmake"
   )

@@ -140,10 +140,13 @@ include_directories(
 # )
 add_executable(dji_sdk_client_mine src/main_1.cpp)
 add_executable(dji_sdk_gaofen_2 src/main_2.cpp)
+add_executable(dji_sdk_gaofen_3 src/main_3.cpp)
 target_link_libraries(dji_sdk_client_mine ${catkin_LIBRARIES} )
 target_link_libraries(dji_sdk_gaofen_2  ${catkin_LIBRARIES} )
+target_link_libraries(dji_sdk_gaofen_3  ${catkin_LIBRARIES} )
 add_dependencies(dji_sdk_client_mine dji_sdk_generate_messages_cpp)
 add_dependencies(dji_sdk_gaofen_2 dji_sdk_generate_messages_cpp)
+add_dependencies(dji_sdk_gaofen_3 dji_sdk_generate_messages_cpp)
 #############
 ## Install ##
 #############
@@ -167,6 +170,12 @@ install(TARGETS dji_sdk_client_mine
 )
 
 install(TARGETS dji_sdk_gaofen_2
+  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
+install(TARGETS dji_sdk_gaofen_3
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}

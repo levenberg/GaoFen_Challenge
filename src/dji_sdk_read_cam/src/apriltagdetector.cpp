@@ -5,10 +5,12 @@
 #include "ReadGraph.h"
 #include "LazyPrimMST.h"
 #include "CircleDetection.h"
+#include<string.h>
 #include "opencv2/features2d/features2d.hpp"
 #include "opencv2/calib3d/calib3d.hpp"
 #include "opencv2/highgui/highgui.hpp"
 #include "opencv2/imgproc/imgproc.hpp"
+#include "opencv2/opencv.hpp"
 using namespace cv;
 using namespace std;
 
@@ -189,8 +191,8 @@ void ApriltagDetector::print_detections ( )
 // ROS_INFO ( "Publish detection routine is working..." );
 
 // float last_flight_height = 0.0;
-  m_numOfDetections.data = detections.size();
-  m_numOfDetection_pub.publish ( m_numOfDetections );
+  //m_numOfDetections.data = detections.size();
+  //m_numOfDetection_pub.publish ( m_numOfDetections );
   if ( detections.empty() ) // no Tag found
     {
       rel_dist.header.stamp = ros::Time::now();
@@ -611,3 +613,309 @@ void ApriltagDetector::calculate(cv::Mat &img, double & intercept, double & slop
 		waitKey(1);
 #endif
 }
+
+Mat cameraMatrix = (Mat_<double>(3, 3) << 256.3024, 0, 322.1386, 0, 257.3868, 164.8579, 0, 0, 1);
+Mat distCoeffs = (Mat_<double>(1, 4) << -0.1384, 0.0697, 0, 0);
+//Point3f world_pnt_tl(-450,-450,0), world_pnt_tr(-450,450,0), world_pnt_br(450,450,0), world_pnt_bl(450,-450,0);
+Point3f world_pnt_tl(-83,-83,0), world_pnt_tr(-83,83,0), world_pnt_br(83,83,0), world_pnt_bl(83,-83,0);
+cv::Mat rvec = cv::Mat::zeros(3, 1, CV_64FC1);
+cv::Mat tvec = cv::Mat::zeros(3, 1, CV_64FC1);
+double thetaz, thetay, thetax;
+Point Senter;
+void ApriltagDetector::Calcu_attitude(Point2f pnt_tl_src, Point2f pnt_tr_src, Point2f pnt_br_src, Point2f pnt_bl_src)
+{
+	vector<Point3f> Points3D;
+	vector<Point2f> Points2D;
+	
+	Points3D.push_back(world_pnt_tl);
+	Points3D.push_back(world_pnt_tr);
+	Points3D.push_back(world_pnt_br);
+	Points3D.push_back(world_pnt_bl);
+	Points2D.push_back(pnt_tl_src);
+	Points2D.push_back(pnt_tr_src);
+	Points2D.push_back(pnt_br_src);
+	Points2D.push_back(pnt_bl_src);
+
+	solvePnP(Points3D, Points2D, cameraMatrix, distCoeffs, rvec, tvec);
+	
+	double rm[9];
+	cv::Mat rotM(3, 3, CV_64FC1, rm);
+	Rodrigues(rvec, rotM);
+
+	double r11 = rotM.ptr<double>(0)[0];
+	double r12 = rotM.ptr<double>(0)[1];
+	double r13 = rotM.ptr<double>(0)[2];
+	double r21 = rotM.ptr<double>(1)[0];
+	double r22 = rotM.ptr<double>(1)[1];
+	double r23 = rotM.ptr<double>(1)[2];
+	double r31 = rotM.ptr<double>(2)[0];
+	double r32 = rotM.ptr<double>(2)[1];
+	double r33 = rotM.ptr<double>(2)[2];
+
+	thetaz = atan2(r21, r11) / CV_PI * 180;
+	thetay = atan2(-1 * r31, sqrt(r32*r32 + r33*r33)) / CV_PI * 180;
+	thetax = atan2(r32, r33) / CV_PI * 180;
+}
+
+//input: color images
+int ApriltagDetector::Num_detection(cv::Mat &img,cv::Mat mimg,bool flag, dji_sdk::Reldist & pos_result)
+{
+	
+	vector<Mat> channels;
+	Mat  BlueChannel, GreenChannel, RedChannel;
+	split(img, channels);
+	BlueChannel = channels.at(0);
+	GreenChannel = channels.at(1);
+	RedChannel = channels.at(2);
+	for (int i = 0; i < img.cols; i++)
+	{
+		for (int j = 0; j < img.rows; j++)
+		{
+			double Th1 = (double)RedChannel.at<uchar>(j, i) / ((double)BlueChannel.at<uchar>(j, i) + 0.1);
+			double Th2 = (double)GreenChannel.at<uchar>(j, i) / ((double)BlueChannel.at<uchar>(j, i) + 0.1);
+			double Th3 = (double)RedChannel.at<uchar>(j, i) - GreenChannel.at<uchar>(j, i);
+			double Th4 = (double)RedChannel.at<uchar>(j, i);
+			double Th5 = (double)GreenChannel.at<uchar>(j, i);
+			double Th6 = (double)BlueChannel.at<uchar>(j, i);
+
+			if (Th1 > 1.5 && Th2 > 1.5  && Th4 > 100 && Th5 > 100)
+			{
+				RedChannel.at<uchar>(j, i) = 255;
+				GreenChannel.at<uchar>(j, i) = 255;
+				BlueChannel.at<uchar>(j, i) = 255;
+			}
+			else
+			{
+				RedChannel.at<uchar>(j, i) = 0;
+				GreenChannel.at<uchar>(j, i) = 0;
+				BlueChannel.at<uchar>(j, i) = 0;
+			}
+		}
+	}
+	merge(channels, img);
+	cvtColor(img, img, COLOR_BGR2GRAY);
+	cvtColor(mimg, mimg, COLOR_BGR2GRAY);
+	medianBlur(img, img, 5);
+	threshold(img, img, 150, 255, 0);
+	threshold(mimg, mimg, 150, 255, 0);
+	
+	vector<vector<Point>> contours, contours_out, contours_num, contours_test, contours_state, contours_result;
+	// find 
+	findContours(img, contours, CV_RETR_LIST, CV_CHAIN_APPROX_NONE);
+	findContours(img, contours_out, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_NONE);
+	findContours(mimg, contours_state, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_NONE);
+
+	vector<std::vector<Point>>::iterator itc1;
+	vector<std::vector<Point>>::iterator itc2 = contours_out.begin();
+
+	while (itc2 != contours_out.end()) //erase external contours for number extraction
+	{
+		itc1 = contours.begin();
+		while (itc1 != contours.end())
+		{//size threshold need to be fixed for 640*360
+			if (itc1->size() < 100||(itc1->size() == itc2->size() && contourArea(*itc1, false) == contourArea(*itc2, false)))
+				itc1 = contours.erase(itc1);
+			else
+				++itc1;
+		}
+		++itc2;
+	}
+
+
+	Mat result(img.size(), CV_8U, Scalar(0));
+	Mat result_out(img.size(), CV_8U, Scalar(0));
+	Mat result_num(img.size(), CV_8U, Scalar(0));
+
+
+	drawContours(result, contours, -1, Scalar(255), 2);
+	
+	findContours(result, contours_num, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_NONE);
+
+
+	vector<std::vector<Point>>::const_iterator itc3 = contours_num.begin();
+
+	double minconform=10.0, midle, conform;
+
+	while (itc3 != contours_num.end())
+	{
+		conform = matchShapes(contours_state[0], *itc3, CV_CONTOURS_MATCH_I3, 0.0);
+
+		if (conform < minconform)
+		{
+			minconform = conform;
+			contours_test.push_back(*itc3);
+		}
+		(itc3)++;
+	}
+	vector<std::vector<Point>>::const_iterator itc4 = contours_test.end();
+ 
+	std_msgs::Bool detection_flag;
+	if(contours_test.empty())
+	  detection_flag.data=false;
+	else 
+	  detection_flag.data=true;
+	tag_detections_pub.publish(detection_flag);
+	
+	if (!contours_test.empty())  
+	{
+		contours_result.push_back(*(--itc4));
+
+		drawContours(result_num, contours_result, -1, Scalar(255), 2);
+
+		Moments mom = moments(contours_result[0]);
+		circle(result_num, Point(mom.m10 / mom.m00, mom.m01 / mom.m00), 2, Scalar(255), 2);
+		Senter = Point(mom.m10 / mom.m00, mom.m01 / mom.m00);
+		ROS_INFO("tx=%d, ty=%d ",Senter.x,Senter.y);
+		
+		//output the result
+		    pos_result.header.frame_id = "x3_reldist";
+		    pos_result.header.stamp = ros::Time::now();
+		    //if camera faces down, x is the vertical distance, y is horizontal y, z is horizontal x
+		    pos_result.norm = 0;
+		    pos_result.gimbal_pitch_inc = 0;
+		    pos_result.istracked = true;
+
+		      
+		if(!flag)
+		{ //for drone coordinate, x is forward
+		  pos_result.x = -(Senter.y-180)*0.04/5;  //5 pixles = 4cm
+		  pos_result.y = (Senter.x-320)*0.04/5;  //5 pixles = 4cm
+		  pos_result.z = 0;
+		  pos_result.yaw = 0;
+		}
+		else
+		{
+		  vector<std::vector<Point>>::iterator itc = contours_out.begin();
+		  Point2f senter;
+		  while (itc != contours_out.end())
+		  {
+		    senter.x = (float)Senter.x;
+		    senter.y = (float)Senter.y;
+		    double INorOUT = pointPolygonTest(*itc, senter, true);
+		    if (INorOUT <= 0)
+		      itc = contours_out.erase(itc);
+		    else
+		      ++itc;
+		  }
+		  
+		  drawContours(result_out, contours_out, -1, Scalar(255), 2);
+		  
+		  if (contours_out.size() == 1)
+		  {
+		    //Rect boundRect;
+		    //RotatedRect roRect;
+		    
+		    vector<Point> pts;
+		    approxPolyDP(Mat(contours_out[0]), pts, arcLength(Mat(contours_out[0]), true)*0.03, true);
+		    //roRect = minAreaRect(Mat(contours_out[0]));
+		    //Point2f pts[4];
+		    //roRect.points(pts);
+		    //if(pts.size()==4)
+		    //{
+		    //  int minsumxy=2000;
+		    Point2f ptfour[4];
+		    int addmax=0,addmin=2000,submin=2000,submax=-2000;
+		    for(int i=0;i<pts.size();i++)
+		    {
+		      if(pts[i].x+pts[i].y<addmin)
+		      {
+			addmin=pts[i].x+pts[i].y;
+			ptfour[0]=pts[i];
+		      }
+		      if(pts[i].x+pts[i].y>addmax)
+		      {
+			addmax=pts[i].x+pts[i].y;
+			ptfour[2]=pts[i];
+		      }
+		      if(pts[i].x-pts[i].y<submin)
+		      {
+			submin=pts[i].x-pts[i].y;
+			ptfour[3]=pts[i];
+		      }
+		      if(pts[i].x-pts[i].y>submax)
+		      {
+			submax=pts[i].x-pts[i].y;
+			ptfour[1]=pts[i];
+		      }
+		    }
+		   //   int tlid=4;
+		   //   for(int i=0;i<4;i++)
+		   //   {
+		   //if(pts[i].x+pts[i].y<minsumxy)
+		   //	{
+			//  minsumxy=pts[i].x+pts[i].y;
+			  //tlid=i;
+			//}
+		   // }
+
+		      circle(result_num, ptfour[0], 2, Scalar(255), 2);
+		      circle(result_num, ptfour[1], 4, Scalar(255), 2);
+		      circle(result_num, ptfour[2], 6, Scalar(255), 2);
+		      circle(result_num, ptfour[3], 8, Scalar(255), 2);
+		      /*if(abs(senter.y-180)>100||abs(senter.x-320)>100)
+		       * {
+		       *  pos_result.x = 0; //5 pixles = 4cm
+		       *  pos_result.y = (Senter.x-320)*0.04/5;  //5 pixles = 4cm
+		       *  pos_result.z = -(Senter.y-180)*0.04/5;
+		       *  pos_result.yaw = 0;
+		    }
+		    else
+		    {*/
+		      Calcu_attitude(ptfour[0],ptfour[1],ptfour[2],ptfour[3]);
+		      ROS_INFO("tx=%f, ty=%f, tz=%f, ", tvec.ptr<double>(0)[0],tvec.ptr<double>(1)[0],tvec.ptr<double>(2)[0]);
+		      ROS_INFO("thetax=%f, thetay=%f, thetaz=%f ",thetax,thetay,thetaz);
+		      pos_result.x = tvec.ptr<double>(0)[0];
+		      pos_result.y = tvec.ptr<double>(1)[0];
+		      pos_result.z = tvec.ptr<double>(2)[0]-1.0; 
+		      pos_result.yaw = thetaz; 
+		      if(thetax<0) thetax+=360;
+		    //}
+		    //}
+		  }
+		  //namedWindow("num");
+		  //imshow("num", result_out);
+#ifdef _SHOW_PHOTO
+        char str_y[20];
+        char str_z[20];
+        char str_x[20];
+        char str_tz[20];
+        char str_ty[20];
+        char str_tx[20];
+		char str_om[20];
+        sprintf(str_y,"%lf",thetay);
+        sprintf(str_z,"%lf",thetaz);
+        sprintf(str_x,"%lf",thetax);
+        sprintf(str_tz,"%lf",tvec.ptr<double>(2)[0]);
+        sprintf(str_ty,"%lf",tvec.ptr<double>(1)[0]);
+        sprintf(str_tx,"%lf",tvec.ptr<double>(0)[0]);
+        string pre_str_y="thetay: ";
+        string pre_str_z="thetaz: ";
+        string pre_str_x="thetax: ";
+        string pre_str_tz="tz: ";
+        string pre_str_ty="ty: ";
+        string pre_str_tx="tx: ";
+        string full_y=pre_str_y+str_y;
+        string full_z=pre_str_z+str_z;
+        string full_x=pre_str_x+str_x;
+        string full_tz=pre_str_tz+str_tz;
+        string full_ty=pre_str_ty+str_ty;
+        string full_tx=pre_str_tx+str_tx;
+        putText(result_num,full_y,Point(30,30),CV_FONT_HERSHEY_SIMPLEX,1,Scalar(255),2);
+        putText(result_num,full_z,Point(30,70),CV_FONT_HERSHEY_SIMPLEX,1,Scalar(255),2);
+        putText(result_num,full_x,Point(30,100),CV_FONT_HERSHEY_SIMPLEX,1,Scalar(255),2);
+        putText(result_num,full_tz,Point(30,130),CV_FONT_HERSHEY_SIMPLEX,1,Scalar(255),2);
+        putText(result_num,full_ty,Point(30,170),CV_FONT_HERSHEY_SIMPLEX,1,Scalar(255),2);
+        putText(result_num,full_tx,Point(30,200),CV_FONT_HERSHEY_SIMPLEX,1,Scalar(255),2);
+#endif
+		}
+		m_result_pub.publish ( pos_result );
+	} 
+	
+	namedWindow("contours");
+	imshow("contours", result_num);
+	waitKey(1);
+	
+	return 0;
+}
+
+

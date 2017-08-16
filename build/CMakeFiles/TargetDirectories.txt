@@ -99,6 +99,7 @@
 /root/Documents/roswork/GaoFen_Challenge/build/CMakeFiles/clean_test_results.dir
 /root/Documents/roswork/GaoFen_Challenge/build/dji_sdk_demo_mine/CMakeFiles/dji_sdk_client_mine.dir
 /root/Documents/roswork/GaoFen_Challenge/build/dji_sdk_demo_mine/CMakeFiles/dji_sdk_gaofen_2.dir
+/root/Documents/roswork/GaoFen_Challenge/build/dji_sdk_demo_mine/CMakeFiles/dji_sdk_gaofen_3.dir
 /root/Documents/roswork/GaoFen_Challenge/build/dji_sdk/CMakeFiles/dji_sdk_gencpp.dir
 /root/Documents/roswork/GaoFen_Challenge/build/dji_sdk/CMakeFiles/dji_sdk_generate_messages.dir
 /root/Documents/roswork/GaoFen_Challenge/build/dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir

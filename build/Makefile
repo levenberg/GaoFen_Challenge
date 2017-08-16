@@ -2012,6 +2012,19 @@ dji_sdk_gaofen_2/fast:
 .PHONY : dji_sdk_gaofen_2/fast
 
 #=============================================================================
+# Target rules for targets named dji_sdk_gaofen_3
+
+# Build rule for target.
+dji_sdk_gaofen_3: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 dji_sdk_gaofen_3
+.PHONY : dji_sdk_gaofen_3
+
+# fast build rule for target.
+dji_sdk_gaofen_3/fast:
+	$(MAKE) -f dji_sdk_demo_mine/CMakeFiles/dji_sdk_gaofen_3.dir/build.make dji_sdk_demo_mine/CMakeFiles/dji_sdk_gaofen_3.dir/build
+.PHONY : dji_sdk_gaofen_3/fast
+
+#=============================================================================
 # Target rules for targets named dji_sdk_read_cam
 
 # Build rule for target.
@@ -2180,6 +2193,7 @@ help:
 	@echo "... tf_generate_messages_py"
 	@echo "... dji_sdk_client_mine"
 	@echo "... dji_sdk_gaofen_2"
+	@echo "... dji_sdk_gaofen_3"
 	@echo "... dji_sdk_read_cam"
 .PHONY : help
 

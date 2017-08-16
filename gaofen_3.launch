@@ -16,13 +16,13 @@
 
 	</node>
 
-     <node pkg="guidance" type="guidanceNode" name="guidanceNode" output="screen" />   
+      <node pkg="guidance" type="guidanceNode" name="guidanceNode" output="screen" />   
 
-	<node pkg="dji_sdk_demo_mine" type="dji_sdk_client_mine" name="dji_sdk_client_mine"  output="screen">
+	<node pkg="dji_sdk_demo_mine" type="dji_sdk_gaofen_3" name="dji_sdk_gaofen_3"  output="screen">
 		<param name="delayCount" type="int" value="20"/>
 		<param name="maxTakeoffWaitCount" type="int" value="700"/>
 		<param name="descendingSpeed"  value="0.005"/>
-		<param name="initTrackingHeight" value="1.0"/> 
+		<param name="initTrackingHeight" value="3.5"/> 
 	        <param name="initDescedingHeightSearch" value="18.0"/>  
           <param name="initial_searching_height" value="1.7"/>
 	</node>
