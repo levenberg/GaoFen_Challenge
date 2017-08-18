@@ -25,7 +25,8 @@ ofstream writeF ( "/root/log.txt");
 using namespace DJI::onboardSDK;
 using namespace actionlib;
 static bool Detection_fg = false;
-static uint8_t land_mode = 0;
+int delay_count = 300;
+static uint8_t land_mode = 0;   
 static uint8_t cbring_mode = 0;
 static float last_flight_x = 0.0;
 static float last_flight_y = 0.0;
@@ -35,7 +36,7 @@ float flying_height_control_tracking=0.0;
 float searching_height = 1.0;
 
 bool parking(float &cmd_fligh_x,float &cmd_flight_y,float height, uint8_t detection_flag,DJIDrone* drone);
-bool cbarrier(float &cmd_fligh_x,float &cmd_flight_y, float &cmd_yaw, float height,float set_height, uint8_t detection_flag,DJIDrone* drone);
+bool cbarrier(float &cmd_fligh_x,float &cmd_flight_y, float &cmd_yaw, float height,float set_height, uint8_t detection_flag,DJIDrone* drone,int &delayCount);
 
 void tag_detection_resultCallback ( const std_msgs::Bool & num_of_detection )
 {
@@ -95,7 +96,7 @@ float find_max ( float a[], size_t len )
 int main ( int argc, char **argv )
 {
     //Some params
-    int delay_count = 100;
+
     int max_takeoff_waitcount = 700;
     double tracking_flight_height = 2.0;
     double descending_height_delta = 0.005;
@@ -150,6 +151,7 @@ int main ( int argc, char **argv )
     float last_x_tag, last_y_tag;
     drone->gimbal_angle_control ( 0,-900,0,20 ); //Head down at the beginning.
 
+    int time_count=0;
     int state_in_mission = 0;
     std_msgs::Int8 state_msg;
     state_msg.data = state_in_mission;
@@ -199,7 +201,7 @@ int main ( int argc, char **argv )
 	  case 'q':
 	  {
 	    ROS_INFO ( "take off" );
-	    writeF<<"take off"<<drone->local_position.z<<endl;
+	    //writeF<<"take off"<<drone->local_position.z<<endl;
 	    //cannot use flying_height_control_tracking for second time flight.
 	    //drone->gimbal_angle_control ( 0,0,0,20 ); //Head down at the beginning.
 	    drone->attitude_control ( 0x9B,0,0,tracking_flight_height,0 );
@@ -212,7 +214,7 @@ int main ( int argc, char **argv )
 	  case 'd':  
 	  {
 	    ROS_INFO ( "In Mission" );
-	    writeF<<"In Mission, height="<<ob_distance[0]<<"state= "<<state_in_mission<<endl;
+	    //writeF<<"In Mission, height="<<ob_distance[0]<<"state= "<<state_in_mission<<endl;
 	    writeF<<"filtered_x="<<filtered_x<<", filtered_y="<<filtered_y<<endl;
 	    state_in_mission=1;
 	    state_msg.data = state_in_mission;
@@ -229,7 +231,7 @@ int main ( int argc, char **argv )
 		 }
 		 break;
 	       case 1:  //for crossing circle 3
-		 flip_once= cbarrier(filtered_x,filtered_y,filtered_yaw,1.2,2.0,Detection_fg,drone);
+		 flip_once= cbarrier(filtered_x,filtered_y,filtered_yaw,1.2,2.4,Detection_fg,drone,time_count);
 		 if(flip_once)
 		 {
 		   state_in_mission=2; 
@@ -245,7 +247,7 @@ int main ( int argc, char **argv )
 		 }
 		 break;
 	       case 3: //for crossing circle 5
-		 flip_once= cbarrier(filtered_x,filtered_y,filtered_yaw,1.4,2.2,Detection_fg,drone);
+		 flip_once= cbarrier(filtered_x,filtered_y,filtered_yaw,1.4,2.6,Detection_fg,drone,time_count);
 		 if(flip_once)
 		 {
 		   state_in_mission=4;
@@ -253,7 +255,7 @@ int main ( int argc, char **argv )
 		 }
 		 break;
 	       case 4:  //for crossing circle 6
-		 flip_once= cbarrier(filtered_x,filtered_y,filtered_yaw,1.6,2.4,Detection_fg,drone);
+		 flip_once= cbarrier(filtered_x,filtered_y,filtered_yaw,1.6,2.8,Detection_fg,drone,time_count);
 		 if(flip_once)
 		 {
 		   state_in_mission=5;
@@ -277,7 +279,7 @@ int main ( int argc, char **argv )
 		 }
 		 break;
 	       case 7: //for crossing circle 9
-		 flip_once= cbarrier(filtered_x,filtered_y,filtered_yaw,1.8,2.6,Detection_fg,drone);
+		 flip_once= cbarrier(filtered_x,filtered_y,filtered_yaw,1.8,3.0,Detection_fg,drone,time_count);
 		 if(flip_once)
 		 {
 		   state_in_mission=8;
@@ -319,7 +321,7 @@ int main ( int argc, char **argv )
 	      ROS_INFO ( "Waithing for command from mobile!\n" );
 	    break;
 	}
-	ROS_INFO ( "Command code is %c",drone->transparentdata.data.at ( 0 ) );
+	//ROS_INFO ( "Command code is %c",drone->transparentdata.data.at ( 0 ) );
 	loop_rate.sleep();
 	
     }
@@ -362,16 +364,16 @@ bool parking(float &cmd_fligh_x,float &cmd_flight_y,float height, uint8_t detect
 	{
 	  drone->landing();
 	  land_mode=1;
-	  sleep(5);
+	  sleep(3);
 	}
       }
     }
     else    //parkinng pad undetected
-      ;//TODO:
+      ;//TODO:   for different tag, do different pre-moving to detect tag
   } 
   else if(land_mode==1)   //automatic takeoff
   {
-    sleep(5);
+    sleep(3);
     drone->takeoff();
     flying_height_control_tracking=height;
     drone->attitude_control(0x9B,0,0,flying_height_control_tracking,0);
@@ -385,13 +387,23 @@ bool parking(float &cmd_fligh_x,float &cmd_flight_y,float height, uint8_t detect
   return false;
 }
 
-bool cbarrier(float &cmd_fligh_x,float &cmd_flight_y, float &cmd_yaw,float height, float set_height, uint8_t detection_flag,DJIDrone* drone)
+bool cbarrier(float &cmd_fligh_x,float &cmd_flight_y, float &cmd_yaw,float height, float set_height, uint8_t detection_flag,DJIDrone* drone,int &delayCount)
 {
   if(cbring_mode==0)  //turn the gimbal direction
   {
     drone->gimbal_angle_control(0,0,0,20);   //look farward.
-    if(drone->gimbal.pitch>-5)
-	cbring_mode=1;
+    if ( ob_distance[0]<height-0.1)
+    {
+      flying_height_control_tracking += 0.002;
+    }
+    else if ( (ob_distance[0]>height+0.1)&&ob_distance[0]<10)
+    { 
+      flying_height_control_tracking -= 0.002;
+    }
+    drone->attitude_control ( 0x9B,0,0,flying_height_control_tracking,0);
+    if(drone->gimbal.pitch>-10&&abs(ob_distance[0]-height)<0.5)
+	cbring_mode=1; 
+    writeF<<"decending for tag detection, pitch="<<drone->gimbal.pitch<<",height="<<ob_distance[0]<<endl;
   }
   else if(cbring_mode==1)  //closing to the hanging pad. first x,y then z
   {
@@ -405,23 +417,34 @@ bool cbarrier(float &cmd_fligh_x,float &cmd_flight_y, float &cmd_yaw,float heigh
       flying_height_control_tracking -= 0.001;
     }
     if(detection_flag)
-    drone->attitude_control ( 0x9B,cmd_fligh_x-0.5,cmd_flight_y,flying_height_control_tracking,cmd_yaw);
-    else
+    {
+        if(cmd_flight_y>0.15)  cmd_flight_y = 0.15;
+	if(cmd_flight_y<-0.15) cmd_flight_y =-0.15;
+	if(abs(cmd_yaw)<5&&abs(cmd_flight_y)<0.12)
+    	drone->attitude_control ( 0x9B,0.2,cmd_flight_y,flying_height_control_tracking,cmd_yaw);
+	else
+	drone->attitude_control ( 0x9B,0.0,cmd_flight_y,flying_height_control_tracking,cmd_yaw);
+    writeF<<"tag detected, cmd_yaw="<<cmd_yaw<<endl;
+    }
+    else   
+    {
       drone->attitude_control ( 0x9B,0,0,flying_height_control_tracking,cmd_yaw);
-    if(abs(cmd_fligh_x-0.5)<0.3&&abs(cmd_flight_y)<0.3&&abs(cmd_yaw)<10)
+      writeF<<"tag NOT detected, cmd_yaw="<<cmd_yaw<<endl;
+    }
+    if(abs(cmd_fligh_x-1.4)<0.2&&abs(cmd_flight_y)<0.2&&abs(cmd_yaw)<5)
       cbring_mode=2;
   }
   else if(cbring_mode==2)   //go up
   {
     if ( ob_distance[0]<set_height-0.1)
     {
-      flying_height_control_tracking += 0.001;
+      flying_height_control_tracking += 0.003;
     }
     else if ( (ob_distance[0]>set_height+0.1)&&ob_distance[0]<10)
-    { 
-      flying_height_control_tracking -= 0.001;
+    {
+      flying_height_control_tracking -= 0.003;
     }
-     drone->attitude_control ( 0x9B,0,0,flying_height_control_tracking,0);
+     drone->attitude_control ( 0x9B,cmd_fligh_x-1.4,0,flying_height_control_tracking,0);
      
      if(abs(set_height-ob_distance[0])<0.2)
        cbring_mode=3;
@@ -437,11 +460,16 @@ bool cbarrier(float &cmd_fligh_x,float &cmd_flight_y, float &cmd_yaw,float heigh
       flying_height_control_tracking -= 0.001;
     }
     drone->attitude_control ( 0x9B,1,0,flying_height_control_tracking,0);  //go farward
-    sleep(10);
-    if(detection_flag==0) 
-       drone->attitude_control ( 0x9B,1,0,flying_height_control_tracking,0);  //go farward
-    else
+    delayCount++;
+    //sleep(10);
+    //if(detection_flag==0) 
+    //   drone->attitude_control ( 0x9B,1,0,flying_height_control_tracking,0);  //go farward
+    //else
+    if(delayCount>delay_count)
+    {
+      delayCount=0;
       return true; 
+    }
   }
   
   return false;

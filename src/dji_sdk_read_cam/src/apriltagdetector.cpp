@@ -17,7 +17,7 @@ using namespace std;
 ofstream fcout( "/root/circleDetection.txt",ios::app );
 float flight_height = 0.0;
 bool change_once_flag = true;
-const float EPS = 0.00000001;  
+const float EPS = 0.00000001;   
 const int tag25h9 = 1;
 //uint8_t CMD = 'W';
 /**
@@ -112,7 +112,7 @@ void ApriltagDetector::processImage ( cv::Mat& image )
   double t0=0;
   if ( m_timing )
     {
-      t0 = tic();
+      t0 = tic(); 
     }
 
   // no prev window, do detection on the whole image; if searching for apriltags, detect the whole image
@@ -616,8 +616,8 @@ void ApriltagDetector::calculate(cv::Mat &img, double & intercept, double & slop
 
 Mat cameraMatrix = (Mat_<double>(3, 3) << 256.3024, 0, 322.1386, 0, 257.3868, 164.8579, 0, 0, 1);
 Mat distCoeffs = (Mat_<double>(1, 4) << -0.1384, 0.0697, 0, 0);
-//Point3f world_pnt_tl(-450,-450,0), world_pnt_tr(-450,450,0), world_pnt_br(450,450,0), world_pnt_bl(450,-450,0);
-Point3f world_pnt_tl(-83,-83,0), world_pnt_tr(-83,83,0), world_pnt_br(83,83,0), world_pnt_bl(83,-83,0);
+Point3f world_pnt_tl(-450,-450,0), world_pnt_tr(-450,450,0), world_pnt_br(450,450,0), world_pnt_bl(450,-450,0);
+//Point3f world_pnt_tl(-83,-83,0), world_pnt_tr(-83,83,0), world_pnt_br(83,83,0), world_pnt_bl(83,-83,0);
 cv::Mat rvec = cv::Mat::zeros(3, 1, CV_64FC1);
 cv::Mat tvec = cv::Mat::zeros(3, 1, CV_64FC1);
 double thetaz, thetay, thetax;
@@ -713,7 +713,7 @@ int ApriltagDetector::Num_detection(cv::Mat &img,cv::Mat mimg,bool flag, dji_sdk
 		itc1 = contours.begin();
 		while (itc1 != contours.end())
 		{//size threshold need to be fixed for 640*360
-			if (itc1->size() < 100||(itc1->size() == itc2->size() && contourArea(*itc1, false) == contourArea(*itc2, false)))
+			if (itc1->size() < 40||(itc1->size() == itc2->size() && contourArea(*itc1, false) == contourArea(*itc2, false)))
 				itc1 = contours.erase(itc1);
 			else
 				++itc1;
@@ -847,30 +847,38 @@ int ApriltagDetector::Num_detection(cv::Mat &img,cv::Mat mimg,bool flag, dji_sdk
 			  //tlid=i;
 			//}
 		   // }
-
+#ifdef _SHOW_PHOTO
 		      circle(result_num, ptfour[0], 2, Scalar(255), 2);
 		      circle(result_num, ptfour[1], 4, Scalar(255), 2);
 		      circle(result_num, ptfour[2], 6, Scalar(255), 2);
 		      circle(result_num, ptfour[3], 8, Scalar(255), 2);
-		      /*if(abs(senter.y-180)>100||abs(senter.x-320)>100)
-		       * {
-		       *  pos_result.x = 0; //5 pixles = 4cm
-		       *  pos_result.y = (Senter.x-320)*0.04/5;  //5 pixles = 4cm
-		       *  pos_result.z = -(Senter.y-180)*0.04/5;
-		       *  pos_result.yaw = 0;
-		    }
-		    else
-		    {*/
-		      Calcu_attitude(ptfour[0],ptfour[1],ptfour[2],ptfour[3]);
-		      ROS_INFO("tx=%f, ty=%f, tz=%f, ", tvec.ptr<double>(0)[0],tvec.ptr<double>(1)[0],tvec.ptr<double>(2)[0]);
-		      ROS_INFO("thetax=%f, thetay=%f, thetaz=%f ",thetax,thetay,thetaz);
-		      pos_result.x = tvec.ptr<double>(0)[0];
-		      pos_result.y = tvec.ptr<double>(1)[0];
-		      pos_result.z = tvec.ptr<double>(2)[0]-1.0; 
-		      pos_result.yaw = thetaz; 
-		      if(thetax<0) thetax+=360;
+#endif
+		     /* if(abs(senter.x-320)>30)
+		      {  
+			pos_result.x = 0; //5 pixles = 4cm
+			pos_result.y = (Senter.x-320)*0.04/5;  //5 pixles = 4cm
+			//pos_result.z = -(Senter.y-180)*0.04/5;
+			pos_result.yaw = 0;
+		      }
+		      else
+		      {*/
+			Calcu_attitude(ptfour[0],ptfour[1],ptfour[2],ptfour[3]);
+			if(thetax<0) thetax+=360;
+			//ROS_INFO("tx=%f, ty=%f, tz=%f, ", tvec.ptr<double>(0)[0],tvec.ptr<double>(1)[0],tvec.ptr<double>(2)[0]);
+			//ROS_INFO("thetax=%f, thetay=%f, thetaz=%f ",thetax,thetay,thetaz);
+			pos_result.x = tvec.ptr<double>(2)[0]/1000;  //m,close to tag, have not subscribe the safe distance 
+			pos_result.y = tvec.ptr<double>(0)[0]/1000;  //m
+			//pos_result.z = tvec.ptr<double>(1)[0]; 
+			pos_result.yaw = thetax-180;  //jiaodu 
+			
+		     // }
 		    //}
-		    //}
+		  }
+		  else  //no tag detected.
+		  {
+		    pos_result.x = 0;
+		    pos_result.y = 0;
+		    pos_result.yaw = 0;
 		  }
 		  //namedWindow("num");
 		  //imshow("num", result_out);
@@ -881,7 +889,6 @@ int ApriltagDetector::Num_detection(cv::Mat &img,cv::Mat mimg,bool flag, dji_sdk
         char str_tz[20];
         char str_ty[20];
         char str_tx[20];
-		char str_om[20];
         sprintf(str_y,"%lf",thetay);
         sprintf(str_z,"%lf",thetaz);
         sprintf(str_x,"%lf",thetax);
@@ -910,11 +917,11 @@ int ApriltagDetector::Num_detection(cv::Mat &img,cv::Mat mimg,bool flag, dji_sdk
 		}
 		m_result_pub.publish ( pos_result );
 	} 
-	
+#ifdef _SHOW_PHOTO
 	namedWindow("contours");
 	imshow("contours", result_num);
 	waitKey(1);
-	
+#endif
 	return 0;
 }
 

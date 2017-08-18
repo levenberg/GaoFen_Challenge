@@ -26,7 +26,7 @@
 #include "ros/ros.h"
 #include <ros/publisher.h>
 //#endif
-#define _SHOW_PHOTO
+//#define _SHOW_PHOTO
 
 #ifndef GIMBAL_USED
 #define GIMBAL_USED
