@@ -30,7 +30,8 @@ include_directories(
 include
   include/AprilTags
   include/DJI
-  include/MST  
+  include/MST
+  include/ARToolKitPlus
   ${catkin_INCLUDE_DIRS}
   /usr/include/eigen3)
 
@@ -58,6 +59,7 @@ target_link_libraries(
   dji_sdk_read_cam
   apriltags
   dcam
+  ARToolKitPlus
 
   ${OpenCV_LIBS}
   ${catkin_LIBRARIES}
