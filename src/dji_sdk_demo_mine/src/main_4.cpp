@@ -223,7 +223,7 @@ int main ( int argc, char **argv )
 	/******************************************IMPORTANT*************************************************/
 	std_msgs::Bool mission_type;
 	mission_type.data=true; //false for round 3, true for round 4
-	drone->gimbal_angle_control( 0,0,0,20);
+	drone->gimbal_angle_control( 0,-300,0,15);
 	
 	int direction_mode=1;//1-forward  2-right  3-left  
 	
@@ -246,15 +246,8 @@ int main ( int argc, char **argv )
 				writeF<<"take off"<<drone->local_position.z<<endl;
 				//cannot use flying_height_control_tracking for second time flight.
 				drone->attitude_control ( 0x9B,0,0,tracking_flight_height,0 );
-				drone->gimbal_angle_control( 0,0,0,20,0);
-				sleep(3);
-				drone->gimbal_angle_control( 0,0,900,20,0);
-				sleep(3);
-				drone->gimbal_angle_control( 0,0,900,20,0);
-				sleep(3);
-				drone->gimbal_angle_control( 0,0,-1800,20,0);
-				sleep(3);
-				
+				count=0;
+				tik_count==0;
 				//drone->gimbal_angle_control( 0,0,0,20);
 				flying_height_control_tracking = tracking_flight_height;;
 				start_yaw = drone->yaw_from_drone;//Record the yaw of taking off
@@ -268,21 +261,28 @@ int main ( int argc, char **argv )
 			  
 			  if(drone->rc_channels.gear==-10000&&main_operate_code==false)
 			  {
-			    drone->local_position_navigation_send_request(0,2,tracking_flight_height);
-			    drone->local_position_navigation_wait_for_result();
-			    main_operate_code=true;
+			    count++;
+			    drone->attitude_control(0x4B,0,0.6,0,0);
+			    if(count>350) //for middle searching
+			    { 
+			      count=0;
+			      main_operate_code=true;
+			      drone->attitude_control(0x4B,0,0,0,0);
+			    }
 			  }
-			 
+			  else
+			  {
+			    
 			    if (ob_distance[0]<tracking_flight_height-0.1)// ||flying_height_control_tracking<1.8 ) drone->local_position.z<tracking_flight_height-0.1||
 			    { 
-			      flying_height_control_tracking += 0.001;
+			      flying_height_control_tracking += 0.002;
 			    }
 			    if ( (ob_distance[0]>tracking_flight_height+0.1)&ob_distance[0]<10)// &&flying_height_control_tracking>2.2 ) //ob_distance[0]>1.8 )drone->local_position.z>tracking_flight_height+0.1||
 			    {  
-			      flying_height_control_tracking -= 0.001;
+			      flying_height_control_tracking -= 0.002;
 			    }
 			    
-			    
+			    writeF<<ob_distance[1]<<"  "<<ob_distance[2]<<"  "<<ob_distance[4]<<" mode:"<<direction_mode<<endl;
 			    if (direction_mode==1)//forward
 			    {
 			      filtered_x=0.2;
@@ -295,30 +295,49 @@ int main ( int argc, char **argv )
 				  direction_mode=3;
 			      }
 			    }
-			    else if (direction_mode==2)//right
+			    
+			    if (direction_mode==2)//right
 			    {
 			      filtered_x=0;
 			      filtered_y=0.2;
 			      if (ob_distance[2]<safe_distance)
 				direction_mode=3;
-			      if (ob_distance[1]>safe_distance+0.5 &&ob_distance[1]<10)
+			      if (ob_distance[1]>safe_distance+0.5)
 				direction_mode=1;
 			      
 			    }
-			    else if (direction_mode==3)//left
+			    
+			    if (direction_mode==3)//left
 			    {
 			      filtered_x=0;
 			      filtered_y=-0.2;
 			      if (ob_distance[4]<safe_distance)
 				direction_mode=2;
-			      if (ob_distance[1]>safe_distance+0.5 &&ob_distance[1]<10)
+			      if (ob_distance[1]>safe_distance+0.5)
 				direction_mode=1;
 			    }
 			    
-			    
-			    drone->attitude_control ( 0x9B,filtered_x,filtered_y,flying_height_control_tracking,0 );    
-			  
-			  
+			    if(tik_count<delay_count)
+			    {
+			      drone->attitude_control ( 0x9B,filtered_x,filtered_y,flying_height_control_tracking,0 );    
+			      tik_count++;
+			    } 
+			    else
+			    {
+			      tik_count=0;
+			      drone->attitude_control ( 0x9B,0,0,flying_height_control_tracking,0 );    
+			      drone->gimbal_angle_control( 0,0,0,15,0);
+			      sleep(2);
+			      drone->gimbal_angle_control( 0,0,-900,15,0);
+			      sleep(2);
+			      drone->gimbal_angle_control( 0,0,1800,15,0);
+			      sleep(2);
+			      drone->gimbal_angle_control( 0,0,900,15,0);
+			      sleep(2);
+			      drone->gimbal_angle_control( 0,0,-1800,15,0);
+			      sleep(2);
+			    }
+			  }
 			  
 			  
 			  break;

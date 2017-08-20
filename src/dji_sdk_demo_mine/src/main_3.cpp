@@ -152,6 +152,8 @@ int main ( int argc, char **argv )
     drone->gimbal_angle_control ( 0,-900,0,20 ); //Head down at the beginning.
 
     int time_count=0;
+    int count=0;
+    bool main_operate_code=false;
     int state_in_mission = 0;
     std_msgs::Int8 state_msg;
     state_msg.data = state_in_mission;
@@ -172,6 +174,9 @@ int main ( int argc, char **argv )
 
 	if(drone->rc_channels.gear==-10000)
 	{
+	  count=0;
+	  time_count=0;
+	  main_operate_code=false;
 	  state_in_mission=0;
 	}
         for ( int i = 0; i< filter_N-1; i++ )
@@ -238,11 +243,26 @@ int main ( int argc, char **argv )
 		 }
 		 break;
 	       case 1:  //for crossing circle 3
-		 flip_once= cbarrier(filtered_x,filtered_y,filtered_yaw,1.2,2.1,Detection_fg,drone,time_count);
-		 if(flip_once)
+		 if(main_operate_code==false)
 		 {
-		   state_in_mission=2; 
-		   flip_once=false;
+		   count++;
+		   drone->attitude_control(0x4B,-0.3,-0.1,0,0); //back
+		   if(count>100) //for middle searching
+		   { 
+		     count=0;
+		     main_operate_code=true;
+		     drone->attitude_control(0x4B,0,0,0,0);
+		   }
+		 }
+		 else
+		 {
+		   flip_once= cbarrier(filtered_x,filtered_y,filtered_yaw,1.2,2.1,Detection_fg,drone,time_count);
+		   if(flip_once)
+		   {
+		     state_in_mission=2; 
+		     flip_once=false;
+		     main_operate_code=false;
+		   }
 		 }
 		 break;
 	       case 2:  //for parking pad 4
@@ -476,7 +496,7 @@ bool cbarrier(float &cmd_fligh_x,float &cmd_flight_y, float &cmd_yaw,float heigh
     { 
       flying_height_control_tracking -= 0.001;
     }
-    drone->attitude_control ( 0x9B,1,0,flying_height_control_tracking,0);  //go farward
+    drone->attitude_control ( 0x4B,0.4,0,0,0);  //go farward
     delayCount++;
     //sleep(10);
     //if(detection_flag==0) 
