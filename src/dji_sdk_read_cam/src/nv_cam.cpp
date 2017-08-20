@@ -28,6 +28,8 @@
 #include <dji_sdk/Reldist.h>
 
 #include "apriltagdetector.h"
+#include <ARToolKitPlus/TrackerSingleMarker.h>
+using ARToolKitPlus::TrackerSingleMarker;
 
 typedef unsigned char   BYTE;
 #define IMAGE_W 1280
@@ -192,12 +194,26 @@ void* trackLoop ( void* tmp )
   ros::Time t = ros::Time::now();
   dji_sdk::Reldist result;
   ApriltagDetector* tracker = ( ApriltagDetector* ) tmp;
+  //for ARtag detection initilzation
+  const bool useBCH = false;
+  const int width = 640, height = 360, bpp = 1;
+  TrackerSingleMarker artracker(width, height, 8, 6, 6, 6, 0);
+  artracker.setPixelFormat(ARToolKitPlus::PIXEL_FORMAT_LUM);
+  artracker.setPatternWidth(2.0);
+  artracker.init("/root/PGR_M12x0.5_2.5mm.cal", 1.0f, 1000.0f);
+  artracker.setBorderWidth(useBCH ? 0.125 : 0.25);
+  
+  artracker.activateAutoThreshold (1);
+  
+  artracker.setUndistortionMode(ARToolKitPlus::UNDIST_LUT);
+  
+  artracker.setMarkerMode(useBCH ? ARToolKitPlus::MARKER_ID_BCH : ARToolKitPlus::MARKER_ID_SIMPLE);
 
- 
   int count = 0;
   while ( 1 )
   {
       //std::cout<<std::endl;
+    
       cv::Mat gray = cv::Mat ( pImg, true );
       if(gray.empty()||mimg[1].empty())
 	continue;
@@ -213,33 +229,53 @@ void* trackLoop ( void* tmp )
 	 // ROS_INFO("Human tracking");
       }
       */
-      ROS_INFO("mission_type: %d", tracker->m_state_in_mission);
-      if(tracker->m_state_in_mission==0)  //parking 2
-	tracker->Num_detection(gray,mimg[1], false ,result);
-      else if(tracker->m_state_in_mission==1) //circle 3
-	tracker->Num_detection(gray, mimg[2],true ,result);
-      else if(tracker->m_state_in_mission==2) //parking 4
-	tracker->Num_detection(gray,mimg[3], false ,result);
-      else if(tracker->m_state_in_mission==3) //circle 5
-	tracker->Num_detection(gray, mimg[4],true ,result);
-      else if(tracker->m_state_in_mission==4) //circle 6
-	tracker->Num_detection(gray,mimg[5], true ,result);
-      else if(tracker->m_state_in_mission==5) //parking 7
-	tracker->Num_detection(gray,mimg[6], false ,result);
-      else if(tracker->m_state_in_mission==6) //parking 8
-	tracker->Num_detection(gray,mimg[7], false ,result);
-      else if(tracker->m_state_in_mission==7) //circle 9
-	tracker->Num_detection(gray,mimg[8], true ,result);
-      else if(tracker->m_state_in_mission==8) //parking 10
-	tracker->Num_detection(gray,mimg[9], false ,result);
-      else 
-	ROS_INFO("bad state");
-
+      if(tracker->m_mission_type==false)
+      {
+	ROS_INFO("mission_type: %d", tracker->m_state_in_mission);
+	if(tracker->m_state_in_mission==0)  //parking 2
+	  tracker->Num_detection(gray,mimg[1], false ,result);
+	else if(tracker->m_state_in_mission==1) //circle 3
+	  tracker->Num_detection(gray, mimg[2],true ,result);
+	else if(tracker->m_state_in_mission==2) //parking 4
+	  tracker->Num_detection(gray,mimg[3], false ,result);
+	else if(tracker->m_state_in_mission==3) //circle 5
+	  tracker->Num_detection(gray, mimg[4],true ,result);
+	else if(tracker->m_state_in_mission==4) //circle 6
+	  tracker->Num_detection(gray,mimg[5], true ,result);
+	else if(tracker->m_state_in_mission==5) //parking 7
+	  tracker->Num_detection(gray,mimg[6], false ,result);
+	else if(tracker->m_state_in_mission==6) //parking 8
+	  tracker->Num_detection(gray,mimg[7], false ,result);
+	else if(tracker->m_state_in_mission==7) //circle 9
+	  tracker->Num_detection(gray,mimg[8], true ,result);
+	else if(tracker->m_state_in_mission==8) //parking 10
+	  tracker->Num_detection(gray,mimg[9], false ,result);
+	else 
+	  ROS_INFO("bad state");
+      }
+      else
+      {
+	//cvtColor(gray,gray,CV_BGR2GRAY); roslaunch set gray image transfer
+	
+	std::vector<int> markerId = artracker.calc(gray.data);
+	
+	//artracker.selectBestMarkerByCf();
+	//ROS_INFO("size : %d",markerId.size());
+	if (markerId.size()==1)
+	{
+	  ROS_INFO("Found marker %d ", markerId[0]);
+	  char str[100];
+	  sprintf(str,"/root/Result/%d.png", markerId[0]);
+	  imwrite(str,gray);
+	}
+	//ROS_INFO("ppsize : %d",markerId.size());
+      }
+      
       count++;
       if ( count == 20 )
       {
           count = 0;
-          ROS_INFO ( "Process FPS: %0.2f\n",20/ ( ros::Time::now().toSec()-t.toSec() ) );
+          //ROS_INFO ( "Process FPS: %0.2f\n",20/ ( ros::Time::now().toSec()-t.toSec() ) );
           t=ros::Time::now();
       }
 
@@ -412,7 +448,8 @@ int main ( int argc, char **argv )
          // cv::waitKey ( 1 );
 	  char str[100];
 	  sprintf(str,"/root/cap/%d.png",nCount);
-          if(nCount%500==0)   cvSaveImage(str,pImg,0);
+	  
+          if(nCount%500==0&&nCount>200)   cvSaveImage(str,pImg,0);
           ros::spinOnce();
           nCount++; 
  

@@ -196,7 +196,7 @@ void* trackLoop ( void* tmp )
   //ApriltagDetector* tracker = ( ApriltagDetector* ) tmp;
 	
   
-  const bool useBCH = false;
+   const bool useBCH = false;
    const int width = 640, height = 320, bpp = 1;
    TrackerSingleMarker tracker(width, height, 8, 6, 6, 6, 0);
    tracker.setPixelFormat(ARToolKitPlus::PIXEL_FORMAT_LUM);

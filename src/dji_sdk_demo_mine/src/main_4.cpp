@@ -129,7 +129,7 @@ int get_direction_mode()
 
 int main ( int argc, char **argv )
 {
-	int main_operate_code = 0;
+	bool main_operate_code = false;
 	int temp32;
 	bool valid_flag = false;
 	bool err_flag = false;
@@ -222,8 +222,8 @@ int main ( int argc, char **argv )
 	
 	/******************************************IMPORTANT*************************************************/
 	std_msgs::Bool mission_type;
-	mission_type.data=false; //false for round 1, true for round 2
-	
+	mission_type.data=true; //false for round 3, true for round 4
+	drone->gimbal_angle_control( 0,0,0,20);
 	
 	int direction_mode=1;//1-forward  2-right  3-left  
 	
@@ -246,63 +246,82 @@ int main ( int argc, char **argv )
 				writeF<<"take off"<<drone->local_position.z<<endl;
 				//cannot use flying_height_control_tracking for second time flight.
 				drone->attitude_control ( 0x9B,0,0,tracking_flight_height,0 );
+				drone->gimbal_angle_control( 0,0,0,20,0);
+				sleep(3);
+				drone->gimbal_angle_control( 0,0,900,20,0);
+				sleep(3);
+				drone->gimbal_angle_control( 0,0,900,20,0);
+				sleep(3);
+				drone->gimbal_angle_control( 0,0,-1800,20,0);
+				sleep(3);
+				
+				//drone->gimbal_angle_control( 0,0,0,20);
 				flying_height_control_tracking = tracking_flight_height;;
 				start_yaw = drone->yaw_from_drone;//Record the yaw of taking off
+				main_operate_code=false;
 				break;
 			}
 			/************************************************'d' START LINE FOLLOW MISSION**********************************************************************/
 			/*****************************************************************************************************************/
 			case 'd':  
 			{
-				if (ob_distance[0]<tracking_flight_height-0.1)// ||flying_height_control_tracking<1.8 ) drone->local_position.z<tracking_flight_height-0.1||
-				{ 
-					flying_height_control_tracking += 0.001;
-				}
-				if ( (ob_distance[0]>tracking_flight_height+0.1)&ob_distance[0]<10)// &&flying_height_control_tracking>2.2 ) //ob_distance[0]>1.8 )drone->local_position.z>tracking_flight_height+0.1||
-				{  
-					flying_height_control_tracking -= 0.001;
-				}
-				
-				
-				if (direction_mode==1)//forward
-				{
-					filtered_x=0.2;
-					filtered_y=0;
-					if (ob_distance[1]<safe_distance)
-					{
-						if (ob_distance[2]>ob_distance[4])//right>left
-							direction_mode=2;
-						else 
-							direction_mode=3;
-					}
-				}
-				else if (direction_mode==2)//right
-				{
-					filtered_x=0;
-					filtered_y=0.2;
-					if (ob_distance[2]<safe_distance)
-						direction_mode=3;
-					if (ob_distance[1]>safe_distance+0.5 &&ob_distance[1]<10)
-						direction_mode=1;
-					
-				}
-				else if (direction_mode==3)//left
-				{
-					filtered_x=0;
-					filtered_y=-0.2;
-					if (ob_distance[4]<safe_distance)
-						direction_mode=2;
-					if (ob_distance[1]>safe_distance+0.5 &&ob_distance[1]<10)
-						direction_mode=1;
-				}
-				
-				
-				drone->attitude_control ( 0x9B,filtered_x,filtered_y,flying_height_control_tracking,0 );    
-				
-				
-				
-				
-				break;
+			  
+			  if(drone->rc_channels.gear==-10000&&main_operate_code==false)
+			  {
+			    drone->local_position_navigation_send_request(0,2,tracking_flight_height);
+			    drone->local_position_navigation_wait_for_result();
+			    main_operate_code=true;
+			  }
+			 
+			    if (ob_distance[0]<tracking_flight_height-0.1)// ||flying_height_control_tracking<1.8 ) drone->local_position.z<tracking_flight_height-0.1||
+			    { 
+			      flying_height_control_tracking += 0.001;
+			    }
+			    if ( (ob_distance[0]>tracking_flight_height+0.1)&ob_distance[0]<10)// &&flying_height_control_tracking>2.2 ) //ob_distance[0]>1.8 )drone->local_position.z>tracking_flight_height+0.1||
+			    {  
+			      flying_height_control_tracking -= 0.001;
+			    }
+			    
+			    
+			    if (direction_mode==1)//forward
+			    {
+			      filtered_x=0.2;
+			      filtered_y=0;
+			      if (ob_distance[1]<safe_distance)
+			      {
+				if (ob_distance[2]>ob_distance[4])//right>left
+				  direction_mode=2;
+				else 
+				  direction_mode=3;
+			      }
+			    }
+			    else if (direction_mode==2)//right
+			    {
+			      filtered_x=0;
+			      filtered_y=0.2;
+			      if (ob_distance[2]<safe_distance)
+				direction_mode=3;
+			      if (ob_distance[1]>safe_distance+0.5 &&ob_distance[1]<10)
+				direction_mode=1;
+			      
+			    }
+			    else if (direction_mode==3)//left
+			    {
+			      filtered_x=0;
+			      filtered_y=-0.2;
+			      if (ob_distance[4]<safe_distance)
+				direction_mode=2;
+			      if (ob_distance[1]>safe_distance+0.5 &&ob_distance[1]<10)
+				direction_mode=1;
+			    }
+			    
+			    
+			    drone->attitude_control ( 0x9B,filtered_x,filtered_y,flying_height_control_tracking,0 );    
+			  
+			  
+			  
+			  
+			  break;
 			} 
 			
 			/*****************************************************'a' for abort mission***************************************************************************/

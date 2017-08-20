@@ -678,7 +678,7 @@ int ApriltagDetector::Num_detection(cv::Mat &img,cv::Mat mimg,bool flag, dji_sdk
 			double Th5 = (double)GreenChannel.at<uchar>(j, i);
 			double Th6 = (double)BlueChannel.at<uchar>(j, i);
 
-			if (Th1 > 1.0 && Th2 > 1.0  && Th4 > 150 && Th5 > 150)
+			if (Th1 > 1.2 && Th2 > 1.2  && Th4 > 120 && Th5 > 120&&abs(Th3)<50)
 			{
 				RedChannel.at<uchar>(j, i) = 255;
 				GreenChannel.at<uchar>(j, i) = 255;

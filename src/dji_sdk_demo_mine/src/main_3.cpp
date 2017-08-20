@@ -163,13 +163,17 @@ int main ( int argc, char **argv )
     
     /******************************************IMPORTANT*************************************************/
     std_msgs::Bool mission_type;
-    mission_type.data=false; //false for round 1, true for round 2
+    mission_type.data=false; //false for round 3, true for round 4
  
 
     while ( ros::ok() )
     {
         ros::spinOnce();
 
+	if(drone->rc_channels.gear==-10000)
+	{
+	  state_in_mission=0;
+	}
         for ( int i = 0; i< filter_N-1; i++ )
         {
             filter_seq_x[i] = filter_seq_x[i+1];
@@ -385,7 +389,7 @@ bool parking(float &cmd_fligh_x,float &cmd_flight_y,float height, uint8_t detect
     //sleep(4);
     if(drone->flight_status == 1)  //1: standby; 2: take off, 3: in air; 4:landing, 5: finish landing
     drone->takeoff();
-    flying_height_control_tracking=height;
+    flying_height_control_tracking=1.2;
     //drone->attitude_control(0x9B,0,0,flying_height_control_tracking,0);
     if(drone->flight_status == 3&&ob_distance[0]>0.5&&ob_distance[0]<10)   //TODO: adjusting using the land pad.
     {

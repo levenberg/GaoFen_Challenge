@@ -4123,7 +4123,7 @@ dji_sdk/CMakeFiles/dji_sdk_gencpp.dir/all: dji_sdk/CMakeFiles/dji_sdk_generate_m
 
 # Build rule for subdir invocation for target.
 dji_sdk/CMakeFiles/dji_sdk_gencpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/GaoFen_Challenge/build/CMakeFiles 30
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/GaoFen_Challenge/build/CMakeFiles 29
 	$(MAKE) -f CMakeFiles/Makefile2 dji_sdk/CMakeFiles/dji_sdk_gencpp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/GaoFen_Challenge/build/CMakeFiles 0
 .PHONY : dji_sdk/CMakeFiles/dji_sdk_gencpp.dir/rule
@@ -4160,7 +4160,7 @@ all: dji_sdk/CMakeFiles/dji_sdk_generate_messages.dir/all
 
 # Build rule for subdir invocation for target.
 dji_sdk/CMakeFiles/dji_sdk_generate_messages.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/GaoFen_Challenge/build/CMakeFiles 90
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/GaoFen_Challenge/build/CMakeFiles 89
 	$(MAKE) -f CMakeFiles/Makefile2 dji_sdk/CMakeFiles/dji_sdk_generate_messages.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/GaoFen_Challenge/build/CMakeFiles 0
 .PHONY : dji_sdk/CMakeFiles/dji_sdk_generate_messages.dir/rule
@@ -4279,13 +4279,13 @@ dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all: dji_sdk/CMakeFiles/_dj
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_GimbalAngleControl.dir/all
 	$(MAKE) -f dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/build.make dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/depend
 	$(MAKE) -f dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/build.make dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/GaoFen_Challenge/build/CMakeFiles  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/GaoFen_Challenge/build/CMakeFiles  2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30
 	@echo "Built target dji_sdk_generate_messages_cpp"
 .PHONY : dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all
 
 # Build rule for subdir invocation for target.
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/GaoFen_Challenge/build/CMakeFiles 30
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/GaoFen_Challenge/build/CMakeFiles 29
 	$(MAKE) -f CMakeFiles/Makefile2 dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/GaoFen_Challenge/build/CMakeFiles 0
 .PHONY : dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/rule
@@ -4633,7 +4633,7 @@ all: dji_sdk/CMakeFiles/dji_sdk_node.dir/all
 
 # Build rule for subdir invocation for target.
 dji_sdk/CMakeFiles/dji_sdk_node.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/GaoFen_Challenge/build/CMakeFiles 36
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/GaoFen_Challenge/build/CMakeFiles 35
 	$(MAKE) -f CMakeFiles/Makefile2 dji_sdk/CMakeFiles/dji_sdk_node.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/GaoFen_Challenge/build/CMakeFiles 0
 .PHONY : dji_sdk/CMakeFiles/dji_sdk_node.dir/rule
@@ -4937,12 +4937,14 @@ clean: dji_sdk/CMakeFiles/tf_generate_messages_py.dir/clean
 dji_sdk_demo_mine/all: dji_sdk_demo_mine/CMakeFiles/dji_sdk_client_mine.dir/all
 dji_sdk_demo_mine/all: dji_sdk_demo_mine/CMakeFiles/dji_sdk_gaofen_2.dir/all
 dji_sdk_demo_mine/all: dji_sdk_demo_mine/CMakeFiles/dji_sdk_gaofen_3.dir/all
+dji_sdk_demo_mine/all: dji_sdk_demo_mine/CMakeFiles/dji_sdk_gaofen_4.dir/all
 .PHONY : dji_sdk_demo_mine/all
 
 # Convenience name for "clean" pass in the directory.
 dji_sdk_demo_mine/clean: dji_sdk_demo_mine/CMakeFiles/dji_sdk_client_mine.dir/clean
 dji_sdk_demo_mine/clean: dji_sdk_demo_mine/CMakeFiles/dji_sdk_gaofen_2.dir/clean
 dji_sdk_demo_mine/clean: dji_sdk_demo_mine/CMakeFiles/dji_sdk_gaofen_3.dir/clean
+dji_sdk_demo_mine/clean: dji_sdk_demo_mine/CMakeFiles/dji_sdk_gaofen_4.dir/clean
 .PHONY : dji_sdk_demo_mine/clean
 
 # Convenience name for "preinstall" pass in the directory.
@@ -4967,7 +4969,7 @@ all: dji_sdk_demo_mine/CMakeFiles/dji_sdk_client_mine.dir/all
 
 # Build rule for subdir invocation for target.
 dji_sdk_demo_mine/CMakeFiles/dji_sdk_client_mine.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/GaoFen_Challenge/build/CMakeFiles 35
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/GaoFen_Challenge/build/CMakeFiles 34
 	$(MAKE) -f CMakeFiles/Makefile2 dji_sdk_demo_mine/CMakeFiles/dji_sdk_client_mine.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/GaoFen_Challenge/build/CMakeFiles 0
 .PHONY : dji_sdk_demo_mine/CMakeFiles/dji_sdk_client_mine.dir/rule
@@ -5003,7 +5005,7 @@ all: dji_sdk_demo_mine/CMakeFiles/dji_sdk_gaofen_2.dir/all
 
 # Build rule for subdir invocation for target.
 dji_sdk_demo_mine/CMakeFiles/dji_sdk_gaofen_2.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/GaoFen_Challenge/build/CMakeFiles 35
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/GaoFen_Challenge/build/CMakeFiles 34
 	$(MAKE) -f CMakeFiles/Makefile2 dji_sdk_demo_mine/CMakeFiles/dji_sdk_gaofen_2.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/GaoFen_Challenge/build/CMakeFiles 0
 .PHONY : dji_sdk_demo_mine/CMakeFiles/dji_sdk_gaofen_2.dir/rule
@@ -5039,7 +5041,7 @@ all: dji_sdk_demo_mine/CMakeFiles/dji_sdk_gaofen_3.dir/all
 
 # Build rule for subdir invocation for target.
 dji_sdk_demo_mine/CMakeFiles/dji_sdk_gaofen_3.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/GaoFen_Challenge/build/CMakeFiles 35
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/GaoFen_Challenge/build/CMakeFiles 34
 	$(MAKE) -f CMakeFiles/Makefile2 dji_sdk_demo_mine/CMakeFiles/dji_sdk_gaofen_3.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/GaoFen_Challenge/build/CMakeFiles 0
 .PHONY : dji_sdk_demo_mine/CMakeFiles/dji_sdk_gaofen_3.dir/rule
@@ -5055,6 +5057,42 @@ dji_sdk_demo_mine/CMakeFiles/dji_sdk_gaofen_3.dir/clean:
 
 # clean rule for target.
 clean: dji_sdk_demo_mine/CMakeFiles/dji_sdk_gaofen_3.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target dji_sdk_demo_mine/CMakeFiles/dji_sdk_gaofen_4.dir
+
+# All Build rule for target.
+dji_sdk_demo_mine/CMakeFiles/dji_sdk_gaofen_4.dir/all: dji_sdk_lib/CMakeFiles/dji_sdk_lib.dir/all
+dji_sdk_demo_mine/CMakeFiles/dji_sdk_gaofen_4.dir/all: dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all
+	$(MAKE) -f dji_sdk_demo_mine/CMakeFiles/dji_sdk_gaofen_4.dir/build.make dji_sdk_demo_mine/CMakeFiles/dji_sdk_gaofen_4.dir/depend
+	$(MAKE) -f dji_sdk_demo_mine/CMakeFiles/dji_sdk_gaofen_4.dir/build.make dji_sdk_demo_mine/CMakeFiles/dji_sdk_gaofen_4.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/Documents/roswork/GaoFen_Challenge/build/CMakeFiles  1
+	@echo "Built target dji_sdk_gaofen_4"
+.PHONY : dji_sdk_demo_mine/CMakeFiles/dji_sdk_gaofen_4.dir/all
+
+# Include target in all.
+all: dji_sdk_demo_mine/CMakeFiles/dji_sdk_gaofen_4.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+dji_sdk_demo_mine/CMakeFiles/dji_sdk_gaofen_4.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/GaoFen_Challenge/build/CMakeFiles 35
+	$(MAKE) -f CMakeFiles/Makefile2 dji_sdk_demo_mine/CMakeFiles/dji_sdk_gaofen_4.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/GaoFen_Challenge/build/CMakeFiles 0
+.PHONY : dji_sdk_demo_mine/CMakeFiles/dji_sdk_gaofen_4.dir/rule
+
+# Convenience name for target.
+dji_sdk_gaofen_4: dji_sdk_demo_mine/CMakeFiles/dji_sdk_gaofen_4.dir/rule
+.PHONY : dji_sdk_gaofen_4
+
+# clean rule for target.
+dji_sdk_demo_mine/CMakeFiles/dji_sdk_gaofen_4.dir/clean:
+	$(MAKE) -f dji_sdk_demo_mine/CMakeFiles/dji_sdk_gaofen_4.dir/build.make dji_sdk_demo_mine/CMakeFiles/dji_sdk_gaofen_4.dir/clean
+.PHONY : dji_sdk_demo_mine/CMakeFiles/dji_sdk_gaofen_4.dir/clean
+
+# clean rule for target.
+clean: dji_sdk_demo_mine/CMakeFiles/dji_sdk_gaofen_4.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -5090,7 +5128,7 @@ all: dji_sdk_read_cam/CMakeFiles/dji_sdk_read_cam.dir/all
 
 # Build rule for subdir invocation for target.
 dji_sdk_read_cam/CMakeFiles/dji_sdk_read_cam.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/GaoFen_Challenge/build/CMakeFiles 36
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/GaoFen_Challenge/build/CMakeFiles 35
 	$(MAKE) -f CMakeFiles/Makefile2 dji_sdk_read_cam/CMakeFiles/dji_sdk_read_cam.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/Documents/roswork/GaoFen_Challenge/build/CMakeFiles 0
 .PHONY : dji_sdk_read_cam/CMakeFiles/dji_sdk_read_cam.dir/rule
