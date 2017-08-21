@@ -43,6 +43,7 @@ unsigned int frame_size = 0;
 unsigned int nframe = 0;
 FILE *fp;
 IplImage *pImg;
+IplImage *oImg;   //original image
 cv::Mat mimg[10];
 struct sRGB
 {
@@ -196,7 +197,7 @@ void* trackLoop ( void* tmp )
   ApriltagDetector* tracker = ( ApriltagDetector* ) tmp;
   //for ARtag detection initilzation
   const bool useBCH = false;
-  const int width = 640, height = 360, bpp = 1;
+  const int width = IMAGE_W, height = IMAGE_H, bpp = 1;
   TrackerSingleMarker artracker(width, height, 8, 6, 6, 6, 0);
   artracker.setPixelFormat(ARToolKitPlus::PIXEL_FORMAT_LUM);
   artracker.setPatternWidth(2.0);
@@ -212,25 +213,24 @@ void* trackLoop ( void* tmp )
   int count = 0;
   while ( 1 )
   {
-      //std::cout<<std::endl;
-    
-      cv::Mat gray = cv::Mat ( pImg, true );
-      if(gray.empty()||mimg[1].empty())
-	continue;
-      /*
-      if(tracker->m_mission_type==false)  //line follow
+      if(tracker->m_mission_type==false)
       {
-        tracker->Line_detection(gray, result);
-	//ROS_INFO("Line following");
+	cv::Mat gray = cv::Mat ( pImg, true );
+	if(gray.empty()||mimg[1].empty())
+	  continue;
+	/*
+	 i *f(tracker->m_mission_type==false)  //line follow
+	 {
+	 tracker->Line_detection(gray, result);
+	 //ROS_INFO("Line following");
       }
       if(tracker->m_mission_type==true)  //human follow
       {
-          tracker->processImage ( gray );
-	 // ROS_INFO("Human tracking");
+      tracker->processImage ( gray );
+      // ROS_INFO("Human tracking");
       }
       */
-      if(tracker->m_mission_type==false)
-      {
+	
 	ROS_INFO("mission_type: %d", tracker->m_state_in_mission);
 	if(tracker->m_state_in_mission==0)  //parking 2
 	  tracker->Num_detection(gray,mimg[1], false ,result);
@@ -255,6 +255,9 @@ void* trackLoop ( void* tmp )
       }
       else
       {
+	cv::Mat gray = cv::Mat ( oImg, true );
+	if(gray.empty())
+	  continue;
 	//cvtColor(gray,gray,CV_BGR2GRAY); roslaunch set gray image transfer
 	
 	std::vector<int> markerId = artracker.calc(gray.data);
@@ -275,7 +278,7 @@ void* trackLoop ( void* tmp )
       if ( count == 20 )
       {
           count = 0;
-          //ROS_INFO ( "Process FPS: %0.2f\n",20/ ( ros::Time::now().toSec()-t.toSec() ) );
+          ROS_INFO ( "Process FPS: %0.2f\n",20/ ( ros::Time::now().toSec()-t.toSec() ) );
           t=ros::Time::now();
       }
 
@@ -338,12 +341,14 @@ int main ( int argc, char **argv )
   if ( gray_or_rgb )
     {
       pRawImg = cvCreateImage ( cvSize ( IMAGE_W, IMAGE_H ),IPL_DEPTH_8U,3 );
+      oImg = cvCreateImage ( cvSize ( IMAGE_W, IMAGE_H ),IPL_DEPTH_8U,3 );
       pImg = cvCreateImage ( cvSize ( 640, 360 ),IPL_DEPTH_8U,3 );
       pData  = new unsigned char[1280 * 720 * 3];
     }
   else
     {
       pRawImg = cvCreateImage ( cvSize ( IMAGE_W, IMAGE_H ),IPL_DEPTH_8U,1 );
+      oImg = cvCreateImage ( cvSize ( IMAGE_W, IMAGE_H ),IPL_DEPTH_8U,1 );
       pImg = cvCreateImage ( cvSize ( 640, 360 ),IPL_DEPTH_8U,1 );
     }
   if ( to_mobile )
@@ -423,6 +428,7 @@ int main ( int argc, char **argv )
               memcpy ( pRawImg->imageData,buffer,FRAME_SIZE/3 );
             }
 
+            oImg=pRawImg;
           cvResize ( pRawImg,pImg,CV_INTER_LINEAR );
 
           time=ros::Time::now();
@@ -440,7 +446,7 @@ int main ( int argc, char **argv )
           cvi.toImageMsg ( im );
           cam_info.header.seq = nCount;
           cam_info.header.stamp = time;
-          caminfo_pub.publish ( cam_info );
+          //caminfo_pub.publish ( cam_info );
           // image_pub.publish(im);
 	  //for calibration only
 	 //cv::Mat imageshow = cv::Mat ( pImg, true );

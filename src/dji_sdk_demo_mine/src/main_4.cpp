@@ -223,7 +223,7 @@ int main ( int argc, char **argv )
 	/******************************************IMPORTANT*************************************************/
 	std_msgs::Bool mission_type;
 	mission_type.data=true; //false for round 3, true for round 4
-	drone->gimbal_angle_control( 0,-300,0,15);
+	drone->gimbal_angle_control( 0,100,0,15);
 	
 	int direction_mode=1;//1-forward  2-right  3-left  
 	
@@ -330,13 +330,13 @@ int main ( int argc, char **argv )
 			      drone->attitude_control ( 0x9B,0,0,flying_height_control_tracking,0 );    
 			      drone->gimbal_angle_control( 0,0,0,15,0);
 			      sleep(2);
-			      drone->gimbal_angle_control( 0,0,-900,15,0);
+			      drone->gimbal_angle_control( 0,-600,-900,15,0);
 			      sleep(2);
-			      drone->gimbal_angle_control( 0,0,1800,15,0);
+			      drone->gimbal_angle_control( 0,600,1800,15,0);
 			      sleep(2);
-			      drone->gimbal_angle_control( 0,0,900,15,0);
+			      drone->gimbal_angle_control( 0,-600,900,15,0);
 			      sleep(2);
-			      drone->gimbal_angle_control( 0,0,-1800,15,0);
+			      drone->gimbal_angle_control( 0,600,-1800,15,0);
 			      sleep(2);
 			    }
 			  }

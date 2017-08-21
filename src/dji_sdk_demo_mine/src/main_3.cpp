@@ -29,7 +29,7 @@ int delay_count = 300;
 static uint8_t land_mode = 0;   
 static int cbring_mode = 0;
 static float last_flight_x = 0.0;
-static float last_flight_y = 0.0;
+static float last_flight_y = 0.0;  
 static float last_flight_yaw = 0.0;//not used yet
 static float ob_distance[5]= {10.0};
 float flying_height_control_tracking=0.0;
@@ -178,6 +178,8 @@ int main ( int argc, char **argv )
 	  time_count=0;
 	  main_operate_code=false;
 	  state_in_mission=0;
+	  cbring_mode=0;
+	  land_mode=0;
 	}
         for ( int i = 0; i< filter_N-1; i++ )
         {
@@ -194,9 +196,9 @@ int main ( int argc, char **argv )
         filtered_y =  ( sum ( filter_seq_y,filter_N )-find_max ( filter_seq_y,filter_N )-find_min ( filter_seq_y,filter_N ) ) / ( filter_N-2 );
 	
 	filtered_yaw= drone->flight_yaw;
-	if(abs(filtered_yaw-last_flight_yaw)>50.0)   filtered_yaw = last_flight_yaw;
-	if(filtered_yaw>30) filtered_yaw=30;
-        if(filtered_yaw<-30) filtered_yaw=-30;
+	if(abs(filtered_yaw-last_flight_yaw)>20.0)   filtered_yaw = last_flight_yaw;
+	if(filtered_yaw>10) filtered_yaw=10;
+        if(filtered_yaw<-10) filtered_yaw=-10;
 
         // if start_searching=1, follow line
         start_searching_pub.publish ( start_searching );
@@ -214,7 +216,7 @@ int main ( int argc, char **argv )
 	    //writeF<<"take off"<<drone->local_position.z<<endl;
 	    //cannot use flying_height_control_tracking for second time flight.
 	    //drone->gimbal_angle_control ( 0,0,0,20 ); //Head down at the beginning.
-	    //drone->landing();
+	    drone->takeoff();
 	    drone->attitude_control ( 0x9B,0,0,tracking_flight_height,0 );
 	    flying_height_control_tracking = tracking_flight_height;
 	    start_yaw = drone->yaw_from_drone;//Record the yaw of taking off	
@@ -246,8 +248,8 @@ int main ( int argc, char **argv )
 		 if(main_operate_code==false)
 		 {
 		   count++;
-		   drone->attitude_control(0x4B,-0.3,-0.1,0,0); //back
-		   if(count>100) //for middle searching
+		   drone->attitude_control(0x4B,-0.3,-0.2,0,0); //back
+		   if(count>400) //for middle searching
 		   { 
 		     count=0;
 		     main_operate_code=true;
@@ -358,7 +360,7 @@ int main ( int argc, char **argv )
 
 bool parking(float &cmd_fligh_x,float &cmd_flight_y,float height, uint8_t detection_flag,DJIDrone* drone)
 {
-  drone->gimbal_angle_control ( 0,-900,0,20 );
+  drone->gimbal_angle_control ( 0,-900,0,15 );
   
   if(cmd_fligh_x>0.8) cmd_fligh_x=0.8;
   else if(cmd_fligh_x<-0.8) cmd_fligh_x=-0.8;
@@ -366,7 +368,22 @@ bool parking(float &cmd_fligh_x,float &cmd_flight_y,float height, uint8_t detect
   if(cmd_flight_y>0.8) cmd_flight_y=0.8;
   else if(cmd_flight_y<-0.8) cmd_flight_y=-0.8;
   
-  if(land_mode==0&&drone->gimbal.pitch<-85)   //closing to landing part and landing
+  if(land_mode==0)
+  {
+    if ( ob_distance[0]<height-0.1)
+    {
+      flying_height_control_tracking += 0.003;
+    }
+    else if ( (ob_distance[0]>height+0.1)&&ob_distance[0]<10)
+    { 
+      flying_height_control_tracking -= 0.003;
+    }
+    drone->attitude_control(0x9B,0,0,flying_height_control_tracking,0);
+    
+    if(ob_distance[0]>height-0.5)
+      land_mode=1;
+  }
+  if(land_mode==1&&drone->gimbal.pitch<-85)   //closing to landing part and landing
   {
     if(detection_flag)  //parking pad detected
     {
@@ -396,15 +413,26 @@ bool parking(float &cmd_fligh_x,float &cmd_flight_y,float height, uint8_t detect
 	if(ob_distance[0]<1.6)
 	{
 	  drone->landing();
-	  land_mode=1;
+	  land_mode=2;
 	  sleep(1);
 	}
       }
     }
     else    //parkinng pad undetected
-      ;//TODO:   for different tag, do different pre-moving to detect tag
+    {
+      if ( ob_distance[0]<height-0.1)
+      {
+	flying_height_control_tracking += 0.003;
+      }
+      else if ( (ob_distance[0]>height+0.1)&&ob_distance[0]<10)
+      { 
+	flying_height_control_tracking -= 0.003;
+      }
+      drone->attitude_control(0x9B,0,0,flying_height_control_tracking,0);
+    }
+      //TODO:   for different tag, do different pre-moving to detect tag
   } 
-  else if(land_mode==1)   //automatic takeoff
+  else if(land_mode==2)   //automatic takeoff
   {
     //sleep(4);
     if(drone->flight_status == 1)  //1: standby; 2: take off, 3: in air; 4:landing, 5: finish landing
@@ -504,6 +532,7 @@ bool cbarrier(float &cmd_fligh_x,float &cmd_flight_y, float &cmd_yaw,float heigh
     //else
     if(delayCount>delay_count)
     {
+      cbring_mode=0;
       delayCount=0;
       return true; 
     }
