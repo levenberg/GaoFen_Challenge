@@ -277,17 +277,17 @@ int main ( int argc, char **argv )
 			    
 			    if (ob_distance[0]<tracking_flight_height-0.1)// ||flying_height_control_tracking<1.8 ) drone->local_position.z<tracking_flight_height-0.1||
 			    { 
-			      flying_height_control_tracking += 0.001;
+			      flying_height_control_tracking += 0.002;
 			    }
 			    if ( (ob_distance[0]>tracking_flight_height+0.1)&ob_distance[0]<10)// &&flying_height_control_tracking>2.2 ) //ob_distance[0]>1.8 )drone->local_position.z>tracking_flight_height+0.1||
 			    {  
-			      flying_height_control_tracking -= 0.001;
+			      flying_height_control_tracking -= 0.002;
 			    }
 			    
 			    writeF<<ob_distance[1]<<"  "<<ob_distance[2]<<"  "<<ob_distance[4]<<" mode:"<<direction_mode<<endl;
 			    if (direction_mode==1)//forward
 			    {
-			      filtered_x=0.3;
+			      filtered_x=0.2;
 			      filtered_y=0;
 			      if (ob_distance[1]<safe_distance)
 			      {
@@ -301,7 +301,7 @@ int main ( int argc, char **argv )
 			    if (direction_mode==2)//right
 			    {
 			      filtered_x=0;
-			      filtered_y=0.3;
+			      filtered_y=0.2;
 			      if (ob_distance[2]<safe_distance)
 				direction_mode=3;
 			      if (ob_distance[1]>safe_distance+0.5)
@@ -312,7 +312,7 @@ int main ( int argc, char **argv )
 			    if (direction_mode==3)//left
 			    {
 			      filtered_x=0;
-			      filtered_y=-0.3;
+			      filtered_y=-0.2;
 			      if (ob_distance[4]<safe_distance)
 				direction_mode=2;
 			      if (ob_distance[1]>safe_distance+0.5)
