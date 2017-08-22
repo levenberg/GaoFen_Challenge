@@ -90,6 +90,7 @@ public:
   ros::Subscriber m_CMD_FROM_DJI_sub;
   ros::Subscriber m_mission_type_sub;
   ros::Subscriber m_state_in_mission_sub;
+  ros::Subscriber m_start_searching_sub;
  // ros::Subscriber m_used_apriltag_type_sub;
 #ifdef GIMBAL_USED
   ros::Subscriber m_gimbal_sub;
@@ -98,9 +99,10 @@ public:
 
 
   //float last_flight_height
-
+  
   uint8_t m_CMD_from_remote; 
   bool m_mission_type;
+  bool m_start_searching;
   uint8_t m_state_in_mission;
   std::vector<cv::Point2f> points[2];
   vector<AprilTags::TagDetection> detections;
@@ -129,6 +131,7 @@ public:
     m_isTracking ( false ),
     m_CMD_from_remote('W'),
     m_mission_type ( true ),
+    m_start_searching(false),
     m_state_in_mission(0),
 //    m_used_apriltag_type(1),
 
@@ -149,6 +152,7 @@ public:
     m_CMD_FROM_DJI_sub = node.subscribe ( "dji_sdk/data_received_from_remote_device",10,&ApriltagDetector::cmd_from_mobile_callback,this );
     m_mission_type_sub = node.subscribe ( "dji_sdk_demo/mission_type",10,&ApriltagDetector::mission_type_callback,this );
     m_state_in_mission_sub = node.subscribe ("/dji_sdk_demo/state_in_mission",10,&ApriltagDetector::state_in_mission_callback,this);
+    m_start_searching_sub = node.subscribe ("/dji_sdk_demo/start_searching",10,&ApriltagDetector::start_searching_callback,this);
 //   m_used_apriltag_type_sub = node.subscribe("used_apriltag_type",10,&ApriltagDetector::apriltag_type_change_callback,this);
   } 
 
@@ -199,6 +203,10 @@ void cmd_from_mobile_callback(const dji_sdk::TransparentTransmissionData & trans
 void mission_type_callback(const std_msgs::Bool &mission_data)
 {
   m_mission_type=mission_data.data;
+}
+void start_searching_callback(const std_msgs::Bool &start_searching_data)
+{
+  m_start_searching=start_searching_data.data;
 }
 
 void state_in_mission_callback(const std_msgs::Int8 &state_in_mission)

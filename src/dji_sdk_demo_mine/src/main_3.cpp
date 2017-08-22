@@ -491,10 +491,11 @@ bool cbarrier(float &cmd_fligh_x,float &cmd_flight_y, float &cmd_yaw,float heigh
     }
     else   
     {
+      cmd_fligh_x=0.0; cmd_flight_y=0.0;
       drone->attitude_control ( 0x9B,0,0,flying_height_control_tracking,0);
       writeF<<"tag NOT detected, cmd_yaw="<<cmd_yaw<<endl;   //yaw is not zero for no tag, need to be fixed.
     }
-    if(abs(cmd_fligh_x-1.4)<0.2&&abs(cmd_flight_y)<0.2&&abs(cmd_yaw)<5)
+    if(detection_flag&&abs(cmd_fligh_x-1.4)<0.2&&abs(cmd_flight_y)<0.2&&abs(cmd_yaw)<5)
       cbring_mode=2;
   }
   else if(cbring_mode==2)   //go up

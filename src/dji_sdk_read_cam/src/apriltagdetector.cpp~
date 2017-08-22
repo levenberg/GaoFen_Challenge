@@ -27,7 +27,7 @@ inline double standardRad ( double t )
 {
   if ( t >= 0. )
     {  
-      t = fmod ( t+PI, TWOPI ) - PI;
+      t = fmod ( t+PI, TWOPI ) - PI;   
     }
   else
     {
@@ -678,7 +678,7 @@ int ApriltagDetector::Num_detection(cv::Mat &img,cv::Mat mimg,bool flag, dji_sdk
 			double Th5 = (double)GreenChannel.at<uchar>(j, i);
 			double Th6 = (double)BlueChannel.at<uchar>(j, i);
 
-			if (Th1 > 1.2 && Th2 > 1.2  && Th4 > 120 && Th5 > 120&&abs(Th3)<50)
+			if (Th1 > 1.2 && Th2 > 1.2  && Th4 > 150 && Th5 > 150&&abs(Th3)<50)
 			{
 				RedChannel.at<uchar>(j, i) = 255;
 				GreenChannel.at<uchar>(j, i) = 255;
@@ -900,7 +900,7 @@ int ApriltagDetector::Num_detection(cv::Mat &img,cv::Mat mimg,bool flag, dji_sdk
         string pre_str_x="thetax: ";
         string pre_str_tz="tz: ";
         string pre_str_ty="ty: ";
-        string pre_str_tx="tx: ";
+        string pre_str_tx="tx: ";  
         string full_y=pre_str_y+str_y;
         string full_z=pre_str_z+str_z;
         string full_x=pre_str_x+str_x;

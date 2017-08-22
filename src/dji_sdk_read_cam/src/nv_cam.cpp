@@ -30,7 +30,7 @@
 #include "apriltagdetector.h"
 #include <ARToolKitPlus/TrackerSingleMarker.h>
 using ARToolKitPlus::TrackerSingleMarker;
-
+using namespace cv;
 typedef unsigned char   BYTE;
 #define IMAGE_W 1280
 #define IMAGE_H 720
@@ -196,20 +196,24 @@ void* trackLoop ( void* tmp )
   dji_sdk::Reldist result;
   ApriltagDetector* tracker = ( ApriltagDetector* ) tmp;
   //for ARtag detection initilzation
-  const bool useBCH = false;
+  const bool useBCH = true; 
   const int width = IMAGE_W, height = IMAGE_H, bpp = 1;
   TrackerSingleMarker artracker(width, height, 8, 6, 6, 6, 0);
   artracker.setPixelFormat(ARToolKitPlus::PIXEL_FORMAT_LUM);
-  artracker.setPatternWidth(2.0);
+  artracker.setPatternWidth(100.0); //?
   artracker.init("/root/PGR_M12x0.5_2.5mm.cal", 1.0f, 1000.0f);
   artracker.setBorderWidth(useBCH ? 0.125 : 0.25);
-  
-  artracker.activateAutoThreshold (1);
+  int thresholds[12] = {20,40,60,80,100,120,140,160,180,200,220,240};
+  //artracker.activateAutoThreshold (1);
   
   artracker.setUndistortionMode(ARToolKitPlus::UNDIST_LUT);
   
   artracker.setMarkerMode(useBCH ? ARToolKitPlus::MARKER_ID_BCH : ARToolKitPlus::MARKER_ID_SIMPLE);
-
+   
+  int id_best=-1;
+  
+  int detection_count=0,idmark=-1;
+  cv::Mat resultimg;
   int count = 0;
   while ( 1 )
   {
@@ -255,30 +259,99 @@ void* trackLoop ( void* tmp )
       }
       else
       {
+	ARFloat corners_best[4][2];
+	ARFloat Xmincorner=width, Xmaxcorner=0;
+	ARFloat Ymincorner=height, Ymaxcorner=0;
+	double mindata=width+height;
+	int tlpoint=-1;
 	cv::Mat gray = cv::Mat ( oImg, true );
 	if(gray.empty())
 	  continue;
 	//cvtColor(gray,gray,CV_BGR2GRAY); roslaunch set gray image transfer
-	
-	std::vector<int> markerId = artracker.calc(gray.data);
-	
+	std::vector<int> markerId_tmp;
+	for(int i=0;i<12;i++)
+	{
+	artracker.setThreshold(thresholds[i]);
+	markerId_tmp = artracker.calc(gray.data);
+	if(markerId_tmp.size()>0) break;
+	}
+	if( markerId_tmp.size() > 0)
+	{
+	  id_best = artracker.selectBestMarkerByCf(); /*choose the marker with highest confidence*/
+	  if(idmark!=id_best)
+	  idmark=id_best;
+	  if(idmark==id_best)
+	    detection_count++;
+	  if(detection_count==10) 
+	  {
+	    const ARToolKitPlus::ARMarkerInfo* marker_info = artracker.getMarkerInfoById(id_best);
+	    for( size_t s = 0; s < 4; s++){
+	      if(marker_info->vertex[s][0]<Xmincorner) Xmincorner=marker_info->vertex[s][0];
+	      if(marker_info->vertex[s][0]>Xmaxcorner) Xmaxcorner=marker_info->vertex[s][0];
+	      if(marker_info->vertex[s][1]<Ymincorner) Ymincorner=marker_info->vertex[s][1];
+	      if(marker_info->vertex[s][1]>Ymaxcorner) Ymaxcorner=marker_info->vertex[s][1];
+	      for( size_t t = 0; t < 2; t++){
+		corners_best[s][t] = marker_info->vertex[s][t];
+	      }
+	      if(corners_best[s][0]+corners_best[s][1]<mindata)
+	      {
+		mindata=corners_best[s][0]+corners_best[s][1];
+		tlpoint=s;
+	      }
+	    }
+	    /*
+	    Mat warp_matrix( 3, 3, CV_32FC1 ); 
+	    Point2f src[4],dst[4];
+	    src[0]=Point2f(corners_best[tlpoint][0],corners_best[tlpoint][1]);
+	    src[1]=Point2f(corners_best[(tlpoint+1)%4][0],corners_best[(tlpoint+1)%4][1]);
+	    src[2]=Point2f(corners_best[(tlpoint+2)%4][0],corners_best[(tlpoint+2)%4][1]);
+	    src[3]=Point2f(corners_best[(tlpoint+3)%4][0],corners_best[(tlpoint+3)%4][1]);
+	    int maxlen=0;
+	    if(Xmaxcorner-Xmincorner>Ymaxcorner-Ymincorner) maxlen=Xmaxcorner-Xmincorner;
+	    else maxlen=Ymaxcorner-Ymincorner;
+	    dst[0]=Point2f(Xmincorner,Ymincorner);
+	    dst[1]=Point2f(Xmincorner+maxlen,Ymincorner);
+	    dst[2]=Point2f(Xmincorner+maxlen,Ymincorner+maxlen);
+	    dst[3]=Point2f(Xmincorner,Ymincorner+maxlen);
+	    
+	    warp_matrix=getPerspectiveTransform(src  ,dst  );  
+	    warpPerspective( gray,gray, warp_matrix, gray.size()); 
+	    */
+	    cv::Rect rect;
+	    if(Xmincorner-(Xmaxcorner-Xmincorner)/2<0) rect.x=0;
+	    else rect.x=Xmincorner-(Xmaxcorner-Xmincorner)/2;
+	    if(Ymincorner-(Ymaxcorner-Ymincorner)/2<0) rect.y=0;
+	    else rect.y=Ymincorner-(Ymaxcorner-Ymincorner)/2;
+	    if(Xmaxcorner+(Xmaxcorner-Xmincorner)/2>width) rect.width=width-rect.x;
+	    else rect.width=Xmaxcorner+(Xmaxcorner-Xmincorner)/2-rect.x;
+	    if(Ymaxcorner+(Ymaxcorner-Ymincorner)/2>height) rect.height=height-rect.y;
+	    else rect.height=Ymaxcorner+(Ymaxcorner-Ymincorner)/2-rect.y;
+	    //resize(resultimg,resultimg,cv::Size(rect.height,rect.height));
+	    gray(rect).copyTo(resultimg);
+	    
+	    
+	  }
+	  if(detection_count>=50) 
+	  {
+	    ROS_INFO("Found marker %d ", id_best);
+	    
+	    
+	    char str[100];
+	    sprintf(str,"/root/Result/%d.png", idmark);
+	    imwrite(str,resultimg);
+	    idmark=-1;
+	    detection_count=0;
+	  }
+	}
 	//artracker.selectBestMarkerByCf();
 	//ROS_INFO("size : %d",markerId.size());
-	if (markerId.size()==1)
-	{
-	  ROS_INFO("Found marker %d ", markerId[0]);
-	  char str[100];
-	  sprintf(str,"/root/Result/%d.png", markerId[0]);
-	  imwrite(str,gray);
-	}
-	//ROS_INFO("ppsize : %d",markerId.size());
-      }
-      
+      } 
+
       count++;
-      if ( count == 20 )
+      if ( count == 100 )
       {
           count = 0;
-          ROS_INFO ( "Process FPS: %0.2f\n",20/ ( ros::Time::now().toSec()-t.toSec() ) );
+          ROS_INFO ( "Process FPS: %0.2f\n",100/ ( ros::Time::now().toSec()-t.toSec() ) );
           t=ros::Time::now();
       }
 

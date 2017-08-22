@@ -111,6 +111,8 @@ public:
         return (float)confidence;
     }
 
+    virtual const ARMarkerInfo* getMarkerInfoById(const int id) const;
+
 protected:
     ARFloat confidence;
     ARFloat patt_width;
