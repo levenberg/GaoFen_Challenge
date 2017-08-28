@@ -16,8 +16,8 @@ using namespace std;
 
 ofstream fcout( "/root/circleDetection.txt",ios::app );
 float flight_height = 0.0;
-bool change_once_flag = true;
-const float EPS = 0.00000001;   
+bool change_once_flag = true;  
+const float EPS = 0.00000001;      
 const int tag25h9 = 1;
 //uint8_t CMD = 'W';
 /**
@@ -27,7 +27,7 @@ inline double standardRad ( double t )
 {
   if ( t >= 0. )
     {  
-      t = fmod ( t+PI, TWOPI ) - PI;   
+      t = fmod ( t+PI, TWOPI ) - PI;     
     }
   else
     {
@@ -671,14 +671,14 @@ int ApriltagDetector::Num_detection(cv::Mat &img,cv::Mat mimg,bool flag, dji_sdk
 	{
 		for (int j = 0; j < img.rows; j++)
 		{
-			double Th1 = (double)RedChannel.at<uchar>(j, i) / ((double)BlueChannel.at<uchar>(j, i) + 0.001);
-			double Th2 = (double)GreenChannel.at<uchar>(j, i) / ((double)BlueChannel.at<uchar>(j, i) + 0.001);
+			double Th1 = (double)RedChannel.at<uchar>(j, i) / ((double)BlueChannel.at<uchar>(j, i) + 0.1);
+			double Th2 = (double)GreenChannel.at<uchar>(j, i) / ((double)BlueChannel.at<uchar>(j, i) + 0.1);
 			double Th3 = (double)RedChannel.at<uchar>(j, i) - GreenChannel.at<uchar>(j, i);
 			double Th4 = (double)RedChannel.at<uchar>(j, i);
 			double Th5 = (double)GreenChannel.at<uchar>(j, i);
 			double Th6 = (double)BlueChannel.at<uchar>(j, i);
 
-			if (Th1 > 1.2 && Th2 > 1.2  && Th4 > 150 && Th5 > 150&&abs(Th3)<50)
+			if (Th1 > 3.5 && Th2 > 3.5  && Th4 > 100 && Th5 > 90&&abs(Th3)<50)   //afternoon, 4, 4, 120, 120
 			{
 				RedChannel.at<uchar>(j, i) = 255;
 				GreenChannel.at<uchar>(j, i) = 255;
@@ -751,7 +751,13 @@ int ApriltagDetector::Num_detection(cv::Mat &img,cv::Mat mimg,bool flag, dji_sdk
  
 	std_msgs::Bool detection_flag;
 	if(contours_test.empty())
+{
 	  detection_flag.data=false;
+          pos_result.x = 0;  //5 pixles = 4cm
+		  pos_result.y = 0;  //5 pixles = 4cm
+		  pos_result.z = 0;
+		  pos_result.yaw = 0;
+}
 	else 
 	  detection_flag.data=true;
 	tag_detections_pub.publish(detection_flag);
@@ -915,8 +921,9 @@ int ApriltagDetector::Num_detection(cv::Mat &img,cv::Mat mimg,bool flag, dji_sdk
         putText(result_num,full_tx,Point(30,200),CV_FONT_HERSHEY_SIMPLEX,1,Scalar(255),2);
 #endif
 		}
-		m_result_pub.publish ( pos_result );
+		
 	} 
+        m_result_pub.publish ( pos_result );
 #ifdef _SHOW_PHOTO
 	namedWindow("contours");
 	imshow("contours", result_num);

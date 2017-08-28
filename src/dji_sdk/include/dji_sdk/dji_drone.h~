@@ -173,7 +173,7 @@ private:
 
   void gimbal_subscriber_callback ( dji_sdk::Gimbal gimbal )
   {
-    this->gimbal = gimbal;
+    this->gimbal = gimbal; 
    // ROS_INFO("Gimbal pitch: %.3f",gimbal.pitch);
   }
 
@@ -301,20 +301,20 @@ private:
 //Add a callback for apriltag_detetion
   void apriltag_datection_callback ( const dji_sdk::Reldist & detection ) // geometry_msgs::PoseWithCovarianceStamped &msg)
   {
+    /*
 #ifndef PID_USED
-    if(!this->g_mission_type)    //for round 1
+    if(!this->g_mission_type)    //for parking type
     {
-      ROS_INFO("Round 1");
       this->flight_x = detection.z;
       this->flight_y = -detection.y;   //+-?
-      this->flight_yaw= detection.yaw; //+-?
+      this->flight_yaw= 0;   //detection.yaw; //+-?
     }
-    else     //for round 2
+    else     //for crossing type
     {
       //ROS_INFO("Round 2");
-      this->flight_x = detection.x-1.3;    //keep the safe distance
+      this->flight_x = detection.x;    //keep the safe distance
       this->flight_y = -detection.y;
-      this->flight_yaw=- detection.pitch*57.3;
+      this->flight_yaw=-detection.pitch*57.3;
     }
 #endif
     if(!this->g_mission_type)    //for round 1
@@ -327,11 +327,17 @@ private:
       this->flight_x_tag = detection.x-1.0;
       this->flight_y_tag = -detection.y; 
     }
+    */
+    this->flight_x = detection.x;
+    this->flight_y = detection.y;
+    this->flight_yaw = detection.yaw;
+    this->flight_x_tag = detection.x;
+    this->flight_y_tag = detection.y;
     
-    this->flight_gimbal_angle_pitch_inc = detection.gimbal_pitch_inc;// = atan(detection.z/(detection.x+0.00000001))*57.3;//To angle
-    this->flight_norm = detection.norm;
-    this->flight_height = detection.height_with_gimbal;
-    this->yaw_from_apriltag = detection.yaw;
+    this->flight_gimbal_angle_pitch_inc = 0;  //detection.gimbal_pitch_inc;// = atan(detection.z/(detection.x+0.00000001))*57.3;//To angle
+    this->flight_norm = 0; //detection.norm;
+    this->flight_height =0;// detection.height_with_gimbal;
+    this->yaw_from_apriltag = 0; //detection.yaw;
 
   }
 
@@ -341,7 +347,7 @@ private:
   {
     this->transparentdata = transparentdata;
     this->transparentdata.data = transparentdata.data;
-    if ( transparentdata.data.at ( 0 ) == 'q' ) // For control request
+    if ( transparentdata.data.at ( 0 ) == 'd' ) // For control request
       {
         while ( !request_sdk_permission_control() )
           {

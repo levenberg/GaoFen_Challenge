@@ -19,7 +19,7 @@
       <node pkg="guidance" type="guidanceNode" name="guidanceNode" output="screen" />   
 
 	<node pkg="dji_sdk_demo_mine" type="dji_sdk_gaofen_4" name="dji_sdk_gaofen_4"  output="screen">
-		<param name="delayCount" type="int" value="400"/>
+		<param name="delayCount" type="int" value="350"/>
 		<param name="maxTakeoffWaitCount" type="int" value="700"/>
 		<param name="descendingSpeed"  value="0.005"/>
 		<param name="initTrackingHeight" value="1.5"/> 

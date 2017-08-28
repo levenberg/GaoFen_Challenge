@@ -347,7 +347,7 @@ private:
   {
     this->transparentdata = transparentdata;
     this->transparentdata.data = transparentdata.data;
-    if ( transparentdata.data.at ( 0 ) == 'q' ) // For control request
+    if ( transparentdata.data.at ( 0 ) == 'd' ) // For control request
       {
         while ( !request_sdk_permission_control() )
           {
