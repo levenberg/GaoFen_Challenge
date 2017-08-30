@@ -235,7 +235,7 @@ void* trackLoop ( void* tmp )
 	if(gray.empty()||mimg[1].empty())
 	  continue;
 	/*
-	 i *f(tracker->m_mission_type==false)  //line follow
+	 if(tracker->m_mission_type==false)  //line follow
 	 {
 	 tracker->Line_detection(gray, result);
 	 //ROS_INFO("Line following");
